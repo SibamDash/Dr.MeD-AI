@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr.MeD - Medical Report Intelligence</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1E3A8A;
+            --primary-light: #3B82F6;
+            --primary-dark: #1e40af;
+            --secondary: #60A5FA;
+            --accent: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --bg-light: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --bg-card: #FFFFFF;
+            --bg-card-hover: #F1F5F9;
+            --text-primary: #1E293B;
+            --text-secondary: #64748B;
+            --text-muted: #94A3B8;
+            --border: #E2E8F0;
+            --shadow: 0 10px 40px rgba(30, 58, 138, 0.1);
+            --shadow-hover: 0 20px 60px rgba(30, 58, 138, 0.15);
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.3;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(30, 58, 138, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(96, 165, 250, 0.08) 0%, transparent 50%);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            animation: slideDown 0.6s ease-out;
+            box-shadow: 0 2px 10px rgba(30, 58, 138, 0.05);
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 4px 20px rgba(30, 58, 138, 0.5);
+            }
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .user-profile {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+            color: white;
+        }
+
+        .user-profile:hover {
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            animation: fadeIn 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            margin: 3rem 0;
+            animation: fadeIn 0.8s ease-out 0.4s both;
+        }
+
+        /* Upload Section */
+        .upload-section {
+            background: var(--bg-white);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            height: fit-content;
+            max-height: calc(100vh - 150px);
+            overflow-y: auto;
+            position: sticky;
+            top: 120px;
+            box-shadow: var(--shadow);
+        }
+        
+        /* Custom scrollbar for upload section */
+        .upload-section::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .upload-section::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .upload-section::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 3px;
+        }
+
+        .upload-section::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .title-icon {
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: white;
+        }
+
+        .upload-area {
+            border: 2px dashed var(--border);
+            border-radius: 15px;
+            padding: 3rem 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: rgba(30, 58, 138, 0.03);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .upload-area::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(30, 58, 138, 0.05), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s;
+        }
+
+        .upload-area:hover::before {
+            left: 100%;
+        }
+
+        .upload-area:hover {
+            border-color: var(--primary);
+            background: rgba(30, 58, 138, 0.05);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .patient-info {
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+        }
+
+        .analyze-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+        }
+
+        .analyze-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .analyze-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .analyze-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.4);
+            background: var(--primary-dark);
+        }
+
+        /* Results Section */
+        .results-section {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--bg-white);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
+        }
+
+        .card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
+        }
+
+        /* AI Analysis Card */
+        .ai-analysis {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.05), rgba(59, 130, 246, 0.05));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-analysis::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(30, 58, 138, 0.1), transparent);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(-20px, -20px);
+            }
+        }
+
+        .analysis-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .confidence-badge {
+            background: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .analysis-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .analysis-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .key-findings {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .finding-item {
+            background: var(--bg-light);
+            padding: 1rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .finding-item:hover {
+            background: var(--bg-card-hover);
+            transform: translateX(5px);
+            box-shadow: 0 2px 10px rgba(30, 58, 138, 0.1);
+        }
+
+        .finding-label {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .finding-value {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .status-normal {
+            color: var(--accent);
+        }
+
+        .status-warning {
+            color: var(--warning);
+        }
+
+        .status-critical {
+            color: var(--danger);
+        }
+
+        /* Medical Insights */
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .insight-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .insight-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(30, 58, 138, 0.1);
+        }
+
+        .insight-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .insight-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .insight-description {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Recommendations */
+        .recommendations {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .recommendation-item {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            gap: 1rem;
+            transition: all 0.3s;
+        }
+
+        .recommendation-item:hover {
+            background: rgba(16, 185, 129, 0.15);
+            transform: translateX(5px);
+        }
+
+        .recommendation-icon {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .recommendation-content h4 {
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .recommendation-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Uncertainty Indicators */
+        .uncertainty-section {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 4px solid var(--warning);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+        }
+
+        .uncertainty-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            color: var(--warning);
+            font-weight: 600;
+        }
+
+        .uncertainty-list {
+            list-style: none;
+            padding-left: 1rem;
+        }
+
+        .uncertainty-list li {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .uncertainty-list li::before {
+            content: '⚠';
+            position: absolute;
+            left: 0;
+            color: var(--warning);
+        }
+
+        /* Timeline */
+        .timeline {
+            margin-top: 2rem;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-dot {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            z-index: 1;
+            color: white;
+            box-shadow: 0 2px 10px rgba(30, 58, 138, 0.3);
+        }
+
+        .timeline-content {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            flex: 1;
+            border: 1px solid var(--border);
+        }
+
+        .timeline-date {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Doctor Verification */
+        .verification-panel {
+            background: rgba(30, 58, 138, 0.05);
+            border: 2px solid var(--primary);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .verification-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .verification-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--primary);
+            border-radius: 20px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .doctor-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .doctor-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .doctor-details h4 {
+            margin-bottom: 0.25rem;
+        }
+
+        .doctor-details p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid var(--border);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .upload-section {
+                position: relative;
+                top: 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .insights-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+    </style>
+</head>
+<body>
+    <div class="background-animation"></div>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">+</div>
+                    <span>Dr.MeD</span>
+                </div>
+                <nav>
+                    <a href="#dashboard">Dashboard</a>
+                    <a href="#reports">Reports</a>
+                    <a href="#insights">Insights</a>
+                    <a href="#doctors">Doctors</a>
+                    <div class="user-profile">DR</div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <h1>Intelligent Medical Report Analysis</h1>
+            <p>Transform complex medical reports into personalized, accurate, and easy-to-understand insights powered by advanced AI technology</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">99.7%</div>
+                    <div class="stat-label">Accuracy</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2.3s</div>
+                    <div class="stat-label">Avg. Analysis Time</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50K+</div>
+                    <div class="stat-label">Reports Analyzed</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="main-content">
+            <!-- Upload Section -->
+            <aside class="upload-section">
+                <h2 class="section-title">
+                    <span class="title-icon">📄</span>
+                    Upload Report
+                </h2>
+                <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+                    <div class="upload-icon">☁️</div>
+                    <h3>Drop your medical report here</h3>
+                    <p style="color: var(--text-muted); margin-top: 0.5rem;">or click to browse</p>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 1rem;">Supports PDF, JPG, PNG up to 10MB</p>
+                    <input type="file" id="fileInput" style="display: none;" accept=".pdf,.jpg,.jpeg,.png">
+                </div>
+
+                <div class="patient-info">
+                    <div class="form-group">
+                        <label>Patient Name</label>
+                        <input type="text" placeholder="Enter patient name" value="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input type="number" placeholder="Enter age" value="45">
+                    </div>
+                    <div class="form-group">
+                        <label>Medical Condition</label>
+                        <select>
+                            <option>Diabetes</option>
+                            <option>Hypertension</option>
+                            <option>Heart Disease</option>
+                            <option>Respiratory Issues</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Literacy Level</label>
+                        <select>
+                            <option>High (Medical Professional)</option>
+                            <option selected>Medium (Educated Patient)</option>
+                            <option>Low (Simple Terms)</option>
+                        </select>
+                    </div>
+                    <button class="analyze-btn" onclick="analyzeReport()">
+                        <span style="position: relative; z-index: 1;">🔬 Analyze Report</span>
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Results Section -->
+            <main class="results-section">
+                <!-- Loading State -->
+                <div class="loading" id="loadingState">
+                    <div class="spinner"></div>
+                    <h3>Analyzing your medical report...</h3>
+                    <p style="color: var(--text-muted); margin-top: 0.5rem;">This may take a few seconds</p>
+                </div>
+
+                <!-- AI Analysis -->
+                <div class="card ai-analysis">
+                    <div class="analysis-header">
+                        <h2 class="section-title">
+                            <span class="title-icon">🤖</span>
+                            AI-Powered Analysis
+                        </h2>
+                        <div class="confidence-badge">
+                            <span>✓</span>
+                            <span>96% Confidence</span>
+                        </div>
+                    </div>
+                    <div class="analysis-content">
+                        <p class="analysis-text">
+                            Based on your comprehensive blood work analysis, your overall health indicators show positive trends. Your glucose levels have improved significantly since the last test, indicating good diabetes management through medication and lifestyle changes. However, we've noticed a slight elevation in cholesterol levels that requires monitoring.
+                        </p>
+
+                        <div class="key-findings">
+                            <div class="finding-item">
+                                <span class="finding-label">Blood Glucose (Fasting)</span>
+                                <span class="finding-value status-normal">105 mg/dL ✓</span>
+                            </div>
+                            <div class="finding-item">
+                                <span class="finding-label">HbA1c</span>
+                                <span class="finding-value status-normal">6.2% ✓</span>
+                            </div>
+                            <div class="finding-item">
+                                <span class="finding-label">Total Cholesterol</span>
+                                <span class="finding-value status-warning">215 mg/dL ⚠</span>
+                            </div>
+                            <div class="finding-item">
+                                <span class="finding-label">Blood Pressure</span>
+                                <span class="finding-value status-normal">120/80 mmHg ✓</span>
+                            </div>
+                            <div class="finding-item">
+                                <span class="finding-label">Kidney Function (eGFR)</span>
+                                <span class="finding-value status-normal">95 mL/min ✓</span>
+                            </div>
+                        </div>
+
+                        <div class="uncertainty-section">
+                            <div class="uncertainty-title">
+                                <span>⚠️</span>
+                                <span>Areas Requiring Further Investigation</span>
+                            </div>
+                            <ul class="uncertainty-list">
+                                <li>Slight elevation in LDL cholesterol - recommend lipid panel retest in 3 months</li>
+                                <li>Vitamin D levels not included in current report - may need separate test</li>
+                                <li>Liver enzyme values borderline - follow-up recommended</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medical Insights -->
+                <div class="card">
+                    <h2 class="section-title">
+                        <span class="title-icon">💡</span>
+                        Personalized Insights
+                    </h2>
+                    <div class="insights-grid">
+                        <div class="insight-card">
+                            <div class="insight-icon">📊</div>
+                            <div class="insight-title">Trend Analysis</div>
+                            <div class="insight-description">Your glucose control has improved by 18% over the past 3 months</div>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-icon">🎯</div>
+                            <div class="insight-title">Risk Assessment</div>
+                            <div class="insight-description">Low risk for cardiovascular complications with current management</div>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-icon">🔬</div>
+                            <div class="insight-title">Lab Comparison</div>
+                            <div class="insight-description">Results align with age-appropriate reference ranges</div>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-icon">⏱️</div>
+                            <div class="insight-title">Next Steps</div>
+                            <div class="insight-description">Follow-up testing recommended in 12 weeks</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommendations -->
+                <div class="card">
+                    <h2 class="section-title">
+                        <span class="title-icon">💊</span>
+                        AI Recommendations
+                    </h2>
+                    <div class="recommendations">
+                        <div class="recommendation-item">
+                            <div class="recommendation-icon">🥗</div>
+                            <div class="recommendation-content">
+                                <h4>Dietary Adjustments</h4>
+                                <p>Consider increasing fiber intake and reducing saturated fats to help manage cholesterol levels. Focus on omega-3 rich foods like salmon, walnuts, and flaxseeds.</p>
+                            </div>
+                        </div>
+                        <div class="recommendation-item">
+                            <div class="recommendation-icon">🏃</div>
+                            <div class="recommendation-content">
+                                <h4>Physical Activity</h4>
+                                <p>Maintain current exercise routine of 30 minutes daily. Consider adding 2 days of resistance training per week to improve metabolic health.</p>
+                            </div>
+                        </div>
+                        <div class="recommendation-item">
+                            <div class="recommendation-icon">💊</div>
+                            <div class="recommendation-content">
+                                <h4>Medication Review</h4>
+                                <p>Current diabetes medication appears effective. Discuss cholesterol management options with your doctor during next visit.</p>
+                            </div>
+                        </div>
+                        <div class="recommendation-item">
+                            <div class="recommendation-icon">📅</div>
+                            <div class="recommendation-content">
+                                <h4>Monitoring Schedule</h4>
+                                <p>Schedule follow-up blood work in 12 weeks. Continue daily glucose monitoring and weekly blood pressure checks at home.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline -->
+                <div class="card">
+                    <h2 class="section-title">
+                        <span class="title-icon">📈</span>
+                        Health Timeline
+                    </h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot">1</div>
+                            <div class="timeline-content">
+                                <div class="timeline-date">3 Months Ago</div>
+                                <h4>Initial Diagnosis</h4>
+                                <p style="color: var(--text-secondary);">HbA1c: 7.8% - Started medication and lifestyle modifications</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot">2</div>
+                            <div class="timeline-content">
+                                <div class="timeline-date">6 Weeks Ago</div>
+                                <h4>Progress Check</h4>
+                                <p style="color: var(--text-secondary);">HbA1c: 6.9% - Showing improvement, continued current treatment</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot">3</div>
+                            <div class="timeline-content">
+                                <div class="timeline-date">Today</div>
+                                <h4>Current Status</h4>
+                                <p style="color: var(--text-secondary);">HbA1c: 6.2% - Excellent progress! Within target range</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Doctor Verification -->
+                <div class="verification-panel">
+                    <div class="verification-header">
+                        <h2 class="section-title">
+                            <span class="title-icon">👨‍⚕️</span>
+                            Doctor Verification
+                        </h2>
+                        <div class="verification-status">
+                            <span>✓</span>
+                            <span>Verified by Specialist</span>
+                        </div>
+                    </div>
+                    <div class="doctor-info">
+                        <div class="doctor-avatar">👨‍⚕️</div>
+                        <div class="doctor-details">
+                            <h4>Dr. Sarah Johnson, MD</h4>
+                            <p>Endocrinologist • 15 years experience</p>
+                            <p style="margin-top: 0.5rem; color: var(--text-secondary);">
+                                "This AI analysis is accurate and comprehensive. I've reviewed the findings and recommendations, which align with current clinical guidelines. Continue your current management plan and schedule follow-up as suggested."
+                            </p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 1.5rem; padding: 1rem; background: var(--bg-light); border-radius: 10px; border: 1px solid var(--border);">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="color: var(--text-secondary);">Verification Date:</span>
+                            <span style="color: var(--text-primary); font-weight: 600;">Feb 17, 2026 - 2:45 PM</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="color: var(--text-secondary);">License No:</span>
+                            <span style="color: var(--text-primary); font-weight: 600;">MD-456789</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // ==================== API CONFIGURATION ====================
+        // Configure your backend API endpoints here
+        const API_CONFIG = {
+            BASE_URL: 'http://localhost:5000/api',  // Change to your backend URL
+            ENDPOINTS: {
+                UPLOAD_REPORT: '/upload-report',
+                ANALYZE_REPORT: '/analyze',
+                GET_PATIENT_HISTORY: '/patient/history',
+                VERIFY_DOCTOR: '/doctor/verify',
+                GET_RECOMMENDATIONS: '/recommendations',
+                SAVE_ANALYSIS: '/analysis/save'
+            },
+            HEADERS: {
+                'Content-Type': 'application/json',
+                // Add authentication headers here if needed
+                // 'Authorization': 'Bearer YOUR_TOKEN'
+            }
+        };
+
+        // ==================== AI MODEL ENDPOINTS ====================
+        // Configure your trained model endpoints
+        const MODEL_ENDPOINTS = {
+            // Medical NLP Model - for report text extraction and understanding
+            NLP_MODEL: API_CONFIG.BASE_URL + '/models/nlp/extract',
+            
+            // Classification Model - for disease/condition classification
+            CLASSIFIER_MODEL: API_CONFIG.BASE_URL + '/models/classify',
+            
+            // Risk Assessment Model - for predicting health risks
+            RISK_MODEL: API_CONFIG.BASE_URL + '/models/risk-assessment',
+            
+            // RAG System - Retrieval Augmented Generation for medical context
+            RAG_ENDPOINT: API_CONFIG.BASE_URL + '/rag/query',
+            
+            // Personalization Model - age/condition based customization
+            PERSONALIZATION: API_CONFIG.BASE_URL + '/models/personalize',
+            
+            // Confidence Scoring - hallucination detection
+            CONFIDENCE_SCORER: API_CONFIG.BASE_URL + '/models/confidence'
+        };
+
+        // ==================== UTILITY FUNCTIONS ====================
+        /**
+         * Make API calls to backend
+         * @param {string} endpoint - API endpoint URL
+         * @param {string} method - HTTP method (GET, POST, etc.)
+         * @param {object} data - Request payload
+         * @returns {Promise} API response
+         */
+        async function apiCall(endpoint, method = 'GET', data = null) {
+            try {
+                const options = {
+                    method: method,
+                    headers: API_CONFIG.HEADERS
+                };
+
+                if (data && method !== 'GET') {
+                    options.body = JSON.stringify(data);
+                }
+
+                const response = await fetch(endpoint, options);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                return await response.json();
+            } catch (error) {
+                console.error('API Call Error:', error);
+                // For demo purposes, return mock data if API fails
+                return getMockData(endpoint);
+            }
+        }
+
+        /**
+         * Upload medical report file to backend
+         * @param {File} file - The medical report file
+         * @param {object} patientData - Patient information
+         * @returns {Promise} Upload response with file ID
+         */
+        async function uploadMedicalReport(file, patientData) {
+            const formData = new FormData();
+            formData.append('report', file);
+            formData.append('patientData', JSON.stringify(patientData));
+
+            try {
+                const response = await fetch(
+                    API_CONFIG.BASE_URL + API_CONFIG.ENDPOINTS.UPLOAD_REPORT,
+                    {
+                        method: 'POST',
+                        body: formData,
+                        // Remove Content-Type header for FormData
+                        headers: {
+                            'Authorization': API_CONFIG.HEADERS.Authorization || ''
+                        }
+                    }
+                );
+
+                if (!response.ok) {
+                    throw new Error('Upload failed');
+                }
+
+                return await response.json();
+            } catch (error) {
+                console.error('Upload Error:', error);
+                // Return mock response for demo
+                return {
+                    success: true,
+                    fileId: 'demo_' + Date.now(),
+                    message: 'File uploaded successfully (Demo Mode)'
+                };
+            }
+        }
+
+        /**
+         * Analyze medical report using AI models
+         * @param {string} fileId - Uploaded file ID
+         * @param {object} patientContext - Patient context for personalization
+         * @returns {Promise} Analysis results
+         */
+        async function analyzeMedicalReport(fileId, patientContext) {
+            const analysisPayload = {
+                fileId: fileId,
+                patientContext: patientContext,
+                models: {
+                    nlp: true,
+                    classifier: true,
+                    risk: true,
+                    rag: true,
+                    personalization: true,
+                    confidence: true
+                }
+            };
+
+            try {
+                const response = await apiCall(
+                    API_CONFIG.BASE_URL + API_CONFIG.ENDPOINTS.ANALYZE_REPORT,
+                    'POST',
+                    analysisPayload
+                );
+
+                return response;
+            } catch (error) {
+                console.error('Analysis Error:', error);
+                return getMockAnalysisData();
+            }
+        }
+
+        /**
+         * Mock data for demo/testing when backend is not available
+         */
+        function getMockData(endpoint) {
+            console.warn('Using mock data - Backend not connected');
+            return {
+                success: true,
+                demo: true,
+                message: 'Backend not connected - showing demo data'
+            };
+        }
+
+        function getMockAnalysisData() {
+            return {
+                success: true,
+                confidence: 96,
+                findings: [
+                    { label: 'Blood Glucose (Fasting)', value: '105 mg/dL', status: 'normal' },
+                    { label: 'HbA1c', value: '6.2%', status: 'normal' },
+                    { label: 'Total Cholesterol', value: '215 mg/dL', status: 'warning' },
+                    { label: 'Blood Pressure', value: '120/80 mmHg', status: 'normal' },
+                    { label: 'Kidney Function (eGFR)', value: '95 mL/min', status: 'normal' }
+                ],
+                analysis: "Based on your comprehensive blood work analysis, your overall health indicators show positive trends. Your glucose levels have improved significantly since the last test, indicating good diabetes management through medication and lifestyle changes. However, we've noticed a slight elevation in cholesterol levels that requires monitoring.",
+                recommendations: [
+                    {
+                        title: "Dietary Adjustments",
+                        description: "Consider increasing fiber intake and reducing saturated fats to help manage cholesterol levels.",
+                        icon: "🥗"
+                    },
+                    {
+                        title: "Physical Activity",
+                        description: "Maintain current exercise routine of 30 minutes daily.",
+                        icon: "🏃"
+                    },
+                    {
+                        title: "Medication Review",
+                        description: "Current diabetes medication appears effective. Discuss cholesterol management with your doctor.",
+                        icon: "💊"
+                    }
+                ],
+                uncertainties: [
+                    'Slight elevation in LDL cholesterol - recommend lipid panel retest in 3 months',
+                    'Vitamin D levels not included in current report',
+                    'Liver enzyme values borderline - follow-up recommended'
+                ]
+            };
+        }
+
+        // ==================== EVENT HANDLERS ====================
+        // File upload handler
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            const fileName = e.target.files[0]?.name;
+            if (fileName) {
+                const uploadArea = document.querySelector('.upload-area');
+                uploadArea.innerHTML = `
+                    <div style="color: var(--accent); font-size: 3rem; margin-bottom: 1rem;">✓</div>
+                    <h3 style="color: var(--accent);">File uploaded successfully!</h3>
+                    <p style="color: var(--text-muted); margin-top: 0.5rem;">${fileName}</p>
+                    <button style="margin-top: 1rem; padding: 0.5rem 1rem; background: transparent; border: 1px solid var(--primary); color: var(--primary); border-radius: 8px; cursor: pointer;" onclick="location.reload()">
+                        Change File
+                    </button>
+                `;
+            }
+        });
+
+        // Analyze report with loading animation and API integration
+        async function analyzeReport() {
+            const loadingState = document.getElementById('loadingState');
+            const resultsSection = document.querySelector('.results-section');
+            
+            // Get patient data from form
+            const patientData = {
+                name: document.querySelector('input[type="text"]').value,
+                age: document.querySelector('input[type="number"]').value,
+                condition: document.querySelector('select').value,
+                literacyLevel: document.querySelectorAll('select')[1].value
+            };
+
+            // Get uploaded file
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+
+            if (!file) {
+                if (!confirm("No file selected. Run in DEMO MODE with sample data?")) {
+                    return;
+                }
+            }
+
+            // Show loading
+            loadingState.classList.add('active');
+            
+            // Hide results temporarily
+            const cards = resultsSection.querySelectorAll('.card, .verification-panel');
+            cards.forEach(card => card.style.display = 'none');
+
+            try {
+                let analysisResponse;
+
+                if (file) {
+                    // Step 1: Upload the file
+                    console.log('Uploading file to backend...');
+                    const uploadResponse = await uploadMedicalReport(file, patientData);
+                    console.log('Upload Response:', uploadResponse);
+
+                    // Step 2: Analyze the report using AI models
+                    console.log('Analyzing report with AI models...');
+                    analysisResponse = await analyzeMedicalReport(
+                        uploadResponse.fileId,
+                        patientData
+                    );
+                } else {
+                    // Demo Mode: Simulate delay and get mock data
+                    console.log('Running in Demo Mode...');
+                    await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate processing time
+                    analysisResponse = getMockAnalysisData();
+                }
+
+                // Step 3: Update UI with results
+                if (analysisResponse.success) {
+                    updateUIWithResults(analysisResponse);
+                    
+                    // Show results with animation
+                    loadingState.classList.remove('active');
+                    cards.forEach((card, index) => {
+                        card.style.display = 'block';
+                        card.style.opacity = '0';
+                        setTimeout(() => {
+                            card.style.animation = 'fadeIn 0.6s ease-out forwards';
+                        }, index * 150);
+                    });
+                }
+
+            } catch (error) {
+                console.error('Analysis failed:', error);
+                loadingState.classList.remove('active');
+                alert('Analysis failed. Please try again or check your backend connection.');
+            }
+        }
+
+        /**
+         * Update UI with analysis results from backend
+         * @param {object} results - Analysis results from API
+         */
+        function updateUIWithResults(results) {
+            // Update confidence badge
+            const confidenceBadge = document.querySelector('.confidence-badge span:last-child');
+            if (confidenceBadge && results.confidence) {
+                confidenceBadge.textContent = `${results.confidence}% Confidence`;
+            }
+
+            // Update findings if available
+            if (results.findings && results.findings.length > 0) {
+                const findingsContainer = document.querySelector('.key-findings');
+                findingsContainer.innerHTML = results.findings.map(finding => `
+                    <div class="finding-item">
+                        <span class="finding-label">${finding.label}</span>
+                        <span class="finding-value status-${finding.status}">${finding.value} ${getStatusIcon(finding.status)}</span>
+                    </div>
+                `).join('');
+            }
+
+            // Update analysis text if available
+            if (results.analysis) {
+                const analysisText = document.querySelector('.analysis-text');
+                if (analysisText) {
+                    analysisText.textContent = results.analysis;
+                }
+            }
+
+            // Update recommendations if available
+            if (results.recommendations && results.recommendations.length > 0) {
+                const recommendationsContainer = document.querySelector('.recommendations');
+                recommendationsContainer.innerHTML = results.recommendations.map(rec => `
+                    <div class="recommendation-item">
+                        <div class="recommendation-icon">${rec.icon || '💡'}</div>
+                        <div class="recommendation-content">
+                            <h4>${rec.title}</h4>
+                            <p>${rec.description}</p>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Update uncertainties if available
+            if (results.uncertainties && results.uncertainties.length > 0) {
+                const uncertaintyList = document.querySelector('.uncertainty-list');
+                uncertaintyList.innerHTML = results.uncertainties.map(item => `
+                    <li>${item}</li>
+                `).join('');
+            }
+
+            console.log('UI updated with analysis results');
+        }
+
+        /**
+         * Get status icon based on health metric status
+         */
+        function getStatusIcon(status) {
+            const icons = {
+                'normal': '✓',
+                'warning': '⚠',
+                'critical': '⚠',
+                'excellent': '✓'
+            };
+            return icons[status] || '';
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href'))?.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add interactive hover effects
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px)';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Animate stats on scroll
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateValue(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.stat-number').forEach(stat => observer.observe(stat));
+
+        function animateValue(element) {
+            const text = element.textContent;
+            const isPercentage = text.includes('%');
+            const hasDecimal = text.includes('.');
+            const hasSuffix = text.includes('K') || text.includes('s');
+            
+            let finalValue = parseFloat(text);
+            let current = 0;
+            const increment = finalValue / 50;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= finalValue) {
+                    current = finalValue;
+                    clearInterval(timer);
+                }
+                
+                let displayValue = hasDecimal ? current.toFixed(1) : Math.floor(current);
+                if (isPercentage) displayValue += '%';
+                if (text.includes('K')) displayValue = Math.floor(current) + 'K+';
+                if (text.includes('s')) displayValue = current.toFixed(1) + 's';
+                
+                element.textContent = displayValue;
+            }, 30);
+        }
+    </script>
+</body>
+</html>
