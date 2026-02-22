@@ -33,13 +33,44 @@ app = Flask(__name__, static_folder=BASE_DIR, static_url_path='/static')
 
 # ── Serve medical-ai.html at the root URL ───────────────────────────────────
 @app.route('/')
-def serve_frontend():
-    """Serve the main HTML page — open http://localhost:5001 in your browser."""
+def serve_home():
+    """Serve the main home page — open http://localhost:5001 in your browser."""
+    return send_from_directory(FRONTEND_DIR, 'home.html')
+
+@app.route('/medical-ai.html')
+def serve_medical_ai():
+    """Serve the AI analysis page."""
     return send_from_directory(FRONTEND_DIR, 'medical-ai.html')
 
 @app.route('/report-summary.html')
 def serve_report_summary():
     return send_from_directory(FRONTEND_DIR, 'report-summary.html')
+
+@app.route('/patient-register.html')
+def serve_patient_register():
+    return send_from_directory(FRONTEND_DIR, 'patient-register.html')
+
+@app.route('/doctor-register.html')
+def serve_doctor_register():
+    return send_from_directory(FRONTEND_DIR, 'doctor-register.html')
+
+@app.route('/doctor-interface.html')
+def serve_doctor_interface_html():
+    return send_from_directory(FRONTEND_DIR, 'doctor-interface.html')
+
+@app.route('/doctorinterface.jsx')
+def serve_doctor_interface_jsx():
+    return send_from_directory(FRONTEND_DIR, 'doctorinterface.jsx')
+
+@app.route('/firebase-config.js')
+def serve_firebase_config():
+    return send_from_directory(FRONTEND_DIR, 'firebase-config.js')
+
+@app.route('/favicon.ico')
+def favicon():
+    """Handle browser requests for favicon.ico to prevent 404 errors."""
+    # Return a 204 No Content response to tell the browser there's no icon.
+    return '', 204
 
 # Configuration
 app.config['UPLOAD_FOLDER'] = 'uploads/'
@@ -51,6 +82,8 @@ ALLOWED_EXTENSIONS = {'pdf', 'png', 'jpg', 'jpeg'}
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 os.makedirs(os.path.join(app.config['DATA_FOLDER'], 'uploads'), exist_ok=True)
 os.makedirs(os.path.join(app.config['DATA_FOLDER'], 'analysis'), exist_ok=True)
+os.makedirs(os.path.join(app.config['DATA_FOLDER'], 'users'), exist_ok=True)
+os.makedirs(os.path.join(app.config['DATA_FOLDER'], 'doctor_inbox'), exist_ok=True)
 
 # ==================== UTILITY FUNCTIONS ====================
 
@@ -310,13 +343,40 @@ def analyze_report():
         ai_response_data = {}
         
         if llm_result:
+            # Check if the document is a medical report
+            if llm_result.get('is_medical_report') is False:
+                rejection_reason = llm_result.get('rejection_reason', "The uploaded document does not appear to be a medical report. Please upload a valid lab report, prescription, or other medical document.")
+                response = {
+                    "success": True,
+                    "analysisId": f"analysis_{uuid.uuid4().hex[:8]}",
+                    "confidence": int(llm_result.get('confidence', 0.99) * 100),
+                    "aiResponse": {
+                        "patient_summary": "Not applicable as the document is not a medical report.",
+                        "test_report_summary": rejection_reason,
+                        "clinical_interpretation": "No clinical interpretation can be provided for a non-medical document.",
+                        "known_information": ["The uploaded document is not a medical report."],
+                        "unclear_information": [],
+                        "suggested_medications": []
+                    },
+                    "findings": [],
+                    "analysis": rejection_reason,
+                    "recommendations": [
+                        {"title": "Upload a Valid Medical Document", "description": "The system determined the uploaded file is not a medical document. Please try again with a file containing medical information.", "icon": "🔄", "priority": "high"}
+                    ],
+                    "uncertainties": ["The content of the document could not be analyzed for medical insights."],
+                    "is_medical_report": False, # Flag for the frontend
+                    "processedAt": datetime.now().isoformat()
+                }
+                return jsonify(response), 200
+
             # Use LLM generated content
             ai_response_data = {
                 "patient_summary": llm_result.get('patient_summary', "Not available"),
                 "test_report_summary": llm_result.get('test_report_summary', "Not available"),
                 "clinical_interpretation": llm_result.get('clinical_interpretation', "Not available"),
                 "known_information": llm_result.get('known_information', []),
-                "unclear_information": llm_result.get('unclear_information', [])
+                "unclear_information": llm_result.get('unclear_information', []),
+                "suggested_medications": llm_result.get('suggested_medications', [])
             }
 
             # Print analysis to terminal
@@ -336,6 +396,12 @@ def analyze_report():
                 print("\n❓ UNCLEAR / MISSING:")
                 for item in ai_response_data['unclear_information']:
                     print(f"  • {item}")
+
+            if ai_response_data.get('suggested_medications'):
+                print("\n💊 SUGGESTED MEDICATIONS:")
+                for med in ai_response_data['suggested_medications']:
+                    print(f"  • {med.get('name', 'N/A')}: {med.get('dosage', 'N/A')} - {med.get('reason', 'N/A')}")
+
             print("="*60 + "\n")
 
             recommendations = llm_result.get('recommendations', [])
@@ -362,6 +428,7 @@ def analyze_report():
         response = {
             "success": True,
             "analysisId": f"analysis_{uuid.uuid4().hex[:8]}",
+            "patientContext": patient_context,
             "confidence": int(confidence_score * 100),
             "aiResponse": ai_response_data,
             "findings": findings,
@@ -494,6 +561,163 @@ def save_analysis():
             "recordId": f"record_{uuid.uuid4().hex[:8]}"
         }), 200
         
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+# ==================== AUTHENTICATION ENDPOINTS ====================
+
+@app.route('/api/auth/register', methods=['POST'])
+def register_user():
+    """Register a new user (patient or doctor) and save to JSON storage."""
+    try:
+        data = request.json
+        uid = data.get('uid')
+        email = data.get('email')
+
+        if not uid or not email:
+            return jsonify({"success": False, "error": "Missing UID or email"}), 400
+
+        users_dir = os.path.join(app.config['DATA_FOLDER'], 'users')
+        user_file_path = os.path.join(users_dir, f"{uid}.json")
+
+        # Check if user already exists
+        if os.path.exists(user_file_path):
+            # The frontend expects a success:false response to handle this case
+            return jsonify({"success": False, "error": "User already exists"}), 200
+
+        # Save new user data
+        user_data = {
+            "uid": uid,
+            "email": email,
+            "name": data.get('name'),
+            "role": data.get('role'),
+            "hospitalName": data.get('hospitalName'),
+            "nmcId": data.get('nmcId'),
+            "registeredAt": datetime.now().isoformat()
+        }
+        
+        with open(user_file_path, 'w') as f:
+            json.dump(user_data, f, indent=2)
+
+        return jsonify({"success": True, "message": "User registered successfully"}), 201
+
+    except Exception as e:
+        print(f"Error in /api/auth/register: {e}")
+        return jsonify({"success": False, "error": str(e)}), 500
+
+@app.route('/api/auth/profile', methods=['POST'])
+def get_user_profile():
+    """Get user profile (especially role) by email."""
+    try:
+        data = request.json
+        email = data.get('email')
+
+        if not email:
+            return jsonify({"success": False, "error": "Email not provided"}), 400
+
+        users_dir = os.path.join(app.config['DATA_FOLDER'], 'users')
+        
+        for filename in os.listdir(users_dir):
+            if filename.endswith('.json'):
+                file_path = os.path.join(users_dir, filename)
+                with open(file_path, 'r') as f:
+                    user_data = json.load(f)
+                    if user_data.get('email') == email:
+                        return jsonify({"success": True, "user": user_data}), 200
+
+        return jsonify({"success": False, "error": "User profile not found"}), 404
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+@app.route('/api/doctors', methods=['GET'])
+def get_doctors():
+    """Get a list of all registered doctors."""
+    try:
+        doctors = []
+        users_dir = os.path.join(app.config['DATA_FOLDER'], 'users')
+        if not os.path.exists(users_dir):
+            return jsonify({"success": True, "doctors": []})
+
+        for filename in os.listdir(users_dir):
+            if filename.endswith('.json'):
+                file_path = os.path.join(users_dir, filename)
+                with open(file_path, 'r') as f:
+                    user_data = json.load(f)
+                    if user_data.get('role') == 'doctor':
+                        doctors.append({
+                            "uid": user_data.get('uid'),
+                            "name": user_data.get('name'),
+                            "hospitalName": user_data.get('hospitalName'),
+                        })
+        return jsonify({"success": True, "doctors": doctors})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+@app.route('/api/doctor/inbox', methods=['POST'])
+def send_summary_to_doctor():
+    """Saves an analysis summary to a specific doctor's inbox."""
+    try:
+        data = request.json
+        doctor_id = data.get('doctorId')
+        summary_data = data.get('summaryData')
+        if not doctor_id or not summary_data:
+            return jsonify({"success": False, "error": "Missing doctorId or summaryData"}), 400
+
+        # Add initial verification status to the report
+        summary_data['verificationStatus'] = 'PENDING'
+
+        analysis_id = summary_data.get('analysisId', f"summary_{uuid.uuid4().hex[:8]}")
+        inbox_dir = os.path.join(app.config['DATA_FOLDER'], 'doctor_inbox', doctor_id)
+        os.makedirs(inbox_dir, exist_ok=True)
+        file_path = os.path.join(inbox_dir, f"{analysis_id}.json")
+        with open(file_path, 'w') as f:
+            json.dump(summary_data, f, indent=2)
+        return jsonify({"success": True, "message": f"Summary sent to doctor {doctor_id}"}), 201
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+@app.route('/api/doctor/inbox/<doctor_id>', methods=['GET'])
+def get_doctor_inbox(doctor_id):
+    """Retrieves all analysis summaries for a given doctor."""
+    try:
+        inbox_dir = os.path.join(app.config['DATA_FOLDER'], 'doctor_inbox', doctor_id)
+        if not os.path.exists(inbox_dir):
+            return jsonify({"success": True, "reports": []})
+        reports = [json.load(open(os.path.join(inbox_dir, f))) for f in os.listdir(inbox_dir) if f.endswith('.json')]
+        reports.sort(key=lambda r: (r.get('result', r).get('patientContext') or {}).get('date', ''), reverse=True)
+        return jsonify({"success": True, "reports": reports})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+@app.route('/api/doctor/inbox/<doctor_id>/<analysis_id>', methods=['PATCH'])
+def update_report_details(doctor_id, analysis_id):
+    """Updates details of a specific report (e.g., status, explanation)."""
+    try:
+        data = request.json
+        report_path = os.path.join(app.config['DATA_FOLDER'], 'doctor_inbox', doctor_id, f"{analysis_id}.json")
+        if not os.path.exists(report_path):
+            return jsonify({"success": False, "error": "Report not found"}), 404
+
+        with open(report_path, 'r+') as f:
+            report_data = json.load(f)
+            
+            # Update status if provided
+            new_status = data.get('status')
+            if new_status and new_status in ['VERIFIED', 'REJECTED', 'PENDING']:
+                report_data['verificationStatus'] = new_status
+                if new_status == 'REJECTED':
+                    report_data['rejectionReason'] = data.get('reason', '')
+
+            # Update explanation if provided
+            new_explanation = data.get('aiExplanation')
+            if new_explanation and 'aiResponse' in report_data:
+                report_data['aiResponse']['clinical_interpretation'] = new_explanation
+
+            f.seek(0)
+            json.dump(report_data, f, indent=2)
+            f.truncate()
+
+        return jsonify({"success": True, "message": "Report updated"}), 200
     except Exception as e:
         return jsonify({"success": False, "error": str(e)}), 500
 
@@ -636,6 +860,19 @@ def test_connection():
                 "Liver enzyme (ALT/AST) values borderline — follow-up in 6 weeks advised",
                 "Medication adherence history not available for full context"
             ]
+            ,
+            "suggested_medications": [
+                {
+                    "name": "Metformin (Test Data)",
+                    "dosage": "1000mg once daily",
+                    "reason": "To maintain excellent glycemic control for Type 2 Diabetes."
+                },
+                {
+                    "name": "Atorvastatin (Test Data)",
+                    "dosage": "20mg once daily",
+                    "reason": "For management of slightly elevated total cholesterol and cardiovascular risk reduction."
+                }
+            ]
         },
         "findings": [
             {"label": "Blood Glucose (Fasting)", "value": "105 mg/dL", "status": "normal", "normalRange": "70–100 mg/dL"},
@@ -707,12 +944,18 @@ if __name__ == '__main__':
     print("      👉  http://localhost:5001")
     print("")
     print("  The HTML is served by Flask — no CORS issues ever.")
-    print("  Do NOT open medical-ai.html by double-clicking it.")
+    print("  Do NOT open HTML files by double-clicking them.")
     print("")
     print("  API endpoints:")
-    print("    GET   /              → serves medical-ai.html")
+    print("    GET   /              → serves home.html")
     print("    POST  /api/upload-report")
+    print("    POST  /api/auth/register")
+    print("    POST  /api/auth/profile")
     print("    POST  /api/analyze")
+    print("    GET   /api/doctors           → lists registered doctors")
+    print("    POST  /api/doctor/inbox      → sends summary to a doctor")
+    print("    GET   /api/doctor/inbox/<id> → gets a doctor's summaries")
+    print("    PATCH /api/doctor/inbox/<id>/<analysis_id> → updates a summary")
     print("    GET   /api/health")
     print("=" * 60)
     

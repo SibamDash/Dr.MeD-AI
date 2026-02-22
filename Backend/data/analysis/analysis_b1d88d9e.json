@@ -1,0 +1,70 @@
+{
+  "analysisId": "analysis_b1d88d9e",
+  "fileId": "report_8b35ad4a_1771703310",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_b1d88d9e",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "Patient Name: Sj [TRA f. Age: 45. Sex: Male. Referred by: Dr.",
+      "test_report_summary": "The test report includes a complete blood count (CBC) and a biochemistry result (Fasting Blood Glucose). Hb is slightly elevated, while other blood cell counts and the biochemistry result are within normal ranges.",
+      "clinical_interpretation": "The patient's Hb level (13.4 gm%) is slightly elevated, which could indicate early signs of iron deficiency or other underlying conditions. The other blood cell counts are within normal limits. Fasting Blood Glucose of 90 mg/dl is within the normal range (70-110 mg/dl) for a patient with diabetes, suggesting good glycemic control. However, given the patient's existing diagnosis of diabetes, continued monitoring of HbA1c and fasting glucose is crucial. The slightly elevated Hb warrants further investigation to rule out iron deficiency or other potential causes.",
+      "known_information": [
+        "Diagnosis: Diabetes",
+        "Fasting Blood Glucose: 90 mg/dl (Normal Range)"
+      ],
+      "unclear_information": [
+        "HbA1c level is not provided.",
+        "Medication regimen for diabetes is not specified.",
+        "Iron studies (serum iron, ferritin) are not included."
+      ]
+    },
+    "findings": [],
+    "analysis": "The patient's Hb level (13.4 gm%) is slightly elevated, which could indicate early signs of iron deficiency or other underlying conditions. The other blood cell counts are within normal limits. Fasting Blood Glucose of 90 mg/dl is within the normal range (70-110 mg/dl) for a patient with diabetes, suggesting good glycemic control. However, given the patient's existing diagnosis of diabetes, continued monitoring of HbA1c and fasting glucose is crucial. The slightly elevated Hb warrants further investigation to rule out iron deficiency or other potential causes.",
+    "recommendations": [
+      {
+        "title": "Monitor HbA1c",
+        "description": "Order an HbA1c test to assess long-term glycemic control.",
+        "icon": "\ud83d\udc8a",
+        "priority": "high"
+      },
+      {
+        "title": "Review Current Diabetes Management",
+        "description": "Assess the patient's current medication regimen and lifestyle modifications.",
+        "icon": "\ud83d\udc8a",
+        "priority": "medium"
+      },
+      {
+        "title": "Investigate Elevated Hb",
+        "description": "Order iron studies (serum iron, ferritin) to rule out iron deficiency.",
+        "icon": "\ud83e\ude78",
+        "priority": "medium"
+      }
+    ],
+    "uncertainties": [
+      "HbA1c level is not provided.",
+      "Medication regimen for diabetes is not specified.",
+      "Iron studies (serum iron, ferritin) are not included."
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T01:19:39.971651"
+  },
+  "timestamp": "2026-02-22T01:19:39.971678"
+}

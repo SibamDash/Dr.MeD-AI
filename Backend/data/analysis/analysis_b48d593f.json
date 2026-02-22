@@ -1,0 +1,91 @@
+{
+  "analysisId": "analysis_b48d593f",
+  "fileId": "report_91f812e6_1771699228",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_b48d593f",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "The patient is a male, identified as Mr. (name redacted), aged 24 years as per the document. The report was generated on August 2, 2024. The referring doctor's name is not specified in the visible portion of the document.",
+      "test_report_summary": "This report includes a Urine Routine & Microscopic examination and a Stool Routine & Microscopic examination.\n\n**Urine Routine & Microscopic:**\n*   **Routine:** Pale Yellow color, approximately 10 ml volume, Acidic reaction. No Turbidity, Sugar, Albumin, or Phosphate detected.\n*   **Microscopic:** 0-2 Pus cells/HPF, Nil RBC, and 2-3 Epithelial cells/HPF.\n\n**Stool Routine & Microscopic:**\n*   Brownish color, Semi Solid consistency, Acidic reaction.\n*   **Mucus: Present (+)**, Nil Blood. Helminths (Ova/Larva) and Protozoa (Cyst) were Not Detected. Nil Pus Cells and RBC.\n*   Vegetable Cells: Present (+), Bacteria Flora: Adequate, Nil Fat Globules, Food Particles: Present.",
+      "clinical_interpretation": "This report presents findings from urine and stool analyses. There is a critical discrepancy in the patient's age: the document states 24 years, while the provided patient context indicates 45 years with a condition of Diabetes. The following interpretation will highlight findings for both scenarios.\n\n**Urine Routine & Microscopic:**\nFor a 24-year-old male, the urine results are largely within normal limits. The absence of sugar, albumin, RBCs, and low counts of pus cells and epithelial cells suggest no active urinary tract infection or kidney issues. The acidic reaction is common. The reported volume of 'About 10 ml' is low for a typical random sample, which might indicate a concentrated sample or limited collection, but without further context, its significance is limited.\n\n*If considering the patient context of a 45-year-old with Diabetes:*\nThe absence of sugar (glucose) and albumin (protein) in the urine is a very positive finding. It indicates good glycemic control (blood sugar levels are likely below the renal threshold for glucose) and no signs of early diabetic kidney disease (diabetic nephropathy), such as microalbuminuria, which is a common complication of diabetes.\n\n**Stool Routine & Microscopic:**\nThe majority of the stool parameters are normal, including brownish color, semi-solid consistency, acidic reaction, and the absence of blood, pus cells, helminths (worms), protozoa (parasites), RBCs, and fat globules. Adequate bacterial flora, and the presence of vegetable cells and food particles are also normal.\nThe significant finding is the **presence of Mucus (+)**. While small amounts of mucus can be normal, its explicit mention usually indicates some degree of irritation or inflammation in the gastrointestinal tract. This could be due to various causes such as Irritable Bowel Syndrome (IBS), inflammatory bowel disease, mild infection, or food sensitivities. Given the absence of blood, pus cells, and parasites, it suggests a non-infectious or a mild inflammatory process, but further investigation and clinical correlation with symptoms are warranted.\n\n*If considering the patient context of a 45-year-old with Diabetes:*\nDiabetes can sometimes impact gut motility and the gut microbiome, which *could* contribute to gastrointestinal symptoms. However, the presence of mucus is a non-specific finding and requires further evaluation regardless of the diabetes status to rule out other causes of gut irritation.",
+      "known_information": [
+        "Patient is male.",
+        "The report date is August 2, 2024.",
+        "Urine analysis shows no sugar, albumin, blood, or significant signs of infection (pus cells 0-2/HPF, epithelial cells 2-3/HPF).",
+        "Stool analysis reveals the presence of mucus (+).",
+        "Stool analysis shows no blood, pus cells, helminths (ova/larva), or protozoa (cyst)."
+      ],
+      "unclear_information": [
+        "Patient's full name is redacted.",
+        "The name of the referring doctor is not specified.",
+        "There is a discrepancy in the patient's age: the document states 24 years, but the provided patient context indicates 45 years.",
+        "The provided patient context mentions 'Condition: Diabetes', but this is not stated on the lab report itself. It's unclear if this report is specifically for the management of diabetes or general health.",
+        "The clinical context or symptoms leading to these tests are not provided.",
+        "The specific method of urine collection and reasons for the low volume (approx. 10ml) are not detailed."
+      ]
+    },
+    "findings": [],
+    "analysis": "This report presents findings from urine and stool analyses. There is a critical discrepancy in the patient's age: the document states 24 years, while the provided patient context indicates 45 years with a condition of Diabetes. The following interpretation will highlight findings for both scenarios.\n\n**Urine Routine & Microscopic:**\nFor a 24-year-old male, the urine results are largely within normal limits. The absence of sugar, albumin, RBCs, and low counts of pus cells and epithelial cells suggest no active urinary tract infection or kidney issues. The acidic reaction is common. The reported volume of 'About 10 ml' is low for a typical random sample, which might indicate a concentrated sample or limited collection, but without further context, its significance is limited.\n\n*If considering the patient context of a 45-year-old with Diabetes:*\nThe absence of sugar (glucose) and albumin (protein) in the urine is a very positive finding. It indicates good glycemic control (blood sugar levels are likely below the renal threshold for glucose) and no signs of early diabetic kidney disease (diabetic nephropathy), such as microalbuminuria, which is a common complication of diabetes.\n\n**Stool Routine & Microscopic:**\nThe majority of the stool parameters are normal, including brownish color, semi-solid consistency, acidic reaction, and the absence of blood, pus cells, helminths (worms), protozoa (parasites), RBCs, and fat globules. Adequate bacterial flora, and the presence of vegetable cells and food particles are also normal.\nThe significant finding is the **presence of Mucus (+)**. While small amounts of mucus can be normal, its explicit mention usually indicates some degree of irritation or inflammation in the gastrointestinal tract. This could be due to various causes such as Irritable Bowel Syndrome (IBS), inflammatory bowel disease, mild infection, or food sensitivities. Given the absence of blood, pus cells, and parasites, it suggests a non-infectious or a mild inflammatory process, but further investigation and clinical correlation with symptoms are warranted.\n\n*If considering the patient context of a 45-year-old with Diabetes:*\nDiabetes can sometimes impact gut motility and the gut microbiome, which *could* contribute to gastrointestinal symptoms. However, the presence of mucus is a non-specific finding and requires further evaluation regardless of the diabetes status to rule out other causes of gut irritation.",
+    "recommendations": [
+      {
+        "title": "Consult Your Physician",
+        "description": "It is crucial to discuss these results, especially the presence of mucus in stool, with your referring doctor. They will correlate these findings with your symptoms and medical history.",
+        "icon": "\ud83d\udc68\u200d\u2695\ufe0f",
+        "priority": "high"
+      },
+      {
+        "title": "Clarify Patient Details",
+        "description": "Ensure your doctor is aware of any discrepancy regarding your age (24 vs. 45) and your diabetes status (if applicable), as this significantly impacts medical interpretation and management.",
+        "icon": "\ud83d\udcdd",
+        "priority": "high"
+      },
+      {
+        "title": "Discuss Stool Symptoms",
+        "description": "Be prepared to discuss any associated symptoms such as changes in bowel habits, abdominal pain, discomfort, or other digestive issues related to the mucus in your stool. This will help your doctor determine the cause.",
+        "icon": "\ud83d\udcac",
+        "priority": "high"
+      },
+      {
+        "title": "Maintain Good Hydration & Diet",
+        "description": "Ensure adequate fluid intake. While there are no specific dietary changes indicated by this report alone, a balanced diet with sufficient fiber can support digestive health. If you experience specific symptoms, your doctor might recommend dietary adjustments.",
+        "icon": "\ud83d\udca7",
+        "priority": "medium"
+      },
+      {
+        "title": "Diabetes Management Review (If Applicable)",
+        "description": "If you have diabetes (as mentioned in the context), the urine results are favorable. Continue to follow your doctor's recommendations for blood sugar monitoring and overall diabetes management.",
+        "icon": "\ud83e\ude78",
+        "priority": "medium"
+      }
+    ],
+    "uncertainties": [
+      "Patient's full name is redacted.",
+      "The name of the referring doctor is not specified.",
+      "There is a discrepancy in the patient's age: the document states 24 years, but the provided patient context indicates 45 years.",
+      "The provided patient context mentions 'Condition: Diabetes', but this is not stated on the lab report itself. It's unclear if this report is specifically for the management of diabetes or general health.",
+      "The clinical context or symptoms leading to these tests are not provided.",
+      "The specific method of urine collection and reasons for the low volume (approx. 10ml) are not detailed."
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T00:11:20.501208"
+  },
+  "timestamp": "2026-02-22T00:11:20.501354"
+}

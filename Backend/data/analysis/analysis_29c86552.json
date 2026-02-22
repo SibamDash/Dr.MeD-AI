@@ -1,0 +1,76 @@
+{
+  "analysisId": "analysis_29c86552",
+  "fileId": "report_b00164f0_1771704163",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_29c86552",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "The document refers to a patient named Mr. (name not fully provided) who is 29 years old and male. The referral doctor is not specified.",
+      "test_report_summary": "The urine routine and microscopic examination revealed the following: Urine is pale yellow, about 10 ml in volume, and slightly acidic. Microscopic examination showed few epithelial cells (2-3/HPF), adequate bacteria flora, and the presence of food particles. No red blood cells, white blood cells, casts, crystals, or parasites were detected. Stool examination showed brownish, semi-solid consistency with an acidic reaction, present mucus, no blood, and adequate bacteria flora. Fat globules and food particles were also present.",
+      "clinical_interpretation": "The urine analysis indicates a generally normal appearance with some minor findings. The presence of epithelial cells and food particles is common and not necessarily concerning. The slightly acidic urine could be due to dietary factors or other transient causes. Given the patient's age and existing diabetes, monitoring urine for signs of infection or other abnormalities is important. The stool examination is also largely normal, but the presence of food particles should be considered in the context of the patient's overall diet and digestive health.",
+      "known_information": [
+        "Patient Age: 29 years",
+        "Patient Sex: Male",
+        "Diabetes Condition",
+        "Urine is slightly acidic",
+        "Few epithelial cells present in urine",
+        "Food particles present in urine and stool"
+      ],
+      "unclear_information": [
+        "Patient's full name is not provided",
+        "Referral doctor's name is not provided",
+        "Specific details about the patient's diabetes management are not included",
+        "Dietary habits are not mentioned"
+      ]
+    },
+    "findings": [],
+    "analysis": "The urine analysis indicates a generally normal appearance with some minor findings. The presence of epithelial cells and food particles is common and not necessarily concerning. The slightly acidic urine could be due to dietary factors or other transient causes. Given the patient's age and existing diabetes, monitoring urine for signs of infection or other abnormalities is important. The stool examination is also largely normal, but the presence of food particles should be considered in the context of the patient's overall diet and digestive health.",
+    "recommendations": [
+      {
+        "title": "Monitor Blood Glucose Levels",
+        "description": "Regularly monitor blood glucose levels as per the patient's diabetes management plan.",
+        "icon": "\ud83d\udc8a",
+        "priority": "high"
+      },
+      {
+        "title": "Assess Dietary Intake",
+        "description": "Evaluate the patient's dietary habits to identify potential causes of the slightly acidic urine and ensure adequate hydration.",
+        "icon": "\ud83e\udd57",
+        "priority": "medium"
+      },
+      {
+        "title": "Follow-up Urine Analysis",
+        "description": "Consider repeating the urine analysis in 2-4 weeks to monitor for any changes or persistent abnormalities.",
+        "icon": "\ud83d\udd2c",
+        "priority": "low"
+      }
+    ],
+    "uncertainties": [
+      "Patient's full name is not provided",
+      "Referral doctor's name is not provided",
+      "Specific details about the patient's diabetes management are not included",
+      "Dietary habits are not mentioned"
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T01:33:01.769306"
+  },
+  "timestamp": "2026-02-22T01:33:01.769370"
+}

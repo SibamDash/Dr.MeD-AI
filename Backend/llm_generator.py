@@ -8,7 +8,10 @@ load_dotenv()
 
 # ── API KEY ───────────────────────────────────────────────────────────────────
 # Priority: .env file GEMINI_API_KEY  →  hardcoded below
-HARDCODED_API_KEY = "AIzaSyB8Vv8LXR9g-W4x0SdX9UpkSFroZL9NT2I"
+# DO NOT USE. This is an invalid placeholder. Your API key should be in a .env file.
+# Create a file named .env in this directory with the following content:
+# GEMINI_API_KEY="AIzaSy...your...actual...key"
+HARDCODED_API_KEY = "AIzaSyD8R1-FmKROqzsgE-FMleVHsu9_dCf8PE8"
 # ─────────────────────────────────────────────────────────────────────────────
 
 
@@ -16,12 +19,14 @@ HARDCODED_API_KEY = "AIzaSyB8Vv8LXR9g-W4x0SdX9UpkSFroZL9NT2I"
 # This is the exact shape the frontend (buildSummaryHTML) reads.
 # If Gemini returns partial JSON we fill missing keys with safe defaults.
 REQUIRED_KEYS = {
+    "is_medical_report":       True,
     "patient_summary":         "Not available",
     "test_report_summary":     "Not available",
     "clinical_interpretation": "Not available",
     "known_information":       [],
     "unclear_information":     [],
-    "recommendations":         []
+    "recommendations":         [],
+    "suggested_medications":   []
 }
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -106,31 +111,46 @@ def analyze_with_llm(text, patient_context, structured_data, file_paths=None):
 
         # ── Prompt ────────────────────────────────────────────────────────────
         prompt = f"""
-You are Dr.MeD-AI, an expert medical AI assistant.
-Analyze the following medical document (lab report or prescription).
-Return ONLY valid JSON — no explanation, no markdown fences, no extra text before or after.
+You are Dr.MeD-AI, an expert medical AI assistant. Your first task is to determine if the provided document text is a medical document (e.g., lab report, prescription, clinical notes).
+
+**Task 1: Classify the Document**
+- If the document is **NOT** a medical report, return ONLY this JSON object and nothing else:
+  `{{ "is_medical_report": false, "rejection_reason": "The document appears to be a [type of document, e.g., news article, financial statement]." }}`
+
+- If the document **IS** a medical report, proceed to Task 2.
+
+**Task 2: Analyze the Medical Report**
+If the document is a medical report, analyze it and return ONLY the following valid JSON structure. Do not add any explanation, markdown fences, or extra text.
 
 PATIENT CONTEXT:
 - Age: {patient_context.get('age', 'Unknown')}
 - Condition: {patient_context.get('condition', 'None')}
 - Literacy Level: {patient_context.get('literacyLevel', 'Medium')}
 
-DOCUMENT TEXT:
+DOCUMENT TEXT (first 8000 characters):
 {text[:8000]}
 
 STRUCTURED LAB VALUES (pre-extracted):
 {json.dumps(structured_data, indent=2)}
 
 Return ONLY this JSON (all fields required, no fields skipped):
-{{
+{{  
+    "is_medical_report": true,
     "patient_summary": "Patient name, age, gender extracted from the document.",
     "test_report_summary": "Summary of all test findings or prescription medications.",
-    "clinical_interpretation": "Detailed clinical interpretation grounded in medical guidelines.",
+    "clinical_interpretation": "Detailed clinical interpretation grounded in medical guidelines. Explain the reasoning for any suggested medications within this interpretation.",
+    "suggested_medications": [
+        {{
+            "name": "Medication Name (e.g., Metformin)",
+            "dosage": "Dosage instructions (e.g., 500mg twice daily)",
+            "reason": "Brief reason for this suggestion based on the report findings. If no specific medication is warranted, suggest a relevant supplement like a vitamin or probiotic. This list cannot be empty."
+        }}
+    ],
     "known_information": ["Confirmed fact 1", "Confirmed fact 2"],
     "unclear_information": ["Missing detail 1", "Missing detail 2"],
     "recommendations": [
         {{
-            "title": "Short actionable title",
+            "title": "Short actionable title (e.g., 'Consult with a Physician')",
             "description": "Specific advice for this patient.",
             "icon": "emoji",
             "priority": "high or medium or low"
@@ -179,7 +199,11 @@ Return ONLY this JSON (all fields required, no fields skipped):
                     print(f"Got response from: {m_name}")
                     break
             except Exception as e:
-                print(f"{m_name} failed: {e}")
+                print(f"--- MODEL ATTEMPT FAILED: {m_name} ---")
+                # This provides more detail on whether it's an authentication, network, or other API error.
+                print(f"  - Exception Type: {type(e).__name__}")
+                print(f"  - Exception Details: {e}")
+                print("------------------------------------------")
 
         if not raw_text:
             print("All Gemini models failed.")
@@ -197,6 +221,12 @@ Return ONLY this JSON (all fields required, no fields skipped):
         if result is None:
             print("JSON parsing failed — using demo fallback.")
             return None
+
+        # If the model determined it's not a medical report, return early.
+        # The backend is already set up to handle this specific response.
+        if result.get('is_medical_report') is False:
+            print("LLM classified document as non-medical.")
+            return result
 
         result = _fill_defaults(result)
         print("LLM result parsed OK. Keys:", list(result.keys()))

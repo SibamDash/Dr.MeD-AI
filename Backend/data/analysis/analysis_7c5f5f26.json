@@ -1,0 +1,96 @@
+{
+  "analysisId": "analysis_7c5f5f26",
+  "fileId": "report_e0dff133_1771676431",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "21/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_7c5f5f26",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "The patient is Mr. [Name Redacted], a 29-year-old male.",
+      "test_report_summary": "This report includes a Urine Routine & Microscopic analysis and a Stool Routine & Microscopic analysis.\n\n**Urine Routine & Microscopic:**\n- **Routine:** Color is pale yellow, volume approximately 10 ml, reaction is acidic. Turbidity, sugar, albumin, and phosphate are all 'Nil' (not detected).\n- **Microscopic:** Pus cells are 0-2/HPF, RBCs are 'Nil', and epithelial cells are 2-3/HPF.\n\n**Stool Routine & Microscopic:**\n- **General:** Color is brownish, consistency is semi-solid, and reaction is acidic.\n- **Specific Findings:** Mucus is 'Present (+)', vegetable cells are 'Present (+)', and food particles are 'Present'.\n- **Negative Findings:** Blood is 'Nil', helminths (ova/larva) and protozoa (cyst) are 'Not Detected', pus cells are 'Nil', RBCs are 'Nil', and fat globules are 'Nil'. Bacteria flora is noted as 'Adequate'.",
+      "clinical_interpretation": "As Dr.MeD-AI, I have analyzed the provided lab report in the context of a 29-year-old male patient with diabetes and a medium literacy level.\n\n**Urine Routine & Microscopic:**\n- **Positive Findings (Green):** The absence of sugar and albumin in the urine is a significant positive finding for a patient with diabetes. This indicates good glycemic control at the time of sample collection and no overt signs of diabetic nephropathy (kidney damage) based on albuminuria.\n- **Normal Findings (Green):** The color (pale yellow), absence of turbidity, and normal ranges for pus cells (0-2/HPF) and epithelial cells (2-3/HPF) are generally within acceptable limits. The absence of RBCs is also a positive finding, ruling out hematuria.\n- **Consideration (Yellow):** The reported urine volume of 'About 10 ml' is quite low for a routine sample. While this might be a random or insufficient sample, it could also indicate concentrated urine, though other parameters don't strongly suggest dehydration.\n\n**Stool Routine & Microscopic:**\n- **Concerning Findings (Yellow/Orange):**\n    - **Mucus: Present (+):** The presence of mucus in stool can indicate irritation or inflammation of the intestinal lining. For a diabetic patient, this could be related to conditions like irritable bowel syndrome, inflammatory processes, or even diabetic enteropathy affecting gut motility and integrity.\n    - **Consistency: Semi-Solid:** While not severely abnormal, combined with other findings, it might suggest altered bowel transit time or incomplete water absorption.\n    - **Vegetable Cells & Food Particles: Present (+):** The presence of undigested vegetable cells and food particles often points towards rapid transit of food through the digestive system or maldigestion. In the context of diabetes, autonomic neuropathy can affect gut motility, leading to such findings.\n- **Reassuring Findings (Green):** The absence of blood, pus cells, RBCs, parasites (helminths, protozoa), and fat globules is reassuring. This rules out significant gastrointestinal bleeding, acute infectious colitis, parasitic infections, or severe fat malabsorption at the time of the test.\n\n**Overall Interpretation:** The urine results are largely favorable, especially regarding the management of diabetes (no sugar or albumin). However, the stool findings suggest some gastrointestinal irritation or altered gut function, which warrants further investigation and correlation with the patient's clinical symptoms, especially given the patient's diabetic condition which can affect the GI system.",
+      "known_information": [
+        "Patient is a 29-year-old male.",
+        "Patient has diabetes (from context).",
+        "The report date is 02-Aug-2024.",
+        "Urine analysis shows no sugar, albumin, blood, or significant pus cells.",
+        "Stool analysis shows presence of mucus, semi-solid consistency, vegetable cells, and food particles.",
+        "Stool analysis is negative for blood, parasites (helminths, protozoa), pus cells, RBCs, and fat globules."
+      ],
+      "suggested_medications": [
+        {
+          "name": "Probiotic Supplement",
+          "dosage": "As directed on the product label",
+          "reason": "To help improve gut flora and potentially reduce intestinal irritation indicated by the presence of mucus in the stool."
+        },
+        {
+          "name": "Psyllium Husk (Fiber Supplement)",
+          "dosage": "As directed, with plenty of water",
+          "reason": "To help regulate bowel movements and improve stool consistency, which may also help with the digestion of food particles."
+        }
+      ],
+      "unclear_information": [
+        "The specific type and duration of the patient's diabetes (e.g., Type 1, Type 2) are not provided.",
+        "The reason for ordering these specific urine and stool tests is not stated.",
+        "Patient's current gastrointestinal symptoms (e.g., diarrhea, abdominal pain, changes in bowel habits) are not available to provide context for the stool findings.",
+        "The discrepancy in patient age (45 in prompt vs. 29 in document) is noted; the document's age (29) is prioritized for the summary.",
+        "Specific blood glucose levels or HbA1c are not available for a comprehensive assessment of diabetes control."
+      ]
+    },
+    "findings": [],
+    "analysis": "As Dr.MeD-AI, I have analyzed the provided lab report in the context of a 29-year-old male patient with diabetes and a medium literacy level.\n\n**Urine Routine & Microscopic:**\n- **Positive Findings (Green):** The absence of sugar and albumin in the urine is a significant positive finding for a patient with diabetes. This indicates good glycemic control at the time of sample collection and no overt signs of diabetic nephropathy (kidney damage) based on albuminuria.\n- **Normal Findings (Green):** The color (pale yellow), absence of turbidity, and normal ranges for pus cells (0-2/HPF) and epithelial cells (2-3/HPF) are generally within acceptable limits. The absence of RBCs is also a positive finding, ruling out hematuria.\n- **Consideration (Yellow):** The reported urine volume of 'About 10 ml' is quite low for a routine sample. While this might be a random or insufficient sample, it could also indicate concentrated urine, though other parameters don't strongly suggest dehydration.\n\n**Stool Routine & Microscopic:**\n- **Concerning Findings (Yellow/Orange):**\n    - **Mucus: Present (+):** The presence of mucus in stool can indicate irritation or inflammation of the intestinal lining. For a diabetic patient, this could be related to conditions like irritable bowel syndrome, inflammatory processes, or even diabetic enteropathy affecting gut motility and integrity.\n    - **Consistency: Semi-Solid:** While not severely abnormal, combined with other findings, it might suggest altered bowel transit time or incomplete water absorption.\n    - **Vegetable Cells & Food Particles: Present (+):** The presence of undigested vegetable cells and food particles often points towards rapid transit of food through the digestive system or maldigestion. In the context of diabetes, autonomic neuropathy can affect gut motility, leading to such findings.\n- **Reassuring Findings (Green):** The absence of blood, pus cells, RBCs, parasites (helminths, protozoa), and fat globules is reassuring. This rules out significant gastrointestinal bleeding, acute infectious colitis, parasitic infections, or severe fat malabsorption at the time of the test.\n\n**Overall Interpretation:** The urine results are largely favorable, especially regarding the management of diabetes (no sugar or albumin). However, the stool findings suggest some gastrointestinal irritation or altered gut function, which warrants further investigation and correlation with the patient's clinical symptoms, especially given the patient's diabetic condition which can affect the GI system.",
+    "recommendations": [
+      {
+        "title": "Consult Your Doctor for Stool Findings",
+        "description": "It is crucial to discuss the presence of mucus, semi-solid consistency, and undigested food particles in your stool report with your referring doctor. These findings, while not critical emergencies, warrant further evaluation, especially in the context of your diabetes, which can affect gut health.",
+        "icon": "\ud83e\ude7a",
+        "priority": "high"
+      },
+      {
+        "title": "Monitor Gastrointestinal Symptoms",
+        "description": "Pay close attention to any changes in your bowel habits, abdominal discomfort, bloating, or frequency of stools. Documenting these symptoms can provide valuable information for your doctor during your follow-up appointment.",
+        "icon": "\ud83d\udcdd",
+        "priority": "medium"
+      },
+      {
+        "title": "Maintain Good Diabetes Management",
+        "description": "The absence of sugar and albumin in your urine is a positive indicator for your diabetes management. Continue to adhere to your treatment plan, including diet, exercise, and medication, and ensure regular monitoring of your blood glucose levels (e.g., HbA1c, fasting glucose) as advised by your healthcare provider.",
+        "icon": "\ud83e\ude78",
+        "priority": "medium"
+      },
+      {
+        "title": "Ensure Adequate Hydration",
+        "description": "While the low urine volume might be due to sample collection, maintaining adequate fluid intake is generally important for overall health, kidney function, and can also influence bowel regularity, particularly for individuals with diabetes.",
+        "icon": "\ud83d\udca7",
+        "priority": "low"
+      }
+    ],
+    "uncertainties": [
+      "The specific type and duration of the patient's diabetes (e.g., Type 1, Type 2) are not provided.",
+      "The reason for ordering these specific urine and stool tests is not stated.",
+      "Patient's current gastrointestinal symptoms (e.g., diarrhea, abdominal pain, changes in bowel habits) are not available to provide context for the stool findings.",
+      "The discrepancy in patient age (45 in prompt vs. 29 in document) is noted; the document's age (29) is prioritized for the summary.",
+      "Specific blood glucose levels or HbA1c are not available for a comprehensive assessment of diabetes control."
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-21T17:50:55.186394"
+  },
+  "timestamp": "2026-02-21T17:50:55.186478"
+}

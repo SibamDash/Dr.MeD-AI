@@ -1,0 +1,90 @@
+{
+  "analysisId": "analysis_f672118f",
+  "fileId": "report_c8250dbb_1771742448",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_f672118f",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "The document pertains to a 29-year-old male (noted as 24/29 in report) presenting for routine pathological investigation, including blood, urine, and stool analysis.",
+      "test_report_summary": "Blood work shows normal hemoglobin (13.4 g/dL) but microcytic indices (Low MCV 75.0 fL, Low MCH 27.7 pg) and Eosinophilia (8%). Fasting Blood Glucose is normal at 90 mg/dl. Stool analysis shows presence of mucus and vegetable cells. Urine routine is within normal limits.",
+      "clinical_interpretation": "The blood results indicate microcytosis (small red blood cells), which in the presence of normal hemoglobin suggests early-stage iron deficiency or a thalassemic trait; further iron studies are required for confirmation. The elevated eosinophil count (8%) is indicative of eosinophilia, commonly associated with allergic conditions, asthma, or parasitic infections, though the stool sample was negative for parasites. The presence of mucus in the stool may suggest mild intestinal irritation or Irritable Bowel Syndrome (IBS). Regarding the patient's diabetes context, the fasting glucose of 90 mg/dl indicates well-controlled blood sugar levels.",
+      "known_information": [
+        "Fasting Blood Glucose: 90 mg/dl (Normal)",
+        "Hemoglobin: 13.4 gm% (Normal)",
+        "Eosinophils: 8% (High)",
+        "MCV: 75.0 fL (Low)",
+        "Stool: Mucus Present (+)"
+      ],
+      "unclear_information": [
+        "Clinical symptoms (e.g., fatigue, abdominal pain, or allergies)",
+        "HbA1c levels for long-term diabetes monitoring",
+        "Recent travel history or exposure to allergens"
+      ],
+      "suggested_medications": [
+        {
+          "name": "Iron Supplement (e.g., Ferrous Fumarate)",
+          "dosage": "As prescribed by a physician",
+          "reason": "To address the microcytic indices (low MCV/MCH) which may indicate low iron stores before anemia develops."
+        },
+        {
+          "name": "Probiotic Supplement",
+          "dosage": "Once daily",
+          "reason": "To help balance gut flora and address the presence of mucus in the stool."
+        },
+        {
+          "name": "Cetirizine (if experiencing allergy symptoms)",
+          "dosage": "10mg once daily as needed",
+          "reason": "Suggested only if the eosinophilia is accompanied by allergic symptoms like itching or sneezing."
+        }
+      ]
+    },
+    "findings": [],
+    "analysis": "The blood results indicate microcytosis (small red blood cells), which in the presence of normal hemoglobin suggests early-stage iron deficiency or a thalassemic trait; further iron studies are required for confirmation. The elevated eosinophil count (8%) is indicative of eosinophilia, commonly associated with allergic conditions, asthma, or parasitic infections, though the stool sample was negative for parasites. The presence of mucus in the stool may suggest mild intestinal irritation or Irritable Bowel Syndrome (IBS). Regarding the patient's diabetes context, the fasting glucose of 90 mg/dl indicates well-controlled blood sugar levels.",
+    "recommendations": [
+      {
+        "title": "Consult a Hematologist or GP",
+        "description": "Discuss the microcytic red blood cell indices and eosinophilia for a definitive diagnosis.",
+        "icon": "\ud83d\udc68\u200d\u2695\ufe0f",
+        "priority": "high"
+      },
+      {
+        "title": "Iron Profile Test",
+        "description": "Undergo Serum Ferritin and Iron studies to rule out iron deficiency anemia.",
+        "icon": "\ud83e\ude78",
+        "priority": "medium"
+      },
+      {
+        "title": "Monitor Digestive Symptoms",
+        "description": "Keep a food diary to see if specific foods correlate with the mucus in stool.",
+        "icon": "\ud83d\udcdd",
+        "priority": "low"
+      }
+    ],
+    "uncertainties": [
+      "Clinical symptoms (e.g., fatigue, abdominal pain, or allergies)",
+      "HbA1c levels for long-term diabetes monitoring",
+      "Recent travel history or exposure to allergens"
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T12:11:12.996482"
+  },
+  "timestamp": "2026-02-22T12:11:12.996504"
+}

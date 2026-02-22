@@ -1,0 +1,18 @@
+{
+  "fileId": "report_01979f72_1771716580",
+  "files": [
+    {
+      "type": "report",
+      "path": "uploads/report_01979f72_1771716580_report_WhatsApp_Image_2026-02-21_at_15.14.08.jpeg",
+      "name": "WhatsApp_Image_2026-02-21_at_15.14.08.jpeg"
+    }
+  ],
+  "patientData": {
+    "name": "jagan",
+    "age": "22",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "uploadedAt": "2026-02-22T04:59:40.051337"
+}

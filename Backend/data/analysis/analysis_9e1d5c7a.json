@@ -1,0 +1,69 @@
+{
+  "analysisId": "analysis_9e1d5c7a",
+  "fileId": "report_d0959738_1771719461",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_9e1d5c7a",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "Patient name: Mr., Age: 29, Sex: M",
+      "test_report_summary": "The report includes a urine routine and microscopic examination, a stool routine and microscopic examination, and a complete blood cell count. The urine analysis shows a pale yellow color, acidic reaction, and no abnormalities in sugar, albumin, or phosphate. The stool analysis shows a brownish color, semi-solid consistency, and an acidic reaction. The complete blood cell count reveals normal values for hemoglobin, white blood cell count, red blood cell count, platelet count, and packed cell volume. The differential count shows normal proportions of neutrophils, eosinophils, basophils, lymphocytes, and monocytes. The biochemistry result shows a fasting blood glucose of 90 mg/dl, which is within the normal range.",
+      "clinical_interpretation": "The patient's complete blood count and biochemistry results are largely within normal limits. The fasting blood glucose of 90 mg/dl is also within the normal range, which is reassuring given the patient's history of diabetes. However, the urine and stool analysis are unremarkable. Given the patient's existing diabetes, continued monitoring of blood glucose levels and regular follow-up are crucial. Considering the patient's age and diabetes, a discussion about lifestyle modifications, including diet and exercise, is warranted.",
+      "known_information": [
+        "Patient age: 29",
+        "Patient has diabetes"
+      ],
+      "unclear_information": [
+        "Referring physician's name",
+        "Specific details of the patient's diabetes management plan"
+      ],
+      "suggested_medications": [
+        {
+          "name": "Metformin",
+          "dosage": "500mg twice daily",
+          "reason": "To help manage blood glucose levels and improve insulin sensitivity, considering the patient's diabetes diagnosis."
+        }
+      ]
+    },
+    "findings": [],
+    "analysis": "The patient's complete blood count and biochemistry results are largely within normal limits. The fasting blood glucose of 90 mg/dl is also within the normal range, which is reassuring given the patient's history of diabetes. However, the urine and stool analysis are unremarkable. Given the patient's existing diabetes, continued monitoring of blood glucose levels and regular follow-up are crucial. Considering the patient's age and diabetes, a discussion about lifestyle modifications, including diet and exercise, is warranted.",
+    "recommendations": [
+      {
+        "title": "Blood Glucose Monitoring",
+        "description": "Regularly monitor fasting blood glucose levels as per physician's instructions.",
+        "icon": "\ud83d\udcca",
+        "priority": "high"
+      },
+      {
+        "title": "Lifestyle Modifications",
+        "description": "Discuss diet and exercise plan with a healthcare professional to manage diabetes effectively.",
+        "icon": "\ud83c\udfc3\u200d\u2640\ufe0f",
+        "priority": "medium"
+      }
+    ],
+    "uncertainties": [
+      "Referring physician's name",
+      "Specific details of the patient's diabetes management plan"
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T05:48:19.184625"
+  },
+  "timestamp": "2026-02-22T05:48:19.184640"
+}

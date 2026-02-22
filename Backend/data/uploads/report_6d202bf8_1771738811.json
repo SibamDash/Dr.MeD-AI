@@ -1,0 +1,18 @@
+{
+  "fileId": "report_6d202bf8_1771738811",
+  "files": [
+    {
+      "type": "report",
+      "path": "uploads/report_6d202bf8_1771738811_report_subrata_giet_id_card.jpeg",
+      "name": "subrata_giet_id_card.jpeg"
+    }
+  ],
+  "patientData": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "uploadedAt": "2026-02-22T11:10:11.499045"
+}

@@ -1,0 +1,86 @@
+{
+  "analysisId": "analysis_3933a678",
+  "fileId": "report_1b1335c5_1771756214",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_3933a678",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "Mr. [masked], a 29-year-old male, underwent urine and stool routine and microscopic investigations on August 2, 2024.",
+      "test_report_summary": "The urine routine and microscopic examination revealed normal findings: pale yellow color, about 10 ml volume, acidic reaction, no turbidity, sugar, albumin, or phosphate. Microscopically, 0-2 pus cells/HPF, no RBC, and 2-3 epithelial cells/HPF were observed, all within normal limits. The stool routine and microscopic examination showed a brownish, semi-solid consistency with an acidic reaction. Mucus was present (+). No blood, helminths (ova/larva), protozoa (cyst), pus cells, or RBCs were detected. Adequate bacterial flora, no fat globules, and present vegetable cells and food particles were noted.",
+      "clinical_interpretation": "The urine analysis results are largely unremarkable, with all parameters falling within normal physiological ranges. This suggests no immediate signs of urinary tract infection (low pus cells), kidney dysfunction (no albumin), or uncontrolled diabetes (no sugar) based on this urine sample. The stool analysis, however, presents a few points of note. The presence of mucus can indicate irritation or inflammation in the gastrointestinal tract, though no specific pathogens like helminths or protozoa were detected. The acidic reaction of the stool, combined with mucus, could suggest issues with digestion or absorption, or an imbalance in gut flora. While the current findings do not necessitate immediate prescription medication, **a probiotic supplement is suggested to help rebalance the gut microbiome and potentially alleviate mild inflammation or digestive discomfort that could be contributing to the presence of mucus and the acidic stool reaction.** The goal is to foster a healthier gut environment and support digestive function.",
+      "known_information": [
+        "Patient is a 29-year-old male.",
+        "Urine test results are within normal physiological limits.",
+        "Stool test indicates the presence of mucus and an acidic reaction.",
+        "No infectious pathogens (helminths, protozoa) were detected in the stool.",
+        "No sugar or albumin was detected in the urine."
+      ],
+      "unclear_information": [
+        "Patient's current symptoms or the specific reason for these tests are not provided.",
+        "The exact cause of the mucus and acidic reaction in the stool is not determined without further clinical context and symptom assessment.",
+        "While the provided patient context mentions a condition of diabetes, the urine report shows no sugar, which would require further clarification if diabetes is indeed present and well-controlled or if this context is outdated/inaccurate relative to the report."
+      ],
+      "suggested_medications": [
+        {
+          "name": "Probiotic Supplement",
+          "dosage": "As directed by a healthcare professional (e.g., 1 capsule daily)",
+          "reason": "To support gut health, balance bacterial flora, and potentially reduce mild inflammation or digestive issues contributing to mucus and acidic stool."
+        }
+      ]
+    },
+    "findings": [],
+    "analysis": "The urine analysis results are largely unremarkable, with all parameters falling within normal physiological ranges. This suggests no immediate signs of urinary tract infection (low pus cells), kidney dysfunction (no albumin), or uncontrolled diabetes (no sugar) based on this urine sample. The stool analysis, however, presents a few points of note. The presence of mucus can indicate irritation or inflammation in the gastrointestinal tract, though no specific pathogens like helminths or protozoa were detected. The acidic reaction of the stool, combined with mucus, could suggest issues with digestion or absorption, or an imbalance in gut flora. While the current findings do not necessitate immediate prescription medication, **a probiotic supplement is suggested to help rebalance the gut microbiome and potentially alleviate mild inflammation or digestive discomfort that could be contributing to the presence of mucus and the acidic stool reaction.** The goal is to foster a healthier gut environment and support digestive function.",
+    "recommendations": [
+      {
+        "title": "Follow-up with Referring Physician",
+        "description": "Discuss the stool test findings, particularly the presence of mucus and acidic reaction, with your referring doctor. Provide any symptoms you may be experiencing to help them interpret the results in your overall clinical picture.",
+        "icon": "\ud83e\uddd1\u200d\u2695\ufe0f",
+        "priority": "high"
+      },
+      {
+        "title": "Dietary Review",
+        "description": "Consider reviewing your diet with a healthcare professional or nutritionist. Certain foods or dietary patterns might contribute to gut irritation or an acidic stool environment.",
+        "icon": "\ud83e\udd57",
+        "priority": "medium"
+      },
+      {
+        "title": "Monitor Gastrointestinal Symptoms",
+        "description": "Pay attention to any changes in bowel habits, abdominal discomfort, bloating, or other digestive symptoms and report them to your doctor during your follow-up.",
+        "icon": "\ud83e\uddd0",
+        "priority": "medium"
+      },
+      {
+        "title": "Consider Probiotic Discussion",
+        "description": "Discuss with your physician whether a probiotic supplement would be beneficial for your gut health, as it may help address the acidic stool and mucus.",
+        "icon": "\ud83d\udc8a",
+        "priority": "low"
+      }
+    ],
+    "uncertainties": [
+      "Patient's current symptoms or the specific reason for these tests are not provided.",
+      "The exact cause of the mucus and acidic reaction in the stool is not determined without further clinical context and symptom assessment.",
+      "While the provided patient context mentions a condition of diabetes, the urine report shows no sugar, which would require further clarification if diabetes is indeed present and well-controlled or if this context is outdated/inaccurate relative to the report."
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T16:00:38.939236"
+  },
+  "timestamp": "2026-02-22T16:00:38.939253"
+}

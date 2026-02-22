@@ -1,0 +1,64 @@
+{
+  "analysisId": "analysis_ac15ca4a",
+  "fileId": "report_5149950e_1771738097",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_ac15ca4a",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "Patient name, age, gender extracted from the document.",
+      "test_report_summary": "Complete Blood Cell Count, Biochemistry Result, Urine Routine & Microscopic.",
+      "clinical_interpretation": "The patient's Hb level is slightly elevated at 13.4 gm%, which may indicate a possible issue with red blood cell production or increased erythropoietin stimulation. The fasting blood glucose is within the normal range at 90 mg/dl. The urine analysis shows a pale yellow color, acidic reaction, and no abnormalities detected. The stool analysis shows brownish color, semi-solid consistency, and acidic reaction.",
+      "known_information": [
+        "Patient age: 24 years",
+        "Patient gender: Male",
+        "Hb level: 13.4 gm%"
+      ],
+      "unclear_information": [
+        "Specific details about the patient's diabetes history",
+        "Further investigation into the elevated Hb level is recommended"
+      ],
+      "suggested_medications": [
+        {
+          "name": "Metformin",
+          "dosage": "500mg twice daily",
+          "reason": "Given the slightly elevated Hb level, initiating Metformin may be considered to help regulate blood sugar levels and prevent potential complications associated with diabetes."
+        }
+      ]
+    },
+    "findings": [],
+    "analysis": "The patient's Hb level is slightly elevated at 13.4 gm%, which may indicate a possible issue with red blood cell production or increased erythropoietin stimulation. The fasting blood glucose is within the normal range at 90 mg/dl. The urine analysis shows a pale yellow color, acidic reaction, and no abnormalities detected. The stool analysis shows brownish color, semi-solid consistency, and acidic reaction.",
+    "recommendations": [
+      {
+        "title": "Follow-up Blood Work",
+        "description": "Repeat Hb and fasting blood glucose tests in 3-6 months to monitor trends.",
+        "icon": "check_circle",
+        "priority": "high"
+      }
+    ],
+    "uncertainties": [
+      "Specific details about the patient's diabetes history",
+      "Further investigation into the elevated Hb level is recommended"
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T10:58:39.475228"
+  },
+  "timestamp": "2026-02-22T10:58:39.475240"
+}

@@ -113,6 +113,25 @@
         .analysis-block h4 { color: var(--primary); margin-bottom: 0.5rem; font-size: 1rem; }
         .analysis-block p { margin: 0; }
         @media print { body { background: white; padding: 0; } .report-container { box-shadow: none; padding: 0; max-width: 100%; } .print-btn { display: none; } }
+
+        /* Styles for Suggested Medications */
+        .medication-card {
+            background: #f0f9ff;
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .medication-card h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--primary);
+            font-size: 1.05rem;
+        }
+        .medication-card p {
+            margin: 0.25rem 0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
     </style>
 </head>
 <body>
@@ -139,6 +158,12 @@
             </div>
             <div id="analysisContent"></div>
         </section>
+
+        <section class="section" id="medicationsSection">
+            <h3 class="section-title">Suggested Medications</h3>
+            <div id="medicationsList"></div>
+        </section>
+
         <section class="section" id="recommendationsSection">
             <h3 class="section-title">Recommendations</h3>
             <ul class="recommendations-list" id="recommendationsList"></ul>
@@ -157,13 +182,18 @@
         document.addEventListener('DOMContentLoaded', () => {
             const data = JSON.parse(localStorage.getItem('medicalReportData'));
             if (!data) { document.body.innerHTML = '<div style="text-align:center; padding: 2rem;">No report data found.</div>'; return; }
-            document.getElementById('pName').textContent = data.patient.name;
-            document.getElementById('pAge').textContent = data.patient.age;
-            document.getElementById('pCondition').textContent = data.patient.condition;
-            document.getElementById('reportDate').textContent = `Date: ${data.patient.date}`;
-            document.getElementById('reportId').textContent = Math.random().toString(36).substr(2, 9).toUpperCase();
-            const analysis = data.analysis;
-            const ai = analysis.aiResponse || {};
+
+            // Get patient context and analysis result from the data object
+            const patient = data.patientContext || {};
+            const analysis = data.result || data;
+            const ai = analysis.aiResponse || analysis.ai_response || analysis.llm_result || {};
+
+            // Populate Patient Info
+            document.getElementById('pName').textContent = patient.name || '-';
+            document.getElementById('pAge').textContent = patient.age || '-';
+            document.getElementById('pCondition').textContent = patient.condition || '-';
+            document.getElementById('reportDate').textContent = `Date: ${patient.date || new Date().toLocaleDateString()}`;
+            document.getElementById('reportId').textContent = analysis.analysisId || 'test_analysis';
             
             // Confidence
             if (analysis.confidence) {
@@ -218,6 +248,27 @@
                 html += `</div>`;
             }
             contentDiv.innerHTML = html;
+
+            // Suggested Medications Section
+            const medicationsSection = document.getElementById('medicationsSection');
+            const medicationsListDiv = document.getElementById('medicationsList');
+            // Assuming medications are part of the aiResponse
+            const medications = ai.suggested_medications; 
+
+            if (medications && medications.length > 0) {
+                let medHtml = '';
+                medications.forEach(med => {
+                    medHtml += `
+                        <div class="medication-card">
+                            <h4>${med.name || 'Unnamed Medication'}</h4>
+                            <p><strong>Dosage:</strong> ${med.dosage || 'As prescribed by doctor'}</p>
+                            <p><strong>Reason:</strong> ${med.reason || 'Based on clinical findings and diagnosis.'}</p>
+                        </div>`;
+                });
+                medicationsListDiv.innerHTML = medHtml + `<p style="font-size: 0.8rem; color: var(--text-secondary); text-align: center; margin-top: 1rem;"><strong>Disclaimer:</strong> This is an AI-generated suggestion. Always consult with a qualified healthcare professional before starting or stopping any medication.</p>`;
+            } else {
+                medicationsSection.style.display = 'none';
+            }
 
             const recList = document.getElementById('recommendationsList');
             if (analysis.recommendations && analysis.recommendations.length > 0) {

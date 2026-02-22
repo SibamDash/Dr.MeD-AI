@@ -1,0 +1,23 @@
+{
+  "fileId": "report_572c930e_1771674161",
+  "files": [
+    {
+      "type": "report",
+      "path": "uploads/report_572c930e_1771674161_report_WhatsApp_Image_2026-02-21_at_15.14.38.jpeg",
+      "name": "WhatsApp_Image_2026-02-21_at_15.14.38.jpeg"
+    },
+    {
+      "type": "report",
+      "path": "uploads/report_572c930e_1771674161_report_WhatsApp_Image_2026-02-21_at_15.14.08.jpeg",
+      "name": "WhatsApp_Image_2026-02-21_at_15.14.08.jpeg"
+    }
+  ],
+  "patientData": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "21/02/2026"
+  },
+  "uploadedAt": "2026-02-21T17:12:41.335972"
+}

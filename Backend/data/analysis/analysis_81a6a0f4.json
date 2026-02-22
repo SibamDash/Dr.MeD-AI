@@ -1,0 +1,111 @@
+{
+  "analysisId": "analysis_81a6a0f4",
+  "fileId": "report_d4d56643_1771700050",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_81a6a0f4",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "Patient's name is partially legible as 'Sj [TRA f :'. The document indicates an age of 24 years and male gender. However, the provided patient context specifies the patient's age as 45 and condition as Diabetes. For the purpose of this analysis, the age of 45 and condition of Diabetes from the context will be used for clinical interpretation.",
+      "test_report_summary": "The test report shows several parameters from a Complete Blood Cell Count, Differential Count, and a Biochemistry result for Fasting Blood Glucose.\n\n**Abnormal Results:**\n*   **MCV (Mean Corpuscular Volume):** 75.0 fL (Low, Normal Range: 76 - 96 fL)\n*   **MCH (Mean Corpuscular Hemoglobin):** 27.7 pg (Low, Normal Range: 28 - 32 pg)\n*   **MCHC (Mean Corpuscular Hemoglobin Concentration):** 37.0 % (High, Normal Range: 28 - 34%)\n*   **Eosinophils:** 08 % (High, Normal Range: 01 - 06%)\n*   **Monocytes:** 00 % (Low/Absent, Normal Range: 02 - 10%)\n\n**Normal Results:**\n*   Hemoglobin (Hb): 13.4 gm%\n*   Total White Blood Cell Count (TWBC): 7800 /Cumm\n*   Total Red Blood Cell Count (TRBC): 4.63 Mill/Cumm\n*   Total Platelet Count (TPC): 3.06 Lacs/Cumm\n*   Packed Cell Volume (PCV): 35.2 %\n*   Neutrophils: 60 %\n*   Basophils: 00 %\n*   Lymphocytes: 32 %\n*   Fasting Blood Glucose: 90 mg/dl",
+      "clinical_interpretation": "The patient, a 45-year-old male with diabetes, presents with a mixed picture in his Complete Blood Count (CBC). His Fasting Blood Glucose of 90 mg/dl is within the normal range (70 - 110 mg/dl), which is excellent control for a patient with diabetes at the time of the test.\n\nHowever, several red blood cell indices are abnormal: MCV and MCH are slightly low, indicating microcytic, hypochromic red cells. This pattern is commonly associated with iron deficiency anemia or thalassemia trait. It's noteworthy that his Hemoglobin (Hb) is within the normal range, suggesting that if anemia is present, it might be mild or an early stage of iron deficiency not yet affecting Hb levels significantly. The MCHC, however, is unexpectedly high (hyperchromic). Microcytic hypochromic conditions typically have low MCHC. A high MCHC alongside low MCV/MCH is unusual and could suggest conditions like hereditary spherocytosis, a technical error in measurement, or severe dehydration. This combination warrants further investigation.\n\nIn the differential count, Eosinophils are elevated (eosinophilia). This can be associated with allergic reactions (e.g., asthma, hay fever, eczema), parasitic infections, certain drug reactions, or some autoimmune conditions. Monocytes are absent (monocytopenia), which can be seen in various conditions, including infections, autoimmune disorders, and some therapies. Monocytopenia is often less clinically significant if other white cell counts are normal, but combined with eosinophilia, it could point to an underlying immune response or specific inflammatory process.\n\nGiven the patient's diabetic status, maintaining good glucose control is crucial, and his current fasting glucose reflects this. However, the unexplained hematological abnormalities need attention, especially the contradictory red cell indices (low MCV/MCH with high MCHC) and the elevated eosinophils and absent monocytes.",
+      "known_information": [
+        "Patient's age is 45 years (from context).",
+        "Patient has diabetes (from context).",
+        "Fasting Blood Glucose is well-controlled at 90 mg/dl.",
+        "Red blood cell indices show microcytic (low MCV) and hypochromic (low MCH) features.",
+        "MCHC is elevated, which is contradictory to microcytic hypochromic findings.",
+        "Eosinophil count is elevated (eosinophilia).",
+        "Monocyte count is absent (monocytopenia).",
+        "Other CBC parameters (Hb, TWBC, TRBC, TPC, PCV, Neutrophils, Basophils, Lymphocytes) are within normal limits.",
+        "The report date is 02-Aug-2024."
+      ],
+      "suggested_medications": [
+        {
+          "name": "Ferrous Sulfate",
+          "dosage": "325mg once daily",
+          "reason": "For potential iron deficiency, as indicated by low MCV and MCH values. To be taken only after confirmation with iron studies."
+        },
+        {
+          "name": "Cetirizine (Antihistamine)",
+          "dosage": "10mg as needed",
+          "reason": "To manage potential allergic reactions which may be the cause of the elevated eosinophil count."
+        }
+      ],
+      "unclear_information": [
+        "Patient's full name is partially illegible.",
+        "The referring doctor's name is not specified.",
+        "The reason for the discrepancy in patient age (document shows 24, context provides 45).",
+        "Specific symptoms related to eosinophilia (e.g., allergies, skin issues, travel history for parasites).",
+        "Clinical significance of monocytopenia in this context.",
+        "Further details on the patient's diabetes management (e.g., last HbA1c, current medications, diet, exercise regimen).",
+        "The underlying cause of the contradictory red cell indices (low MCV/MCH with high MCHC) and whether it's a lab error or a specific condition.",
+        "Patient's dietary habits or history of blood loss relevant to potential iron deficiency."
+      ]
+    },
+    "findings": [],
+    "analysis": "The patient, a 45-year-old male with diabetes, presents with a mixed picture in his Complete Blood Count (CBC). His Fasting Blood Glucose of 90 mg/dl is within the normal range (70 - 110 mg/dl), which is excellent control for a patient with diabetes at the time of the test.\n\nHowever, several red blood cell indices are abnormal: MCV and MCH are slightly low, indicating microcytic, hypochromic red cells. This pattern is commonly associated with iron deficiency anemia or thalassemia trait. It's noteworthy that his Hemoglobin (Hb) is within the normal range, suggesting that if anemia is present, it might be mild or an early stage of iron deficiency not yet affecting Hb levels significantly. The MCHC, however, is unexpectedly high (hyperchromic). Microcytic hypochromic conditions typically have low MCHC. A high MCHC alongside low MCV/MCH is unusual and could suggest conditions like hereditary spherocytosis, a technical error in measurement, or severe dehydration. This combination warrants further investigation.\n\nIn the differential count, Eosinophils are elevated (eosinophilia). This can be associated with allergic reactions (e.g., asthma, hay fever, eczema), parasitic infections, certain drug reactions, or some autoimmune conditions. Monocytes are absent (monocytopenia), which can be seen in various conditions, including infections, autoimmune disorders, and some therapies. Monocytopenia is often less clinically significant if other white cell counts are normal, but combined with eosinophilia, it could point to an underlying immune response or specific inflammatory process.\n\nGiven the patient's diabetic status, maintaining good glucose control is crucial, and his current fasting glucose reflects this. However, the unexplained hematological abnormalities need attention, especially the contradictory red cell indices (low MCV/MCH with high MCHC) and the elevated eosinophils and absent monocytes.",
+    "recommendations": [
+      {
+        "title": "Consult with Physician",
+        "description": "Discuss all abnormal lab findings (MCV, MCH, MCHC, Eosinophils, Monocytes) with your primary care physician or endocrinologist. The contradictory red cell indices are particularly important to clarify.",
+        "icon": "\ud83e\ude7a",
+        "priority": "high"
+      },
+      {
+        "title": "Further Anemia Workup",
+        "description": "Considering the low MCV and MCH, and the unusual high MCHC, additional tests like iron studies (serum iron, ferritin, TIBC) or hemoglobin electrophoresis may be necessary to rule out iron deficiency, thalassemia, or other red blood cell disorders.",
+        "icon": "\ud83e\ude78",
+        "priority": "high"
+      },
+      {
+        "title": "Investigate Eosinophilia",
+        "description": "Explore potential causes for elevated eosinophils, such as allergies (environmental, food, medication), recent travel history for parasitic infections, or any new skin conditions. Your doctor may recommend specific tests or evaluations.",
+        "icon": "\ud83d\udd0d",
+        "priority": "medium"
+      },
+      {
+        "title": "Monitor Diabetes Control",
+        "description": "While your fasting blood glucose is excellent, continue to monitor your blood sugar levels regularly as advised by your doctor. Consider getting an HbA1c test to assess long-term glucose control.",
+        "icon": "\ud83d\udcca",
+        "priority": "medium"
+      },
+      {
+        "title": "Review Medications",
+        "description": "Discuss all current medications with your doctor, as some drugs can affect blood counts. This review may help in understanding the monocytopenia and potential causes for eosinophilia.",
+        "icon": "\ud83d\udc8a",
+        "priority": "low"
+      }
+    ],
+    "uncertainties": [
+      "Patient's full name is partially illegible.",
+      "The referring doctor's name is not specified.",
+      "The reason for the discrepancy in patient age (document shows 24, context provides 45).",
+      "Specific symptoms related to eosinophilia (e.g., allergies, skin issues, travel history for parasites).",
+      "Clinical significance of monocytopenia in this context.",
+      "Further details on the patient's diabetes management (e.g., last HbA1c, current medications, diet, exercise regimen).",
+      "The underlying cause of the contradictory red cell indices (low MCV/MCH with high MCHC) and whether it's a lab error or a specific condition.",
+      "Patient's dietary habits or history of blood loss relevant to potential iron deficiency."
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T00:24:35.428278"
+  },
+  "timestamp": "2026-02-22T00:24:35.428302"
+}

@@ -1,0 +1,73 @@
+{
+  "analysisId": "analysis_ccc61ba1",
+  "fileId": "report_bf6b093c_1771706088",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_ccc61ba1",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "The patient's name is Mr. (not fully specified in the document), age is 29, and sex is male.",
+      "test_report_summary": "The urine routine and microscopic examination revealed a pale yellow urine with an acidic reaction. Key findings include: Adequate sediment, mild alkalinity, nil sugar, nil albumin, nil phosphate, 10-24HPF pus cells, 2-3/HPF E.P. cells, present (+) vegetable cells, adequate bacteria flora, nil fat globules, and present food particles. Stool routine microscopic examination showed brownish semi-solid stool with an acidic reaction, present mucus, nil blood, no helminths or protozoa, nil pus cells, nil RBC, present (+) vegetable cells, adequate bacteria flora, nil fat globules, and present food particles.",
+      "clinical_interpretation": "The urine report shows several abnormalities, including elevated pus cells and E.P. cells, suggesting a possible inflammatory process or infection in the urinary tract. The presence of vegetable cells and food particles in the urine could indicate dietary factors or potential contamination. The patient's existing condition of diabetes may be contributing to these findings. Further investigation, such as a urine culture, is warranted to identify the causative agent and guide appropriate treatment. The stool report also shows abnormalities, which could be related to the same underlying issue or a separate digestive problem. Given the patient's age and diabetes, careful monitoring and management are crucial.",
+      "known_information": [
+        "Diagnosis: Diabetes",
+        "Patient Age: 29",
+        "Patient Sex: Male"
+      ],
+      "unclear_information": [
+        "Patient's full name is not provided.",
+        "Referring physician's name is not provided.",
+        "Specific details about the patient's diabetes management are not included.",
+        "The significance of the elevated pus cells and E.P. cells is not fully elucidated without further investigation."
+      ]
+    },
+    "findings": [],
+    "analysis": "The urine report shows several abnormalities, including elevated pus cells and E.P. cells, suggesting a possible inflammatory process or infection in the urinary tract. The presence of vegetable cells and food particles in the urine could indicate dietary factors or potential contamination. The patient's existing condition of diabetes may be contributing to these findings. Further investigation, such as a urine culture, is warranted to identify the causative agent and guide appropriate treatment. The stool report also shows abnormalities, which could be related to the same underlying issue or a separate digestive problem. Given the patient's age and diabetes, careful monitoring and management are crucial.",
+    "recommendations": [
+      {
+        "title": "Urine Culture",
+        "description": "Obtain a urine culture to identify the specific bacteria or other microorganisms causing the inflammatory response.",
+        "icon": "\ud83d\udc8a",
+        "priority": "high"
+      },
+      {
+        "title": "Dietary Review",
+        "description": "Assess the patient's diet to identify potential sources of contamination or factors contributing to the abnormal findings in the urine and stool.",
+        "icon": "\ud83e\udd57",
+        "priority": "medium"
+      },
+      {
+        "title": "Follow-up with Physician",
+        "description": "Schedule a follow-up appointment with the referring physician to discuss the results and develop a comprehensive management plan.",
+        "icon": "\ud83c\udfc3",
+        "priority": "high"
+      }
+    ],
+    "uncertainties": [
+      "Patient's full name is not provided.",
+      "Referring physician's name is not provided.",
+      "Specific details about the patient's diabetes management are not included.",
+      "The significance of the elevated pus cells and E.P. cells is not fully elucidated without further investigation."
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T02:05:05.848346"
+  },
+  "timestamp": "2026-02-22T02:05:05.848366"
+}

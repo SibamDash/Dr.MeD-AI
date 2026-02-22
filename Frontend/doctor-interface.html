@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Doctor Interface - Dr.MeD</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+<script src="firebase-config.js"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<!-- The JSX component is in a separate file -->
+<script type="text/babel" src="doctorinterface.jsx"></script>
+
+<script type="text/babel">
+  firebase.initializeApp(window.firebaseConfig);
+  const auth = firebase.auth();
+
+  auth.onAuthStateChanged(user => {
+    if (user) {
+      // User is signed in, render the interface and pass the user object
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(<DoctorInterface user={user} />);
+    } else {
+      // User is not signed in, redirect to the main login page
+      window.location.href = '/#login';
+    }
+  });
+</script>
+</body>
+</html>

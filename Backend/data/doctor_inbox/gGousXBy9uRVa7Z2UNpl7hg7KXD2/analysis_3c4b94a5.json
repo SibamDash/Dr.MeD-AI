@@ -1,0 +1,82 @@
+{
+  "aiResponse": {
+    "clinical_interpretation": "The urine analysis is largely unremarkable, with all parameters, including microscopic findings of pus and epithelial cells, falling within normal physiological ranges. This suggests no urinary tract infection or significant kidney pathology. The stool analysis presents several findings. The semi-solid consistency and brownish color are within normal range. The acidic reaction, along with the presence of vegetable cells and food particles, suggests potential incomplete digestion or malabsorption, possibly due to rapid gut transit, insufficient digestive enzyme activity, or dietary factors. The presence of mucus is a notable finding. While small amounts can be normal, its consistent presence can indicate irritation or inflammation within the gastrointestinal tract. However, the absence of blood, pus cells, helminths, and protozoa rules out acute infectious causes or severe inflammatory conditions like ulcerative colitis or Crohn's disease based on these parameters alone. Adequate bacterial flora is a positive sign. Given these findings, which suggest mild digestive inefficiency and irritation without signs of severe pathology or infection, supporting gut health and digestion is a reasonable initial approach. Probiotics can help restore a balanced gut microbiome, which is crucial for efficient digestion and reducing inflammation. Digestive enzymes can directly aid in breaking down food particles, addressing the visible signs of incomplete digestion.",
+    "known_information": [
+      "The patient is a 29-year-old male.",
+      "Urine routine and microscopic analysis results are within normal limits, showing no signs of infection or significant pathology.",
+      "Stool routine and microscopic analysis shows semi-solid, brownish, acidic stool with mucus, vegetable cells, and food particles present.",
+      "There is no evidence of blood, parasites (helminths, protozoa), or significant bacterial infection (pus cells, RBCs) in the stool."
+    ],
+    "patient_summary": "The report is for Mr. (name redacted), a 29-year-old male, referred by Dr. (name redacted) on August 2, 2024.",
+    "suggested_medications": [
+      {
+        "dosage": "As per product instructions (e.g., 1 capsule daily)",
+        "name": "Probiotic Supplement",
+        "reason": "To support a healthy gut microbiome, which can improve digestion, modulate gut immunity, and potentially reduce gut irritation contributing to mucus production."
+      },
+      {
+        "dosage": "As per product instructions, typically with meals",
+        "name": "Digestive Enzymes (e.g., broad-spectrum plant-based enzymes)",
+        "reason": "To assist in the breakdown of food, addressing the presence of undigested vegetable cells and food particles, thereby improving nutrient absorption and potentially reducing digestive discomfort."
+      }
+    ],
+    "test_report_summary": "The urine routine and microscopic examination shows normal parameters including pale yellow color, acidic reaction, and no abnormal findings such as sugar, albumin, phosphate, RBCs, or significant pus/epithelial cells (0-2/HPF pus cells, 2-3/HPF epithelial cells). The stool routine and microscopic examination reveals brownish, semi-solid, acidic stool with the presence of mucus, vegetable cells, and food particles. No blood, helminths (ova/larva), protozoa (cyst), pus cells, RBCs, or fat globules were detected. Bacterial flora is adequate.",
+    "unclear_information": [
+      "The specific symptoms or clinical reason for these tests are not provided.",
+      "Detailed dietary habits and lifestyle factors of the patient are unknown.",
+      "Medical history (beyond age and gender from the report) is not available, including any chronic conditions or medications the patient might be taking.",
+      "Specific reference ranges for the lab values are not explicitly included in the report."
+    ]
+  },
+  "analysis": "The urine analysis is largely unremarkable, with all parameters, including microscopic findings of pus and epithelial cells, falling within normal physiological ranges. This suggests no urinary tract infection or significant kidney pathology. The stool analysis presents several findings. The semi-solid consistency and brownish color are within normal range. The acidic reaction, along with the presence of vegetable cells and food particles, suggests potential incomplete digestion or malabsorption, possibly due to rapid gut transit, insufficient digestive enzyme activity, or dietary factors. The presence of mucus is a notable finding. While small amounts can be normal, its consistent presence can indicate irritation or inflammation within the gastrointestinal tract. However, the absence of blood, pus cells, helminths, and protozoa rules out acute infectious causes or severe inflammatory conditions like ulcerative colitis or Crohn's disease based on these parameters alone. Adequate bacterial flora is a positive sign. Given these findings, which suggest mild digestive inefficiency and irritation without signs of severe pathology or infection, supporting gut health and digestion is a reasonable initial approach. Probiotics can help restore a balanced gut microbiome, which is crucial for efficient digestion and reducing inflammation. Digestive enzymes can directly aid in breaking down food particles, addressing the visible signs of incomplete digestion.",
+  "analysisId": "analysis_3c4b94a5",
+  "classification": {
+    "condition": "Type 2 Diabetes",
+    "confidence": 0.92,
+    "severity": "mild"
+  },
+  "confidence": 98,
+  "findings": [],
+  "patientContext": {
+    "age": "45",
+    "condition": "Diabetes",
+    "date": "22/02/2026",
+    "literacyLevel": "Medium (Educated Patient)",
+    "name": "John Doe"
+  },
+  "processedAt": "2026-02-22T16:42:53.678491",
+  "recommendations": [
+    {
+      "description": "It is highly recommended to consult with the referring physician or a gastroenterologist to discuss these results in the context of your specific symptoms and medical history. This will help in obtaining a comprehensive diagnosis and a personalized treatment plan.",
+      "icon": "\ud83d\udc68\u200d\u2695\ufe0f",
+      "priority": "high",
+      "title": "Consult a Physician/Gastroenterologist"
+    },
+    {
+      "description": "Consider reviewing your diet with a healthcare professional or a registered dietitian. Identifying and potentially adjusting dietary factors (e.g., improving chewing, reducing trigger foods) might help alleviate symptoms related to incomplete digestion and gut irritation.",
+      "icon": "\ud83c\udf4e",
+      "priority": "medium",
+      "title": "Dietary Assessment and Modifications"
+    },
+    {
+      "description": "Pay close attention to any persistent digestive symptoms like abdominal pain, bloating, or changes in bowel habits. Ensure adequate hydration as it is crucial for overall digestive health. Report any new or worsening symptoms to your doctor.",
+      "icon": "\ud83d\udcdd",
+      "priority": "medium",
+      "title": "Monitor Symptoms and Hydration"
+    }
+  ],
+  "riskScore": {
+    "cardiovascular": 0.15,
+    "diabetes": 0.32,
+    "kidney": 0.08,
+    "overall": 0.25
+  },
+  "success": true,
+  "uncertainties": [
+    "The specific symptoms or clinical reason for these tests are not provided.",
+    "Detailed dietary habits and lifestyle factors of the patient are unknown.",
+    "Medical history (beyond age and gender from the report) is not available, including any chronic conditions or medications the patient might be taking.",
+    "Specific reference ranges for the lab values are not explicitly included in the report."
+  ],
+  "verificationStatus": "PENDING"
+}

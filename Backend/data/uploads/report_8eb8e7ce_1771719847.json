@@ -1,0 +1,18 @@
+{
+  "fileId": "report_8eb8e7ce_1771719847",
+  "files": [
+    {
+      "type": "report",
+      "path": "uploads/report_8eb8e7ce_1771719847_report_WhatsApp_Image_2026-02-21_at_15.14.38.jpeg",
+      "name": "WhatsApp_Image_2026-02-21_at_15.14.38.jpeg"
+    }
+  ],
+  "patientData": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "uploadedAt": "2026-02-22T05:54:07.847648"
+}

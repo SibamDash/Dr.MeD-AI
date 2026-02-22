@@ -1,0 +1,69 @@
+{
+  "analysisId": "analysis_c5fd197f",
+  "fileId": "report_851285fd_1771718174",
+  "patientContext": {
+    "name": "jagan",
+    "age": "22",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_c5fd197f",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "Patient name is Mr., age is 29, and sex is male.",
+      "test_report_summary": "The report includes a complete blood cell count, differential count, biochemistry results (fasting blood glucose), and a urine routine and microscopic examination. Hb is slightly elevated, while fasting blood glucose is within the normal range.",
+      "clinical_interpretation": "The patient's Hb level is slightly elevated (13.4 g/dL), which could indicate polycythemia. However, given the patient's history of diabetes, the primary concern is the fasting blood glucose level of 90 mg/dL, which is within the normal range (70-110 mg/dL).  The other blood cell counts and urine analysis appear normal.  Given the patient's diabetes, continued monitoring of blood glucose levels is crucial.  The slightly elevated Hb warrants further investigation to rule out any underlying causes, such as dehydration or chronic hypoxia.  No immediate medication adjustments are required based solely on this report.",
+      "known_information": [
+        "Patient age: 29",
+        "Patient has diabetes"
+      ],
+      "unclear_information": [
+        "Specific details about the patient's diabetes management plan",
+        "Further investigation into the slightly elevated Hb level is warranted"
+      ],
+      "suggested_medications": [
+        {
+          "name": "Metformin",
+          "dosage": "500mg twice daily",
+          "reason": "To help manage blood glucose levels and improve insulin sensitivity, considering the patient's diabetes diagnosis."
+        }
+      ]
+    },
+    "findings": [],
+    "analysis": "The patient's Hb level is slightly elevated (13.4 g/dL), which could indicate polycythemia. However, given the patient's history of diabetes, the primary concern is the fasting blood glucose level of 90 mg/dL, which is within the normal range (70-110 mg/dL).  The other blood cell counts and urine analysis appear normal.  Given the patient's diabetes, continued monitoring of blood glucose levels is crucial.  The slightly elevated Hb warrants further investigation to rule out any underlying causes, such as dehydration or chronic hypoxia.  No immediate medication adjustments are required based solely on this report.",
+    "recommendations": [
+      {
+        "title": "Monitor Blood Glucose",
+        "description": "Regularly monitor fasting blood glucose levels as per the physician's instructions.",
+        "icon": "glucose_meter",
+        "priority": "high"
+      },
+      {
+        "title": "Hb Investigation",
+        "description": "Consider further investigation to determine the cause of the elevated Hb level.",
+        "icon": "magnifying_glass",
+        "priority": "medium"
+      }
+    ],
+    "uncertainties": [
+      "Specific details about the patient's diabetes management plan",
+      "Further investigation into the slightly elevated Hb level is warranted"
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T05:26:44.368397"
+  },
+  "timestamp": "2026-02-22T05:26:44.368412"
+}

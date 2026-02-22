@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Patient Registration - Dr.MeD</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #1E3A8A;
+    --primary-light: #3B82F6;
+    --primary-dark: #1e40af;
+    --secondary: #60A5FA;
+    --accent: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --bg-light: #F8FAFC;
+    --bg-white: #FFFFFF;
+    --text-primary: #1E293B;
+    --text-secondary: #64748B;
+    --text-muted: #94A3B8;
+    --border: #E2E8F0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg-light);
+    color: var(--text-primary);
+    min-height: 100vh;
+  }
+  
+  /* Animations */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes scaleIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+  .fade-up { animation: fadeUp 0.5s ease forwards; }
+
+  /* Components */
+  .register-page { min-height: 100vh; display: flex; align-items: flex-start; justify-content: center; padding: 40px 24px; }
+  .register-wrap { width: 100%; max-width: 520px; }
+  .register-card { background: var(--bg-white); border-radius: 24px; padding: 40px; box-shadow: 0 10px 40px rgba(30, 58, 138, 0.1); border: 1px solid var(--border); }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 12px 28px; border-radius: 12px; font-weight: 600; font-size: 0.95rem;
+    cursor: pointer; transition: all 0.2s; border: none; outline: none;
+    font-family: 'Outfit', sans-serif;
+  }
+  .btn:disabled { opacity: 0.55; cursor: not-allowed; }
+  .btn-primary { background: var(--primary); color: white; }
+  .btn-primary:hover:not(:disabled) { background: var(--primary-dark); box-shadow: 0 4px 16px rgba(30, 58, 138, 0.2); transform: translateY(-1px); }
+  .btn-outline { background: transparent; color: var(--primary); border: 2px solid var(--border); }
+  .btn-outline:hover:not(:disabled) { border-color: var(--primary); color: var(--primary); }
+  .btn-full { width: 100%; }
+  .btn-sm { padding: 8px 16px; font-size: 0.85rem; border-radius: 8px; }
+
+  .form-group { margin-bottom: 20px; }
+  .form-label { display: block; font-weight: 500; margin-bottom: 6px; font-size: 0.9rem; color: var(--text-primary); }
+  .form-input {
+    width: 100%; padding: 12px 16px; border: 2px solid var(--border);
+    border-radius: 12px; font-size: 0.95rem; font-family: 'Outfit', sans-serif;
+    transition: border-color 0.2s, box-shadow 0.2s; outline: none; color: var(--text-primary);
+    background: white;
+  }
+  .form-input:focus { border-color: var(--primary-light); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); }
+  .input-group { display: flex; gap: 10px; }
+  .input-group .form-input { flex: 1; }
+
+  .alert { padding: 14px 18px; border-radius: 12px; font-size: 0.9rem; display: flex; align-items: flex-start; gap: 10px; }
+  .alert-success { background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.25); color: #065f46; }
+  .alert-error { background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); color: #991b1b; }
+
+  .spinner { width: 20px; height: 20px; border: 2.5px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 0.7s linear infinite; }
+
+  /* Verify Overlay */
+  .verify-overlay {
+    position: fixed; inset: 0; background: rgba(30, 58, 138, 0.4); z-index: 200;
+    display: flex; align-items: center; justify-content: center; padding: 24px;
+    backdrop-filter: blur(4px);
+  }
+  .verify-modal { background: white; border-radius: 24px; padding: 40px; max-width: 440px; width: 100%; animation: scaleIn 0.3s ease; box-shadow: 0 20px 60px rgba(30, 58, 138, 0.15); }
+  .otp-group { display: flex; gap: 10px; justify-content: center; margin: 20px 0; }
+  .otp-input {
+    width: 48px; height: 52px; text-align: center; font-size: 1.3rem; font-weight: 700;
+    border: 2px solid var(--border); border-radius: 10px; outline: none;
+    transition: border-color 0.2s; font-family: 'JetBrains Mono', monospace; color: var(--text-primary);
+  }
+  .otp-input:focus { border-color: var(--primary-light); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+
+<!-- Centralized Firebase Configuration -->
+<script src="firebase-config.js"></script>
+
+<script type="text/babel">
+const { useState, useEffect, useRef, createContext, useContext } = React;
+
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+
+// Auth Context
+const AuthContext = createContext(null);
+function AuthProvider({ children }) {
+  const [user, setUser] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('drmed_user')); } catch { return null; }
+  });
+  const setUserAndStore = (u) => {
+    setUser(u);
+    if (u) localStorage.setItem('drmed_user', JSON.stringify(u));
+    else localStorage.removeItem('drmed_user');
+  };
+  return <AuthContext.Provider value={{ user, setUser: setUserAndStore }}>{children}</AuthContext.Provider>;
+}
+const useAuth = () => useContext(AuthContext);
+
+function PatientRegister() {
+  const { setUser } = useAuth();
+  const [form, setForm] = useState({ name: '', email: '', password: '' });
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async () => {
+    if (!form.name || !form.email || !form.password) return;
+    setSubmitting(true);
+    
+    try {
+      let user;
+      try {
+        // 1. Create user in Firebase
+        const userCredential = await auth.createUserWithEmailAndPassword(form.email, form.password);
+        user = userCredential.user;
+        await user.updateProfile({ displayName: form.name });
+      } catch (firebaseError) {
+        if (firebaseError.code === 'auth/email-already-in-use') {
+          // If email exists, try to sign in to recover UID (handles partial registrations)
+          const loginCredential = await auth.signInWithEmailAndPassword(form.email, form.password);
+          user = loginCredential.user;
+        } else {
+          throw firebaseError;
+        }
+      }
+
+      // 2. Save profile to backend
+      const res = await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, role: 'patient', uid: user.uid })
+      });
+      const data = await res.json();
+      if (data.success) {
+        alert('Registration successful! Please sign in.');
+        window.location.href = '/#login';
+      } else {
+        if (data.error === "User already exists") {
+          alert('Account already exists. Redirecting to login.');
+          window.location.href = '/#login';
+        } else {
+          alert(data.error || 'Registration failed');
+        }
+      }
+    } catch (e) {
+      console.error("Registration Error:", e);
+      if (e.message === 'Failed to fetch') {
+        alert('Error: Could not connect to the backend server. Please ensure the server is running and you are accessing the site via http://localhost:5001.');
+      } else {
+        alert(e.message || 'Registration failed');
+      }
+    }
+    setSubmitting(false);
+  };
+
+  const handleGoogleRegister = async () => {
+    try {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      const result = await auth.signInWithPopup(provider);
+      const user = result.user;
+      
+      // Auto-register with backend if using Google
+      await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          name: user.displayName, 
+          email: user.email, 
+          role: 'patient', 
+          uid: user.uid 
+        })
+      });
+      window.location.href = '/#login';
+    } catch (e) {
+      alert(e.message);
+    }
+  };
+
+  return (
+    <div className="register-page">
+      <div className="register-wrap fade-up">
+        <div style={{marginBottom:24}}>
+          <button className="btn btn-outline btn-sm" onClick={() => window.location.href = '/#register'}>← Back</button>
+        </div>
+        <div className="register-card">
+          <div style={{marginBottom:28}}>
+            <div style={{display:'flex',alignItems:'center',gap:12,marginBottom:8}}>
+              <div style={{fontSize:'1.8rem'}}>🧑‍⚕️</div>
+              <h2 style={{fontSize:'1.4rem',fontWeight:700}}>Patient Registration</h2>
+            </div>
+            <p style={{color:'var(--text-secondary)',fontSize:'0.88rem'}}>Create your health profile to get started</p>
+          </div>
+          <button className="btn btn-outline btn-full" style={{marginBottom:20}} onClick={handleGoogleRegister}>
+            <span style={{marginRight:8}}>G</span> Use Google Account
+          </button>
+          <div className="form-group">
+            <label className="form-label">Full Name</label>
+            <input className="form-input" placeholder="e.g. Rahul Sharma"
+              value={form.name} onChange={e => setForm({...form, name: e.target.value})} />
+          </div>
+          <div className="form-group">
+            <label className="form-label">Email Address</label>
+            <input className="form-input" placeholder="name@example.com" type="email"
+              value={form.email} onChange={e => setForm({...form, email: e.target.value})} />
+          </div>
+          <div className="form-group">
+            <label className="form-label">Create Password</label>
+            <input className="form-input" placeholder="••••••••" type="password"
+              value={form.password} onChange={e => setForm({...form, password: e.target.value})} />
+          </div>
+          <button className="btn btn-primary btn-full" onClick={handleSubmit} disabled={!form.name || !form.email || !form.password || submitting}>
+            {submitting ? 'Creating Account...' : 'Create Patient Account'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<AuthProvider><PatientRegister /></AuthProvider>);
+</script>
+</body>
+</html>

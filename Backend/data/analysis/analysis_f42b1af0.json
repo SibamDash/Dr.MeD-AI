@@ -1,0 +1,102 @@
+{
+  "analysisId": "analysis_f42b1af0",
+  "fileId": "report_37cf15df_1771757163",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_f42b1af0",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "The patient is a 24-year-old male. The document provides a general medical report from Siddharth Pathology Clinic dated August 2, 2024, including urine, stool, complete blood count, and fasting blood glucose results.",
+      "test_report_summary": "The urine routine and microscopic examination shows all parameters within normal limits. The stool routine and microscopic examination noted the presence of mucus, with all other parameters normal. The Complete Blood Cell Count (CBC) reveals normal hemoglobin, total WBC, RBC, and platelet counts. However, MCV (Mean Corpuscular Volume) and MCH (Mean Corpuscular Hemoglobin) are slightly low, indicating microcytic and hypochromic tendencies, while MCHC (Mean Corpuscular Hemoglobin Concentration) is elevated. The differential count shows elevated Eosinophils (08%, normal range 01-06%), indicating eosinophilia, and Monocytes are 00% (normal range 02-10%), indicating monocytopenia. The Fasting Blood Glucose is 90 mg/dl, which falls within the normal range (70-110 mg/dl).",
+      "clinical_interpretation": "Based on the provided lab report for this 24-year-old male, several findings warrant attention:\n1.  **Stool Analysis**: The presence of mucus in the stool is a significant finding. This can be indicative of irritation or inflammation in the gastrointestinal tract, potentially due to infection, inflammatory bowel disease, or irritable bowel syndrome.\n2.  **Complete Blood Count (CBC)**:\n    *   **Microcytic/Hypochromic Red Cell Indices**: The slightly low MCV and MCH, despite a normal hemoglobin level, suggest that red blood cells are smaller and contain less hemoglobin than typical. This pattern is often an early indicator of iron deficiency, even before anemia develops, or a carrier state for a thalassemia trait. The concurrently elevated MCHC is unusual with these findings and could represent a laboratory artifact or a specific condition like hereditary spherocytosis, though less common.\n    *   **Eosinophilia**: The elevated eosinophil count (8%) is a key finding. Eosinophilia is commonly associated with allergic reactions (e.g., asthma, eczema), parasitic infections, certain dermatological conditions, and sometimes specific inflammatory or autoimmune disorders. Given the patient's age and general presentation, allergies or parasitic infections are frequent considerations.\n    *   **Monocytopenia**: The absence of monocytes (0%) is unusual. Monocytes play a crucial role in the immune system, and persistent low levels can be associated with certain infections, bone marrow disorders, or immunosuppressive treatments. This finding warrants further investigation and clinical correlation.\n3.  **Fasting Blood Glucose**: The result of 90 mg/dl is well within the normal range. This contradicts the patient context stating 'Diabetes'. If the patient has a prior diagnosis of diabetes, this result indicates excellent glycemic control. Otherwise, it suggests that the patient currently does not have uncontrolled diabetes or that the initial context information regarding diabetes may not apply to this specific report.",
+      "known_information": [
+        "Patient is a 24-year-old male.",
+        "The report date is August 2, 2024.",
+        "Urine analysis is entirely within normal limits.",
+        "Stool analysis shows the presence of mucus.",
+        "Complete Blood Count (CBC) indicates normal hemoglobin, total WBC, RBC, and platelet counts, but shows low MCV/MCH, elevated MCHC, eosinophilia (elevated eosinophils), and monocytopenia (low monocytes).",
+        "Fasting Blood Glucose is normal (90 mg/dl)."
+      ],
+      "unclear_information": [
+        "The patient's full name and the name of the referring doctor are not clearly legible.",
+        "Clinical symptoms or medical history correlating with the observed eosinophilia, monocytopenia, or mucus in stool are not provided.",
+        "The reason for the discrepancy between the patient context (diabetes) and the normal Fasting Blood Glucose result.",
+        "The specific underlying cause for the microcytic/hypochromic red cell indices (e.g., early iron deficiency, thalassemia trait, or laboratory artifact) and the elevated MCHC.",
+        "The specific cause of the eosinophilia (e.g., specific allergen, parasitic infection, medication)."
+      ],
+      "suggested_medications": [
+        {
+          "name": "Probiotic Supplement",
+          "dosage": "As directed on packaging (e.g., 1 capsule daily)",
+          "reason": "To support a healthy gut microbiome, which may help alleviate gastrointestinal irritation leading to mucus in stool and potentially contribute to immune system balance given the eosinophilia."
+        },
+        {
+          "name": "Iron Supplement (e.g., Ferrous Sulfate)",
+          "dosage": "As directed by a physician (e.g., 325 mg once daily)",
+          "reason": "To address the microcytic and hypochromic red cell indices (low MCV/MCH) which can indicate early iron deficiency, even with normal hemoglobin levels, to prevent progression to anemia."
+        }
+      ]
+    },
+    "findings": [],
+    "analysis": "Based on the provided lab report for this 24-year-old male, several findings warrant attention:\n1.  **Stool Analysis**: The presence of mucus in the stool is a significant finding. This can be indicative of irritation or inflammation in the gastrointestinal tract, potentially due to infection, inflammatory bowel disease, or irritable bowel syndrome.\n2.  **Complete Blood Count (CBC)**:\n    *   **Microcytic/Hypochromic Red Cell Indices**: The slightly low MCV and MCH, despite a normal hemoglobin level, suggest that red blood cells are smaller and contain less hemoglobin than typical. This pattern is often an early indicator of iron deficiency, even before anemia develops, or a carrier state for a thalassemia trait. The concurrently elevated MCHC is unusual with these findings and could represent a laboratory artifact or a specific condition like hereditary spherocytosis, though less common.\n    *   **Eosinophilia**: The elevated eosinophil count (8%) is a key finding. Eosinophilia is commonly associated with allergic reactions (e.g., asthma, eczema), parasitic infections, certain dermatological conditions, and sometimes specific inflammatory or autoimmune disorders. Given the patient's age and general presentation, allergies or parasitic infections are frequent considerations.\n    *   **Monocytopenia**: The absence of monocytes (0%) is unusual. Monocytes play a crucial role in the immune system, and persistent low levels can be associated with certain infections, bone marrow disorders, or immunosuppressive treatments. This finding warrants further investigation and clinical correlation.\n3.  **Fasting Blood Glucose**: The result of 90 mg/dl is well within the normal range. This contradicts the patient context stating 'Diabetes'. If the patient has a prior diagnosis of diabetes, this result indicates excellent glycemic control. Otherwise, it suggests that the patient currently does not have uncontrolled diabetes or that the initial context information regarding diabetes may not apply to this specific report.",
+    "recommendations": [
+      {
+        "title": "Consult with a Physician",
+        "description": "The patient should promptly consult with their referring physician or a general practitioner to discuss these results comprehensively. Clinical correlation with the patient's symptoms, medical history, and physical examination is essential to interpret the findings accurately.",
+        "icon": "\ud83d\udc68\u200d\u2695\ufe0f",
+        "priority": "high"
+      },
+      {
+        "title": "Investigate Gastrointestinal Symptoms",
+        "description": "Further evaluation is recommended for the presence of mucus in the stool. This may involve a detailed history of bowel habits, dietary factors, any abdominal discomfort, and potentially additional stool tests or imaging, if clinically indicated, to rule out gastrointestinal inflammation or infection.",
+        "icon": "\ud83d\udebd",
+        "priority": "medium"
+      },
+      {
+        "title": "Evaluate for Allergic or Parasitic Conditions",
+        "description": "Given the elevated eosinophil count, it is advisable to assess for potential allergic conditions (e.g., environmental allergies, food allergies, asthma) or parasitic infections. Further tests like IgE levels, allergy testing, or specific parasite screens may be considered based on clinical symptoms and exposure history.",
+        "icon": "\ud83e\udd27",
+        "priority": "high"
+      },
+      {
+        "title": "Further Hematological Work-up",
+        "description": "To clarify the cause of the microcytic/hypochromic red cell indices despite normal hemoglobin, further tests such as serum iron, ferritin, total iron-binding capacity (TIBC), and potentially hemoglobin electrophoresis should be considered. The monocytopenia also warrants follow-up and clinical correlation to determine its significance.",
+        "icon": "\ud83e\ude78",
+        "priority": "medium"
+      },
+      {
+        "title": "Clarify Diabetes Status",
+        "description": "If the patient has a history of diabetes (as suggested in the context), it is important to discuss the implications of this normal Fasting Blood Glucose result with their physician. This could indicate excellent disease control, or the initial contextual information may require re-evaluation.",
+        "icon": "\ud83d\udcca",
+        "priority": "medium"
+      }
+    ],
+    "uncertainties": [
+      "The patient's full name and the name of the referring doctor are not clearly legible.",
+      "Clinical symptoms or medical history correlating with the observed eosinophilia, monocytopenia, or mucus in stool are not provided.",
+      "The reason for the discrepancy between the patient context (diabetes) and the normal Fasting Blood Glucose result.",
+      "The specific underlying cause for the microcytic/hypochromic red cell indices (e.g., early iron deficiency, thalassemia trait, or laboratory artifact) and the elevated MCHC.",
+      "The specific cause of the eosinophilia (e.g., specific allergen, parasitic infection, medication)."
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T16:16:34.131433"
+  },
+  "timestamp": "2026-02-22T16:16:34.131459"
+}

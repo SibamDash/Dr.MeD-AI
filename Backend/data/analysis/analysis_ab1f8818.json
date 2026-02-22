@@ -1,0 +1,63 @@
+{
+  "analysisId": "analysis_ab1f8818",
+  "fileId": "report_87412fea_1771713148",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_ab1f8818",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "Patient name is Mr. TRA, age is 29 years, and sex is male.",
+      "test_report_summary": "The urine routine and microscopic examination shows a pale yellow urine with acidic reaction and no abnormalities. Stool routine and microscopic examination shows brownish consistency, semi-solid appearance, acidic reaction, and adequate bacteria flora. Complete blood cell count shows Hb 13.4 gm%, TWBC 7800/Cumm, TRBC 24.63 Mill/Cumm, TPC 23.06 Lacs/Cumm, PCV 23.5%, MCV 75.0 f1, MCH 27.7 pg, MCHC 37.0%, Neutrophils 60%, Eosinophils 0.8%, Basophils 0.0%, Lymphocytes 32%, Monocytes 0.0%. Biochemistry result: Fasting Blood Glucose 90 mg/dl.",
+      "clinical_interpretation": "The patient's Hb, TWBC, TRBC, TPC, PCV, MCV, MCH, and MCHC values are within the normal ranges. The differential count shows a normal neutrophil population with a slight increase in lymphocytes. Fasting blood glucose is within the normal range. The urine analysis is unremarkable. Given the patient's age and history of diabetes, monitoring of blood glucose levels and HbA1c is recommended to assess glycemic control. Further investigation may be needed based on the clinical context.",
+      "known_information": [
+        "Patient age: 29 years",
+        "Hb level: 13.4 gm% (within normal range)",
+        "Fasting Blood Glucose: 90 mg/dl (within normal range)"
+      ],
+      "unclear_information": [
+        "Referring physician's name",
+        "Complete list of biochemical tests performed"
+      ]
+    },
+    "findings": [],
+    "analysis": "The patient's Hb, TWBC, TRBC, TPC, PCV, MCV, MCH, and MCHC values are within the normal ranges. The differential count shows a normal neutrophil population with a slight increase in lymphocytes. Fasting blood glucose is within the normal range. The urine analysis is unremarkable. Given the patient's age and history of diabetes, monitoring of blood glucose levels and HbA1c is recommended to assess glycemic control. Further investigation may be needed based on the clinical context.",
+    "recommendations": [
+      {
+        "title": "Monitor Blood Glucose",
+        "description": "Regularly monitor fasting blood glucose levels and HbA1c to assess diabetes control.",
+        "icon": "glucose_meter",
+        "priority": "high"
+      },
+      {
+        "title": "Review Diabetes Management Plan",
+        "description": "Discuss current diabetes management plan with the patient and adjust as needed based on glucose monitoring results.",
+        "icon": "syringe",
+        "priority": "medium"
+      }
+    ],
+    "uncertainties": [
+      "Referring physician's name",
+      "Complete list of biochemical tests performed"
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T04:03:02.631004"
+  },
+  "timestamp": "2026-02-22T04:03:02.631014"
+}

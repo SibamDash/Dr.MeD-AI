@@ -1,0 +1,69 @@
+{
+  "analysisId": "analysis_dcc14e39",
+  "fileId": "report_8eb8e7ce_1771719847",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_dcc14e39",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "Patient name, age, and gender are not explicitly stated in the document. The patient's age is listed as 29, but the patient's name is Mr. and the gender is listed as M.",
+      "test_report_summary": "The urine routine and microscopic examination revealed a pale yellow urine with an acidic reaction. The urine is negative for turbidity, sugar, albumin, and phosphate. Microscopic examination showed 10-24 HPF pus cells and 2-3 HPF epithelial cells. Stool routine and microscopic examination showed brownish semi-solid stool with an acidic reaction, mucus present, no blood, no helminths, no protozoa, no pus cells, no RBC, vegetable cells present, adequate bacteria flora, no fat globules, and food particles present.",
+      "clinical_interpretation": "The patient's urine analysis shows signs of inflammation, indicated by the presence of pus cells. The acidic urine reaction could be related to various factors, including diet or underlying conditions. Given the patient's history of diabetes, monitoring urine output and glucose levels is crucial. The stool analysis suggests possible digestive issues, which should be investigated further. The presence of vegetable particles suggests the patient may be consuming a diet high in fiber.",
+      "known_information": [
+        "Patient age: 29",
+        "Patient has diabetes"
+      ],
+      "unclear_information": [
+        "Patient's name",
+        "Patient's gender"
+      ],
+      "suggested_medications": [
+        {
+          "name": "Metformin",
+          "dosage": "500mg twice daily",
+          "reason": "Considering the patient's diabetes and the inflammatory findings in the urine, Metformin can help manage blood glucose levels and potentially reduce inflammation."
+        }
+      ]
+    },
+    "findings": [],
+    "analysis": "The patient's urine analysis shows signs of inflammation, indicated by the presence of pus cells. The acidic urine reaction could be related to various factors, including diet or underlying conditions. Given the patient's history of diabetes, monitoring urine output and glucose levels is crucial. The stool analysis suggests possible digestive issues, which should be investigated further. The presence of vegetable particles suggests the patient may be consuming a diet high in fiber.",
+    "recommendations": [
+      {
+        "title": "Monitor Blood Glucose",
+        "description": "Regularly monitor blood glucose levels to assess the effectiveness of current diabetes management.",
+        "icon": "glucose_meter",
+        "priority": "high"
+      },
+      {
+        "title": "Dietary Review",
+        "description": "Review the patient's diet with a registered dietitian to identify potential dietary triggers for the acidic urine reaction and digestive issues.",
+        "icon": "apple",
+        "priority": "medium"
+      }
+    ],
+    "uncertainties": [
+      "Patient's name",
+      "Patient's gender"
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T05:54:25.368811"
+  },
+  "timestamp": "2026-02-22T05:54:25.368826"
+}

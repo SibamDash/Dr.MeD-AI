@@ -1,0 +1,89 @@
+{
+  "analysisId": "analysis_e3d91966",
+  "fileId": "report_4c6bea8f_1771742324",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_e3d91966",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "45-year-old patient with a known condition of Diabetes; the provided lab report belongs to a 29-year-old male.",
+      "test_report_summary": "The report includes a Complete Blood Count (CBC), Urine Routine, Stool Routine, and Fasting Blood Glucose. Key findings include microcytosis (low MCV 75.0 fL), hypochromia (low MCH 27.7 pg), mild eosinophilia (8%), and mucus in stool (+). Blood glucose is normal (90 mg/dl).",
+      "clinical_interpretation": "The Fasting Blood Glucose of 90 mg/dl indicates excellent glycemic control. The CBC reveals low MCV and MCH values, which characterize microcytic hypochromic red blood cells; this is commonly seen in iron deficiency anemia or thalassemia trait. The mild eosinophilia (8%) combined with the presence of mucus in the stool suggests a possible parasitic infestation or an allergic gastrointestinal response, despite the absence of visible ova or larvae in this single sample. The presence of vegetable cells in the stool may indicate slightly impaired digestion or rapid transit time.",
+      "known_information": [
+        "Fasting Blood Glucose is 90 mg/dl (Normal)",
+        "Microcytosis (MCV 75.0 fL) and Hypochromia (MCH 27.7 pg) are present",
+        "Eosinophil count is elevated at 8%",
+        "Mucus and vegetable cells are present in stool"
+      ],
+      "unclear_information": [
+        "Serum Ferritin and Iron studies to differentiate between iron deficiency and thalassemia",
+        "Clinical symptoms such as abdominal pain, fatigue, or diarrhea",
+        "Duration of the current symptoms"
+      ],
+      "suggested_medications": [
+        {
+          "name": "Albendazole",
+          "dosage": "400 mg as a single dose",
+          "reason": "Indicated for presumptive treatment of intestinal parasites given the elevated eosinophil count and mucus in the stool."
+        },
+        {
+          "name": "Ferrous Ascorbate (Iron Supplement)",
+          "dosage": "100 mg elemental iron once daily for 3 months",
+          "reason": "Suggested to address microcytosis and hypochromia, which are typical indicators of iron deficiency anemia."
+        },
+        {
+          "name": "Probiotic Supplement",
+          "dosage": "One capsule daily for 10 days",
+          "reason": "To help restore gut flora balance and improve digestion, addressing the mucus and undigested vegetable matter in stool."
+        }
+      ]
+    },
+    "findings": [],
+    "analysis": "The Fasting Blood Glucose of 90 mg/dl indicates excellent glycemic control. The CBC reveals low MCV and MCH values, which characterize microcytic hypochromic red blood cells; this is commonly seen in iron deficiency anemia or thalassemia trait. The mild eosinophilia (8%) combined with the presence of mucus in the stool suggests a possible parasitic infestation or an allergic gastrointestinal response, despite the absence of visible ova or larvae in this single sample. The presence of vegetable cells in the stool may indicate slightly impaired digestion or rapid transit time.",
+    "recommendations": [
+      {
+        "title": "Consult a Primary Care Physician",
+        "description": "Discuss the microcytic indices and eosinophilia to determine if further diagnostic tests like an Iron Profile are necessary.",
+        "icon": "\ud83d\udc68\u200d\u2695\ufe0f",
+        "priority": "high"
+      },
+      {
+        "title": "Iron Profile Test",
+        "description": "Schedule a Serum Iron, Ferritin, and TIBC test to confirm the cause of the low MCV/MCH.",
+        "icon": "\ud83e\ude78",
+        "priority": "medium"
+      },
+      {
+        "title": "Monitor Dietary Intake",
+        "description": "Increase intake of iron-rich foods (green leafy vegetables, lean meats) and observe for any food triggers that might cause stool mucus.",
+        "icon": "\ud83e\udd57",
+        "priority": "medium"
+      }
+    ],
+    "uncertainties": [
+      "Serum Ferritin and Iron studies to differentiate between iron deficiency and thalassemia",
+      "Clinical symptoms such as abdominal pain, fatigue, or diarrhea",
+      "Duration of the current symptoms"
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T12:09:17.884004"
+  },
+  "timestamp": "2026-02-22T12:09:17.884027"
+}

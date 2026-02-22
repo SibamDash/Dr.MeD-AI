@@ -1,0 +1,79 @@
+{
+  "analysisId": "analysis_ebff7127",
+  "fileId": "report_89c7fd1a_1771745716",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_ebff7127",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "The patient is a 29-year-old male (identified as Mr. [Redacted] in the document) who underwent routine urine and stool pathological investigations on August 2, 2024.",
+      "test_report_summary": "The urine routine and microscopic analysis are within normal limits (no sugar, albumin, or abnormal cells). The stool routine analysis shows a semi-solid consistency with the presence of mucus (+), undigested vegetable cells (+), and food particles. No blood, parasites (helminths), or protozoa were detected.",
+      "clinical_interpretation": "The urine analysis is normal, indicating healthy renal and urinary tract function. The stool report indicates mild gastrointestinal irritation or malabsorption, evidenced by the presence of mucus and undigested food particles. In the context of a patient with diabetes (as noted in the patient context), these findings could be associated with diabetic enteropathy or potential side effects of medications such as Metformin. The absence of blood and pathogens suggests the issue is likely functional or related to diet/motility rather than an acute infection.",
+      "known_information": [
+        "Urine analysis is normal",
+        "Stool consistency is semi-solid",
+        "Mucus and undigested vegetable cells are present in stool",
+        "No parasites or blood detected in stool"
+      ],
+      "unclear_information": [
+        "Discrepancy between provided age (45) and document age (29)",
+        "Presence of active symptoms like abdominal pain or diarrhea",
+        "History of specific diabetes medications"
+      ],
+      "suggested_medications": [
+        {
+          "name": "Probiotic Supplement (e.g., Bacillus clausii or Lactobacillus)",
+          "dosage": "One capsule/sachet daily for 10 days",
+          "reason": "To help regulate the gut microbiome and improve digestion, which can address the presence of mucus and undigested food particles in the stool."
+        }
+      ]
+    },
+    "findings": [],
+    "analysis": "The urine analysis is normal, indicating healthy renal and urinary tract function. The stool report indicates mild gastrointestinal irritation or malabsorption, evidenced by the presence of mucus and undigested food particles. In the context of a patient with diabetes (as noted in the patient context), these findings could be associated with diabetic enteropathy or potential side effects of medications such as Metformin. The absence of blood and pathogens suggests the issue is likely functional or related to diet/motility rather than an acute infection.",
+    "recommendations": [
+      {
+        "title": "Consult a Gastroenterologist",
+        "description": "Seek a specialist consultation to discuss the stool findings, especially the presence of mucus and undigested particles, to rule out IBS or malabsorption.",
+        "icon": "\ud83d\udc68\u200d\u2695\ufe0f",
+        "priority": "high"
+      },
+      {
+        "title": "Monitor Blood Sugar",
+        "description": "Continue regular monitoring of glucose levels, as digestive issues can affect how nutrients and medications are absorbed.",
+        "icon": "\ud83e\ude78",
+        "priority": "high"
+      },
+      {
+        "title": "Maintain a Food Diary",
+        "description": "Keep a log of food intake and subsequent bowel movements to identify specific triggers for intestinal irritation.",
+        "icon": "\ud83d\udcdd",
+        "priority": "medium"
+      }
+    ],
+    "uncertainties": [
+      "Discrepancy between provided age (45) and document age (29)",
+      "Presence of active symptoms like abdominal pain or diarrhea",
+      "History of specific diabetes medications"
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T13:06:22.224288"
+  },
+  "timestamp": "2026-02-22T13:06:22.224296"
+}

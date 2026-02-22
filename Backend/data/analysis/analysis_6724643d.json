@@ -1,0 +1,69 @@
+{
+  "analysisId": "analysis_6724643d",
+  "fileId": "report_a0526d05_1771719518",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_6724643d",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "Patient name, age, gender extracted from the document.",
+      "test_report_summary": "Urinalysis shows a pale yellow urine with acidic reaction, minimal findings. Stool examination reveals brownish consistency, semi-solid appearance, and acidic reaction.  The report indicates adequate bacteria flora and the presence of food particles.",
+      "clinical_interpretation": "The urinalysis results indicate a mildly acidic urine. The absence of significant abnormalities is reassuring. Given the patient's history of diabetes, monitoring urine acidity and overall hydration is important. The stool examination findings are generally unremarkable, but the presence of food particles should be considered in the context of the patient's diet.",
+      "known_information": [
+        "Patient is 45 years old.",
+        "Patient has a history of diabetes."
+      ],
+      "unclear_information": [
+        "Patient's current blood glucose levels are not provided.",
+        "Patient's dietary habits are not detailed."
+      ],
+      "suggested_medications": [
+        {
+          "name": "Metformin",
+          "dosage": "500mg twice daily",
+          "reason": "Considering the patient's diabetes, Metformin can help manage blood sugar levels and potentially influence urine acidity."
+        }
+      ]
+    },
+    "findings": [],
+    "analysis": "The urinalysis results indicate a mildly acidic urine. The absence of significant abnormalities is reassuring. Given the patient's history of diabetes, monitoring urine acidity and overall hydration is important. The stool examination findings are generally unremarkable, but the presence of food particles should be considered in the context of the patient's diet.",
+    "recommendations": [
+      {
+        "title": "Monitor Blood Glucose",
+        "description": "Regularly monitor blood glucose levels to assess diabetes control.",
+        "icon": "glucose_meter",
+        "priority": "high"
+      },
+      {
+        "title": "Hydration",
+        "description": "Ensure adequate hydration to maintain urine pH balance.",
+        "icon": "water_drop",
+        "priority": "medium"
+      }
+    ],
+    "uncertainties": [
+      "Patient's current blood glucose levels are not provided.",
+      "Patient's dietary habits are not detailed."
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T05:48:55.631258"
+  },
+  "timestamp": "2026-02-22T05:48:55.631267"
+}

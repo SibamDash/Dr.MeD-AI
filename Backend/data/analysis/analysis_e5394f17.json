@@ -1,0 +1,62 @@
+{
+  "analysisId": "analysis_e5394f17",
+  "fileId": "report_1a609769_1771716576",
+  "patientContext": {
+    "name": "jagan",
+    "age": "22",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_e5394f17",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "Patient name is Sj, age is 22, and sex is male.",
+      "test_report_summary": "The lab report includes complete blood count (CBC) and biochemistry results. Hb is slightly elevated, while other blood cell counts and percentages are within normal ranges. Fasting blood glucose is 90 mg/dl, which is within the normal range.",
+      "clinical_interpretation": "The patient's Hb level is slightly elevated (13.4 g/dL), which could indicate early signs of iron deficiency or other underlying conditions. The other blood cell counts and percentages are within normal limits. Fasting blood glucose of 90 mg/dL is within the normal range for a diabetic patient, suggesting good glycemic control. However, given the patient's existing diabetes diagnosis, continued monitoring of HbA1c and fasting glucose is crucial.",
+      "known_information": [
+        "Patient age: 22",
+        "Patient has diabetes"
+      ],
+      "unclear_information": [
+        "Iron status",
+        "HbA1c level"
+      ]
+    },
+    "findings": [],
+    "analysis": "The patient's Hb level is slightly elevated (13.4 g/dL), which could indicate early signs of iron deficiency or other underlying conditions. The other blood cell counts and percentages are within normal limits. Fasting blood glucose of 90 mg/dL is within the normal range for a diabetic patient, suggesting good glycemic control. However, given the patient's existing diabetes diagnosis, continued monitoring of HbA1c and fasting glucose is crucial.",
+    "recommendations": [
+      {
+        "title": "Monitor HbA1c",
+        "description": "Order an HbA1c test to assess long-term glycemic control.",
+        "icon": "warning",
+        "priority": "high"
+      },
+      {
+        "title": "Repeat CBC",
+        "description": "Repeat CBC to re-evaluate the slightly elevated Hb level.",
+        "icon": "repeat",
+        "priority": "medium"
+      }
+    ],
+    "uncertainties": [
+      "Iron status",
+      "HbA1c level"
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T05:00:16.641394"
+  },
+  "timestamp": "2026-02-22T05:00:16.641420"
+}

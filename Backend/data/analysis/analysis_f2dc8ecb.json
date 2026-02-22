@@ -1,0 +1,96 @@
+{
+  "analysisId": "analysis_f2dc8ecb",
+  "fileId": "report_749e9b67_1771752691",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_f2dc8ecb",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "Patient Mr. [Name Redacted], aged 29 years, male. The report was generated on August 2, 2024, by Siddharth Pathology Clinic.",
+      "test_report_summary": "The Complete Blood Count shows normal hemoglobin (13.4 gm%) and total white blood cell count (7800 /Cumm). However, MCV (75.0 fL) and MCH (27.7 pg) are slightly low, while MCHC (37.0%) is elevated. The differential count reveals elevated Eosinophils (08%) and low Monocytes (00%). Fasting Blood Glucose is normal at 90 mg/dl. Urine routine and microscopic examination are largely normal, with no sugar or albumin detected. Stool routine and microscopic examination show the presence of mucus, but no blood, helminths, or protozoa were detected.",
+      "clinical_interpretation": "The patient's complete blood count indicates a mild microcytic (low MCV) and hypochromic (low MCH) tendency, which typically suggests conditions like early iron deficiency or a thalassemia trait. However, the hemoglobin level is within the normal range, so overt anemia is not present. The elevated MCHC (37.0%) is an interesting finding, as it is generally uncommon with low MCV and MCH. High MCHC can sometimes be seen in conditions like hereditary spherocytosis or severe dehydration, or it may be a spurious lab result. Further investigation would be needed to clarify this. \n\nThe elevated eosinophil count (eosinophilia) can be associated with allergic reactions, parasitic infections, certain inflammatory conditions, or drug reactions. Given the presence of mucus in the stool, a mild gastrointestinal irritation or inflammation is plausible, which could be linked to an allergic response (e.g., food allergy) or a subclinical parasitic infection, even though the current stool sample did not detect parasites. \n\nThe low monocyte count (monocytopenia) is often not clinically significant in isolation but can occur transiently in various contexts including acute stress or infections. \n\nThe fasting blood glucose is within the normal range, which is a positive finding. If the patient has a known diagnosis of diabetes (as per the provided context), this indicates good glycemic control at the time of the test. \n\nOverall, the findings suggest a need for further clinical correlation with the patient's symptoms, medical history, and potentially further diagnostic tests to understand the underlying causes of the red blood cell indices, eosinophilia, and stool mucus. No specific prescription medication is strongly indicated at this stage without further workup.",
+      "known_information": [
+        "Patient is a 29-year-old male.",
+        "The patient's fasting blood glucose is normal (90 mg/dl).",
+        "Hemoglobin and total white blood cell counts are within normal limits.",
+        "The patient has elevated eosinophils (8%) and low monocytes (0%).",
+        "Stool analysis shows the presence of mucus.",
+        "Urine analysis is largely normal, with no sugar or albumin."
+      ],
+      "unclear_information": [
+        "The specific cause of the mild microcytic hypochromic tendency (low MCV and MCH) without overt anemia is not determined, warranting iron studies or hemoglobin electrophoresis.",
+        "The reason for the elevated MCHC (37.0%) in conjunction with low MCV/MCH is unclear and may indicate a lab artifact or a specific red cell disorder requiring further investigation.",
+        "The underlying cause of eosinophilia (e.g., specific allergy, parasitic infection) and stool mucus requires further clinical evaluation and potentially targeted testing.",
+        "The patient's full name is partially obscured in the document.",
+        "The consistency of the stated 'Diabetes' condition (from patient context) with the normal fasting blood glucose in this report."
+      ],
+      "suggested_medications": [
+        {
+          "name": "Multivitamin with Iron",
+          "dosage": "One tablet daily with food",
+          "reason": "To provide general nutritional support and address potential micronutrient deficiencies, considering the slightly low MCV and MCH values, which may indicate a predisposition to iron deficiency or a thalassemia trait. This is a supportive measure rather than a treatment for a confirmed condition."
+        },
+        {
+          "name": "Broad-spectrum Probiotic Supplement",
+          "dosage": "One capsule daily",
+          "reason": "To support gut microbiome balance and health, potentially aiding in resolution of gastrointestinal irritation and mucus in stool. A healthy gut microbiome can also influence immune responses and overall well-being."
+        }
+      ]
+    },
+    "findings": [],
+    "analysis": "The patient's complete blood count indicates a mild microcytic (low MCV) and hypochromic (low MCH) tendency, which typically suggests conditions like early iron deficiency or a thalassemia trait. However, the hemoglobin level is within the normal range, so overt anemia is not present. The elevated MCHC (37.0%) is an interesting finding, as it is generally uncommon with low MCV and MCH. High MCHC can sometimes be seen in conditions like hereditary spherocytosis or severe dehydration, or it may be a spurious lab result. Further investigation would be needed to clarify this. \n\nThe elevated eosinophil count (eosinophilia) can be associated with allergic reactions, parasitic infections, certain inflammatory conditions, or drug reactions. Given the presence of mucus in the stool, a mild gastrointestinal irritation or inflammation is plausible, which could be linked to an allergic response (e.g., food allergy) or a subclinical parasitic infection, even though the current stool sample did not detect parasites. \n\nThe low monocyte count (monocytopenia) is often not clinically significant in isolation but can occur transiently in various contexts including acute stress or infections. \n\nThe fasting blood glucose is within the normal range, which is a positive finding. If the patient has a known diagnosis of diabetes (as per the provided context), this indicates good glycemic control at the time of the test. \n\nOverall, the findings suggest a need for further clinical correlation with the patient's symptoms, medical history, and potentially further diagnostic tests to understand the underlying causes of the red blood cell indices, eosinophilia, and stool mucus. No specific prescription medication is strongly indicated at this stage without further workup.",
+    "recommendations": [
+      {
+        "title": "Consult with a Physician",
+        "description": "It is highly recommended to follow up with your referring doctor to discuss these results in the context of your complete medical history and any current symptoms. This will help determine the best course of action and any further necessary investigations.",
+        "icon": "\ud83d\udc68\u200d\u2695\ufe0f",
+        "priority": "high"
+      },
+      {
+        "title": "Investigate Anemia Etiology",
+        "description": "Consider additional blood tests such as Serum Iron, Ferritin, and Total Iron-Binding Capacity (TIBC) to further evaluate the slight microcytic hypochromic indices and rule out iron deficiency. Hemoglobin electrophoresis might also be considered to screen for thalassemia traits.",
+        "icon": "\ud83d\udd2c",
+        "priority": "medium"
+      },
+      {
+        "title": "Assess Gastrointestinal Health",
+        "description": "Monitor for any persistent gastrointestinal symptoms. If symptoms persist or worsen, consider further stool tests (e.g., stool culture, occult blood, inflammatory markers like calprotectin) or a consultation with a gastroenterologist to investigate the cause of stool mucus and eosinophilia.",
+        "icon": "\ud83c\udf4e",
+        "priority": "medium"
+      },
+      {
+        "title": "Review Diet and Allergens",
+        "description": "Given the eosinophilia and stool mucus, consider discussing with your doctor or a dietitian about potential dietary allergens or irritants that might be contributing to these findings. Maintaining a balanced diet with adequate fiber is generally beneficial for gut health.",
+        "icon": "\ud83e\udd57",
+        "priority": "low"
+      }
+    ],
+    "uncertainties": [
+      "The specific cause of the mild microcytic hypochromic tendency (low MCV and MCH) without overt anemia is not determined, warranting iron studies or hemoglobin electrophoresis.",
+      "The reason for the elevated MCHC (37.0%) in conjunction with low MCV/MCH is unclear and may indicate a lab artifact or a specific red cell disorder requiring further investigation.",
+      "The underlying cause of eosinophilia (e.g., specific allergy, parasitic infection) and stool mucus requires further clinical evaluation and potentially targeted testing.",
+      "The patient's full name is partially obscured in the document.",
+      "The consistency of the stated 'Diabetes' condition (from patient context) with the normal fasting blood glucose in this report."
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T15:02:04.226810"
+  },
+  "timestamp": "2026-02-22T15:02:04.226839"
+}

@@ -1,0 +1,96 @@
+{
+  "analysisId": "analysis_c7f7e3ce",
+  "fileId": "report_171397f3_1771757928",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_c7f7e3ce",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "Mr. [masked], a 29-year-old male, as per the document dated August 2, 2024. (Note: The patient context provided for analysis indicates a 45-year-old with diabetes, which will be used for clinical interpretation).",
+      "test_report_summary": "The urine routine and microscopic examination shows normal findings with no sugar or albumin detected. The stool routine and microscopic examination reveals brownish, semi-solid consistency with an acidic reaction and the presence of mucus. No blood, parasites, pus cells, or fat globules were detected. Adequate bacterial flora, vegetable cells, and food particles are present.",
+      "clinical_interpretation": "For a 45-year-old diabetic patient (as per provided context), the normal urine findings, particularly the absence of sugar and albumin, are reassuring, suggesting no immediate signs of diabetic kidney involvement based on these parameters. However, the stool report indicates some findings that warrant attention. The presence of mucus in stool can suggest irritation or inflammation within the gastrointestinal tract, potentially linked to conditions such as irritable bowel syndrome, inflammatory bowel disease, or even diabetic enteropathy given the patient's underlying condition. An acidic stool reaction can be associated with carbohydrate malabsorption, which might be influenced by dietary factors or altered gut motility. The absence of blood, parasites, and pus cells is a positive indicator, ruling out active bleeding or major infectious/inflammatory processes as the primary cause. However, these findings combined suggest a need to investigate potential gut dysbiosis, malabsorption, or functional bowel issues, especially in the context of diabetes which can affect gut health and motility. A probiotic is suggested to help restore gut flora balance and a fiber supplement to improve stool consistency and mucosal health.",
+      "known_information": [
+        "Patient details from report: Male, 29 years old, name Mr. [masked].",
+        "Report Date: August 2, 2024.",
+        "Urine analysis is largely normal: Pale yellow, acidic, nil for turbidity, sugar, albumin, phosphate. Microscopic shows 0-2/HPF pus cells, nil RBC, 2-3/HPF epithelial cells.",
+        "Stool analysis shows brownish, semi-solid, acidic reaction, and mucus present.",
+        "No blood, helminths (ova/larva), protozoa (cyst), pus cells, RBC, or fat globules in stool.",
+        "Patient context for analysis: 45 years old, with diabetes, and medium literacy level."
+      ],
+      "unclear_information": [
+        "The reason for the discrepancy in patient age between the document (29) and the provided patient context (45).",
+        "Patient's specific symptoms or clinical presentation that led to these tests.",
+        "Details of current diabetes management (e.g., HbA1c levels, other medications).",
+        "Specific dietary habits that might contribute to the acidic stool or mucus.",
+        "Duration and severity of any gastrointestinal symptoms."
+      ],
+      "suggested_medications": [
+        {
+          "name": "Probiotic",
+          "dosage": "Once daily (e.g., Lactobacillus and Bifidobacterium blend)",
+          "reason": "To help restore and maintain a healthy gut microbiome, potentially addressing gut irritation or dysbiosis contributing to mucus and acidic stool, especially relevant for diabetic patients."
+        },
+        {
+          "name": "Psyllium Husk",
+          "dosage": "1-2 teaspoons mixed with water daily",
+          "reason": "To promote regular bowel movements, improve stool consistency, and provide bulk, which can help alleviate symptoms associated with gut irritation and mucus production."
+        }
+      ]
+    },
+    "findings": [],
+    "analysis": "For a 45-year-old diabetic patient (as per provided context), the normal urine findings, particularly the absence of sugar and albumin, are reassuring, suggesting no immediate signs of diabetic kidney involvement based on these parameters. However, the stool report indicates some findings that warrant attention. The presence of mucus in stool can suggest irritation or inflammation within the gastrointestinal tract, potentially linked to conditions such as irritable bowel syndrome, inflammatory bowel disease, or even diabetic enteropathy given the patient's underlying condition. An acidic stool reaction can be associated with carbohydrate malabsorption, which might be influenced by dietary factors or altered gut motility. The absence of blood, parasites, and pus cells is a positive indicator, ruling out active bleeding or major infectious/inflammatory processes as the primary cause. However, these findings combined suggest a need to investigate potential gut dysbiosis, malabsorption, or functional bowel issues, especially in the context of diabetes which can affect gut health and motility. A probiotic is suggested to help restore gut flora balance and a fiber supplement to improve stool consistency and mucosal health.",
+    "recommendations": [
+      {
+        "title": "Consult with Healthcare Provider",
+        "description": "Discuss these stool findings (mucus, acidic reaction) with your primary care physician or a gastroenterologist for further evaluation and personalized management.",
+        "icon": "\ud83e\ude7a",
+        "priority": "high"
+      },
+      {
+        "title": "Review Dietary Habits",
+        "description": "Consider a review of your diet with a nutritionist or dietitian, focusing on carbohydrate intake and fiber, as an acidic stool can sometimes be related to carbohydrate malabsorption. This is particularly relevant for a diabetic patient.",
+        "icon": "\ud83c\udf4e",
+        "priority": "medium"
+      },
+      {
+        "title": "Monitor Symptoms",
+        "description": "Keep a log of any gastrointestinal symptoms, including frequency and consistency of bowel movements, abdominal pain, or bloating, to provide more comprehensive context for your doctor.",
+        "icon": "\ud83d\udcdd",
+        "priority": "medium"
+      },
+      {
+        "title": "Optimize Diabetes Control",
+        "description": "Ensure your diabetes is well-managed, as gastrointestinal issues can sometimes be linked to diabetic complications like enteropathy. Regular monitoring of blood sugar levels is important.",
+        "icon": "\ud83e\ude78",
+        "priority": "high"
+      }
+    ],
+    "uncertainties": [
+      "The reason for the discrepancy in patient age between the document (29) and the provided patient context (45).",
+      "Patient's specific symptoms or clinical presentation that led to these tests.",
+      "Details of current diabetes management (e.g., HbA1c levels, other medications).",
+      "Specific dietary habits that might contribute to the acidic stool or mucus.",
+      "Duration and severity of any gastrointestinal symptoms."
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T16:29:13.725478"
+  },
+  "timestamp": "2026-02-22T16:29:13.725489"
+}

@@ -1,0 +1,1260 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dr.MeD — AI Assisted Medical Intelligence Platform</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Palette from medical-ai.html */
+    --primary: #1E3A8A;
+    --primary-light: #3B82F6;
+    --primary-dark: #1e40af;
+    --secondary: #60A5FA;
+    --accent: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --bg-light: #F8FAFC;
+    --bg-white: #FFFFFF;
+    --text-primary: #1E293B;
+    --text-secondary: #64748B;
+    --text-muted: #94A3B8;
+    --border: #E2E8F0;
+
+    /* Mappings for existing components */
+    --navy: var(--primary);
+    --teal: var(--primary-light);
+    --teal-light: #93C5FD;
+    --bg: var(--bg-light);
+    --white: var(--bg-white);
+    --success: var(--accent);
+    --error: var(--danger);
+    --pending: var(--warning);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+  }
+  h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+  @keyframes shimmer {
+    from { background-position: -200% 0; }
+    to { background-position: 200% 0; }
+  }
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .fade-up { animation: fadeUp 0.5s ease forwards; }
+  .scale-in { animation: scaleIn 0.3s ease forwards; }
+
+  /* Layout */
+  .page { min-height: 100vh; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .card {
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(15,23,42,0.08);
+    padding: 32px;
+  }
+  .card-sm { padding: 20px; border-radius: 16px; }
+
+  /* Navbar */
+  .navbar {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(10px);
+  }
+  .navbar-brand {
+    display: flex; align-items: center; gap: 10px;
+    color: var(--primary); font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.5rem;
+    text-decoration: none; cursor: pointer;
+  }
+  .navbar-brand span { color: var(--primary-light); }
+  .navbar-pill {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--primary);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 500;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 12px 28px; border-radius: 12px; font-weight: 600; font-size: 0.95rem;
+    cursor: pointer; transition: all 0.2s; border: none; outline: none;
+    font-family: 'Outfit', sans-serif;
+  }
+  .btn:disabled { opacity: 0.55; cursor: not-allowed; }
+  .btn-primary { background: var(--primary); color: white; }
+  .btn-primary:hover:not(:disabled) { background: var(--primary-dark); box-shadow: 0 4px 16px rgba(30, 58, 138, 0.2); transform: translateY(-1px); }
+  .btn-navy { background: var(--navy); color: white; }
+  .btn-navy:hover:not(:disabled) { background: #1e293b; transform: translateY(-1px); }
+  .btn-outline { background: transparent; color: var(--navy); border: 2px solid var(--border); }
+  .btn-outline:hover:not(:disabled) { border-color: var(--primary); color: var(--primary); }
+  .btn-danger { background: var(--error); color: white; }
+  .btn-danger:hover:not(:disabled) { background: #b91c1c; }
+  .btn-success { background: var(--success); color: white; }
+  .btn-success:hover:not(:disabled) { background: #15803d; }
+  .btn-sm { padding: 8px 16px; font-size: 0.85rem; border-radius: 8px; }
+  .btn-full { width: 100%; }
+
+  /* Inputs */
+  .form-group { margin-bottom: 20px; }
+  .form-label { display: block; font-weight: 500; margin-bottom: 6px; font-size: 0.9rem; color: #334155; }
+  .form-input, .form-select {
+    width: 100%; padding: 12px 16px; border: 2px solid var(--border);
+    border-radius: 12px; font-size: 0.95rem; font-family: 'Outfit', sans-serif;
+    transition: border-color 0.2s, box-shadow 0.2s; outline: none; color: var(--navy);
+    background: white;
+  }
+  .form-input:focus, .form-select:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(20,184,166,0.15); }
+  .form-input::placeholder { color: #94a3b8; }
+  .input-group { display: flex; gap: 10px; }
+  .input-group .form-input { flex: 1; }
+
+  /* Spinner */
+  .spinner { width: 20px; height: 20px; border: 2.5px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 0.7s linear infinite; }
+  .spinner-dark { border-color: rgba(15,23,42,0.2); border-top-color: var(--navy); }
+  .spinner-teal { border-color: rgba(59, 130, 246, 0.2); border-top-color: var(--primary); }
+
+  /* Hero */
+  .hero {
+    min-height: 100vh;
+    background: var(--bg-light);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    color: var(--text-primary);
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(30, 58, 138, 0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(30, 58, 138, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-glow {
+    position: absolute; width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  .hero-content {
+    position: relative; text-align: center; padding: 40px 24px; max-width: 700px; margin: 0 auto;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2);
+    color: var(--primary); padding: 8px 18px; border-radius: 999px;
+    font-size: 0.82rem; font-weight: 500; margin-bottom: 28px;
+    animation: fadeUp 0.4s ease;
+  }
+  .hero-badge-dot { width: 6px; height: 6px; background: var(--primary); border-radius: 50%; animation: pulse 2s infinite; }
+  .hero-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: 800; color: var(--primary); line-height: 1;
+    margin-bottom: 16px;
+    animation: fadeUp 0.5s ease 0.1s both;
+  }
+  .hero-title span { color: var(--primary-light); }
+  .hero-sub {
+    font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 44px;
+    animation: fadeUp 0.5s ease 0.2s both; line-height: 1.6;
+  }
+  .hero-actions {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    animation: fadeUp 0.5s ease 0.3s both;
+  }
+  .hero-btn-primary {
+    padding: 14px 36px; background: var(--primary); color: white;
+    border-radius: 14px; font-weight: 700; font-size: 1rem; cursor: pointer;
+    border: none; transition: all 0.2s; font-family: 'Outfit', sans-serif;
+  }
+  .hero-btn-primary:hover { background: var(--primary-dark); box-shadow: 0 8px 24px rgba(30, 58, 138, 0.25); transform: translateY(-2px); }
+  .hero-btn-outline {
+    padding: 14px 36px; background: transparent; color: var(--primary);
+    border-radius: 14px; font-weight: 600; font-size: 1rem; cursor: pointer;
+    border: 2px solid var(--border); transition: all 0.2s; font-family: 'Outfit', sans-serif;
+  }
+  .hero-btn-outline:hover { border-color: var(--primary); background: rgba(30, 58, 138, 0.05); }
+  .hero-stats {
+    display: flex; gap: 48px; justify-content: center; margin-top: 64px;
+    animation: fadeUp 0.5s ease 0.4s both;
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat-num { font-family: 'JetBrains Mono',monospace; font-size: 2rem; font-weight: 700; color: var(--primary); }
+  .hero-stat-label { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
+
+  /* Role cards */
+  .role-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media(max-width:640px){ .role-grid { grid-template-columns: 1fr; } }
+  .role-card {
+    background: white; border-radius: 20px; padding: 40px 32px;
+    cursor: pointer; transition: all 0.25s; border: 2px solid var(--border);
+    text-align: center;
+  }
+  .role-card:hover { border-color: var(--primary); box-shadow: 0 8px 32px rgba(30, 58, 138, 0.1); transform: translateY(-4px); }
+  .role-icon {
+    width: 72px; height: 72px; border-radius: 20px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px; font-size: 2rem;
+  }
+  .role-icon-patient { background: rgba(59, 130, 246, 0.1); }
+  .role-icon-doctor { background: rgba(15,23,42,0.08); }
+
+  /* Step indicator */
+  .steps { display: flex; align-items: center; margin-bottom: 32px; }
+  .step { display: flex; align-items: center; gap: 10px; }
+  .step-num {
+    width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.85rem; transition: all 0.3s;
+  }
+  .step-num.active { background: var(--teal); color: white; }
+  .step-num.done { background: var(--success); color: white; }
+  .step-num.inactive { background: var(--border); color: var(--text-muted); }
+  .step-label { font-size: 0.85rem; font-weight: 500; }
+  .step-label.active { color: var(--teal); }
+  .step-label.inactive { color: var(--text-muted); }
+  .step-line { flex: 1; height: 2px; background: var(--border); margin: 0 12px; }
+  .step-line.done { background: var(--success); }
+
+  /* Status badges */
+  .badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 4px 12px; border-radius: 999px; font-size: 0.78rem; font-weight: 600;
+  }
+  .badge-dot { width: 5px; height: 5px; border-radius: 50%; }
+  .badge-pending { background: rgba(250,204,21,0.15); color: #854d0e; }
+  .badge-pending .badge-dot { background: var(--pending); }
+  .badge-verified { background: rgba(22,163,74,0.12); color: var(--success); }
+  .badge-verified .badge-dot { background: var(--success); }
+  .badge-rejected { background: rgba(220,38,38,0.1); color: var(--error); }
+  .badge-rejected .badge-dot { background: var(--error); }
+
+  /* Dashboard */
+  .dashboard { background: var(--bg); min-height: 100vh; }
+  .dashboard-header {
+    background: white; padding: 28px 24px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .dashboard-main { padding: 32px 24px; max-width: 1100px; margin: 0 auto; }
+  .dashboard-grid { display: grid; grid-template-columns: 280px 1fr; gap: 24px; }
+  @media(max-width:768px){ .dashboard-grid { grid-template-columns: 1fr; } }
+
+  .stat-card {
+    background: white; border-radius: 16px; padding: 20px 24px;
+    display: flex; align-items: center; gap: 16px;
+    box-shadow: 0 2px 12px rgba(15,23,42,0.06);
+  }
+  .stat-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; }
+  .stat-num { font-family: 'JetBrains Mono', monospace; font-size: 1.8rem; font-weight: 700; color: var(--primary); }
+  .stat-label { font-size: 0.82rem; color: var(--text-muted); }
+
+  .report-card {
+    background: white; border-radius: 16px; padding: 20px;
+    border: 1px solid var(--border); transition: box-shadow 0.2s;
+    margin-bottom: 12px;
+  }
+  .report-card:hover { box-shadow: 0 4px 16px rgba(15,23,42,0.08); }
+
+  /* Alert */
+  .alert { padding: 14px 18px; border-radius: 12px; font-size: 0.9rem; display: flex; align-items: flex-start; gap: 10px; }
+  .alert-success { background: rgba(22,163,74,0.1); border: 1px solid rgba(22,163,74,0.25); color: #166534; }
+  .alert-error { background: rgba(220,38,38,0.08); border: 1px solid rgba(220,38,38,0.2); color: #991b1b; }
+  .alert-info { background: rgba(20,184,166,0.08); border: 1px solid rgba(20,184,166,0.25); color: #0f766e; }
+
+  /* Auth page */
+  .auth-page {
+    min-height: 100vh; background: var(--bg-light);
+    display: flex; align-items: center; justify-content: center; padding: 40px 24px;
+    position: relative; overflow: hidden;
+  }
+  .auth-page .hero-grid { opacity: 0.5; }
+
+  /* Register page */
+  .register-page {
+    min-height: 100vh; background: var(--bg); padding: 40px 24px;
+    display: flex; align-items: flex-start; justify-content: center;
+  }
+  .register-wrap { width: 100%; max-width: 520px; }
+  .register-card { background: white; border-radius: 24px; padding: 40px; box-shadow: 0 8px 32px rgba(15,23,42,0.1); }
+
+  /* Verify overlay */
+  .verify-overlay {
+    position: fixed; inset: 0; background: rgba(15,23,42,0.7); z-index: 200;
+    display: flex; align-items: center; justify-content: center; padding: 24px;
+    backdrop-filter: blur(4px);
+  }
+  .verify-modal { background: white; border-radius: 24px; padding: 40px; max-width: 440px; width: 100%; animation: scaleIn 0.3s ease; }
+
+  /* OTP inputs */
+  .otp-group { display: flex; gap: 10px; justify-content: center; margin: 20px 0; }
+  .otp-input {
+    width: 48px; height: 52px; text-align: center; font-size: 1.3rem; font-weight: 700;
+    border: 2px solid var(--border); border-radius: 10px; outline: none;
+    transition: border-color 0.2s; font-family: 'JetBrains Mono', monospace; color: var(--navy);
+  }
+  .otp-input:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(20,184,166,0.15); }
+
+  /* Avatar */
+  .avatar {
+    width: 48px; height: 48px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.1rem; color: white;
+  }
+
+  /* Divider */
+  .divider { height: 1px; background: var(--border); margin: 24px 0; }
+
+  /* Modal detail */
+  .detail-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+  .detail-row:last-child { border-bottom: none; }
+  .detail-label { color: var(--text-muted); }
+  .detail-value { font-weight: 500; }
+
+  /* Specialization Modal */
+  .spec-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin-top: 16px; }
+  .spec-btn { padding: 12px; border: 2px solid var(--border); border-radius: 12px; background: white; cursor: pointer; transition: all 0.2s; font-weight: 500; text-align: center; font-family: 'Outfit', sans-serif; }
+  .spec-btn:hover { border-color: var(--primary-light); }
+  .spec-btn.selected { border-color: var(--primary); background: rgba(59, 130, 246, 0.05); color: var(--primary); font-weight: 600; }
+  .badge-severity-Low { background: #dcfce7; color: #166534; }
+  .badge-severity-Medium { background: #fef9c3; color: #854d0e; }
+  .badge-severity-High { background: #fee2e2; color: #991b1b; }
+
+  #recaptcha-container { margin-top: 8px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+
+<!-- Centralized Firebase Configuration -->
+<script src="firebase-config.js"></script>
+
+<script type="text/babel">
+const { useState, useEffect, useRef, createContext, useContext } = React;
+
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+
+// ─── Mock API ────────────────────────────────────────────────
+const mockPatientReports = [
+  { id: 1, name: "Blood Test — CBC", date: "2025-02-10", status: "verified", type: "Laboratory" },
+  { id: 2, name: "Chest X-Ray", date: "2025-02-14", status: "pending", type: "Radiology" },
+  { id: 3, name: "Lipid Panel", date: "2025-02-18", status: "rejected", type: "Laboratory" },
+];
+
+const MOCK_DOCTOR_REPORTS = [
+  {
+    report_id: 'r-101',
+    patient_name: 'Sarah Jenkins',
+    age: 45,
+    medical_condition: 'Hypertension',
+    severity_level: 'High',
+    allergies: 'Penicillin',
+    summary: 'Patient exhibits sustained elevated blood pressure (160/100 mmHg). Risk of cardiovascular strain. Immediate lifestyle intervention and medication review recommended.',
+    status: 'Pending',
+    symptoms: ['Chronic Headaches', 'Dizziness', 'Blurred Vision'],
+    abnormal_values: ['BP: 160/100', 'LDL: 145 mg/dL'],
+    suggested_treatment: 'Start Lisinopril 10mg daily, low sodium diet.',
+    medical_history: 'Family history of stroke.',
+    timestamp: '2023-10-27T09:30:00Z'
+  },
+  {
+    report_id: 'r-102',
+    patient_name: 'Michael Chen',
+    age: 52,
+    medical_condition: 'Type 2 Diabetes',
+    severity_level: 'Medium',
+    allergies: 'None',
+    summary: 'HbA1c levels at 7.8%. Fasting glucose 140 mg/dL. Current Metformin dosage may need adjustment. Patient reports good adherence to diet.',
+    status: 'Verified',
+    symptoms: ['Increased Thirst', 'Fatigue'],
+    abnormal_values: ['HbA1c: 7.8%', 'Glucose: 140 mg/dL'],
+    suggested_treatment: 'Increase Metformin to 1000mg BID.',
+    medical_history: 'Diagnosed 2020.',
+    timestamp: '2023-10-26T14:15:00Z'
+  }
+];
+
+const api = {
+  async verifyDoctor(payload) {
+    await new Promise(r => setTimeout(r, 2800));
+    // Simulate: reject if registration number starts with 'X'
+    if (payload.registration_number?.startsWith('X')) throw new Error("Registration not found in NMC Registry.");
+    return { verified: true, message: "Successfully verified with NMC Registry." };
+  },
+  async getPatientReports() {
+    await new Promise(r => setTimeout(r, 600));
+    return mockPatientReports;
+  },
+  async getDoctorReports(specialization) {
+    await new Promise(r => setTimeout(r, 700));
+    return MOCK_DOCTOR_REPORTS;
+  },
+  async approveReport(id) {
+    await new Promise(r => setTimeout(r, 500));
+    return { success: true, status: 'Verified' };
+  },
+  async rejectReport(id) {
+    await new Promise(r => setTimeout(r, 500));
+    return { success: true, status: 'Rejected' };
+  },
+  async editReport(id, summary) {
+    await new Promise(r => setTimeout(r, 600));
+    return { success: true, status: 'Verified', summary };
+  }
+};
+
+// ─── Context ─────────────────────────────────────────────────
+const AuthContext = createContext(null);
+const useAuth = () => useContext(AuthContext);
+
+function AuthProvider({ children }) {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(async (firebaseUser) => {
+      if (firebaseUser) {
+        // Fetch role from backend. Since the backend serves this file, we can use a relative path.
+        try {
+          const res = await fetch('/api/auth/profile', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: firebaseUser.email })
+          });
+          const data = await res.json();
+          if (data.success) {
+            setUser({ ...data.user, uid: firebaseUser.uid });
+          } else {
+            // Fallback if profile not found in backend but exists in Firebase
+            setUser({ name: firebaseUser.displayName, email: firebaseUser.email, uid: firebaseUser.uid });
+          }
+        } catch (e) {
+          console.error("Failed to fetch profile", e);
+          // Fallback if backend is down but Firebase auth succeeded
+          if (e.message === 'Failed to fetch') {
+             setUser({ name: firebaseUser.displayName, email: firebaseUser.email, uid: firebaseUser.uid, role: 'patient' });
+          }
+        }
+      } else {
+        setUser(null);
+      }
+      setLoading(false);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const setUserAndStore = (u) => {
+    setUser(u);
+    if (!u) auth.signOut();
+  };
+
+  return <AuthContext.Provider value={{ user, setUser: setUserAndStore }}>{!loading && children}</AuthContext.Provider>;
+}
+
+// ─── Router (hash-based) ─────────────────────────────────────
+function useRoute() {
+  const [path, setPath] = useState(window.location.hash.slice(1) || '/');
+  useEffect(() => {
+    const handler = () => setPath(window.location.hash.slice(1) || '/');
+    window.addEventListener('hashchange', handler);
+    return () => window.removeEventListener('hashchange', handler);
+  }, []);
+  const navigate = (to) => { window.location.hash = to; };
+  return { path, navigate };
+}
+
+// ─── Components ───────────────────────────────────────────────
+
+function Navbar({ navigate }) {
+  const { user, setUser } = useAuth();
+  return (
+    <nav className="navbar">
+      <div className="navbar-brand" onClick={() => navigate('/')}>
+        <div style={{width:32,height:32,background:'var(--primary)',borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center',color:'white',fontSize:'1.2rem',fontWeight:'bold'}}>
+          +
+        </div>
+        <span style={{color:'var(--primary)'}}>Dr.MeD</span>
+      </div>
+      <div style={{display:'flex',gap:12,alignItems:'center'}}>
+        <a href="/medical-ai.html" className="btn btn-outline btn-sm" style={{textDecoration: 'none'}}>Home</a>
+        <span className="navbar-pill">AI Medical Platform</span>
+        {user && (
+          <button className="btn btn-outline btn-sm" onClick={() => { setUser(null); navigate('/'); }}>
+            Sign Out
+          </button>
+        )}
+      </div>
+    </nav>
+  );
+}
+
+function StatusBadge({ status, className='' }) {
+  const s = status.toLowerCase();
+  const map = { pending: 'badge-pending', verified: 'badge-verified', rejected: 'badge-rejected' };
+  return (
+    <span className={`badge ${map[s] || 'badge-pending'} ${className}`}>
+      <span className="badge-dot" />
+      {status}
+    </span>
+  );
+}
+
+function Spinner({ className = '' }) {
+  return <div className={`spinner ${className}`} />;
+}
+
+// OTP Verification Component
+function OTPVerification({ phone, onVerified, onClose }) {
+  const [step, setStep] = useState('send'); // send | verify
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [otp, setOtp] = useState(['','','','','','']);
+  const [confirmResult, setConfirmResult] = useState(null);
+  const recaptchaRef = useRef(null);
+  const inputRefs = useRef([]);
+
+  const setupRecaptcha = () => {
+    if (!window.recaptchaVerifier) {
+      window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+        size: 'normal',
+        callback: () => {},
+        'expired-callback': () => { window.recaptchaVerifier = null; }
+      });
+    }
+  };
+
+  const sendOTP = async () => {
+    if (!phone || phone.length < 10) { setError('Enter a valid phone number.'); return; }
+    setLoading(true); setError('');
+    try {
+      setupRecaptcha();
+      const formatted = phone.startsWith('+') ? phone : `+91${phone}`;
+      const result = await auth.signInWithPhoneNumber(formatted, window.recaptchaVerifier);
+      setConfirmResult(result);
+      setStep('verify');
+    } catch (e) {
+      setError(e.message || 'Failed to send OTP. Check phone number.');
+      if (window.recaptchaVerifier) { window.recaptchaVerifier.clear(); window.recaptchaVerifier = null; }
+    }
+    setLoading(false);
+  };
+
+  const handleOtpChange = (i, val) => {
+    if (!/^\d*$/.test(val)) return;
+    const newOtp = [...otp];
+    newOtp[i] = val.slice(-1);
+    setOtp(newOtp);
+    if (val && i < 5) inputRefs.current[i+1]?.focus();
+  };
+  const handleOtpKey = (i, e) => {
+    if (e.key === 'Backspace' && !otp[i] && i > 0) inputRefs.current[i-1]?.focus();
+  };
+
+  const verifyOTP = async () => {
+    const code = otp.join('');
+    if (code.length < 6) { setError('Enter complete 6-digit OTP.'); return; }
+    setLoading(true); setError('');
+    try {
+      await confirmResult.confirm(code);
+      onVerified();
+    } catch (e) {
+      setError('Invalid OTP. Please try again.');
+    }
+    setLoading(false);
+  };
+
+  return (
+    <div className="verify-overlay">
+      <div className="verify-modal">
+        <div style={{textAlign:'center',marginBottom:24}}>
+          <div style={{width:56,height:56,background:'rgba(20,184,166,0.1)',borderRadius:16,display:'flex',alignItems:'center',justifyContent:'center',margin:'0 auto 16px',fontSize:'1.6rem'}}>📱</div>
+          <h3 style={{fontSize:'1.2rem',fontWeight:700,marginBottom:6}}>Verify Phone Number</h3>
+          <p style={{fontSize:'0.88rem',color:'var(--text-muted)'}}>
+            {step === 'send' ? `We'll send an OTP to ${phone}` : `Enter the 6-digit OTP sent to ${phone}`}
+          </p>
+        </div>
+
+        {error && <div className="alert alert-error" style={{marginBottom:16}}><span>⚠️</span>{error}</div>}
+
+        {step === 'send' && (
+          <>
+            <div id="recaptcha-container" style={{marginBottom:16}} />
+            <button className="btn btn-primary btn-full" onClick={sendOTP} disabled={loading}>
+              {loading ? <><Spinner />Sending OTP...</> : 'Send OTP'}
+            </button>
+          </>
+        )}
+
+        {step === 'verify' && (
+          <>
+            <div className="otp-group">
+              {otp.map((v,i) => (
+                <input key={i} ref={el => inputRefs.current[i]=el}
+                  className="otp-input" type="tel" maxLength={1} value={v}
+                  onChange={e => handleOtpChange(i, e.target.value)}
+                  onKeyDown={e => handleOtpKey(i, e)} />
+              ))}
+            </div>
+            <button className="btn btn-primary btn-full" onClick={verifyOTP} disabled={loading}>
+              {loading ? <><Spinner />Verifying...</> : 'Verify OTP'}
+            </button>
+            <button className="btn btn-outline btn-full" style={{marginTop:10}} onClick={() => { setStep('send'); setOtp(['','','','','','']); }} disabled={loading}>
+              Resend OTP
+            </button>
+          </>
+        )}
+
+        <button style={{display:'block',margin:'14px auto 0',background:'none',border:'none',color:'var(--text-muted)',cursor:'pointer',fontSize:'0.85rem'}} onClick={onClose}>
+          Cancel
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function StepIndicator({ current }) {
+  const steps = ['Basic Info', 'Identity Verification'];
+  return (
+    <div className="steps">
+      {steps.map((s, i) => {
+        const idx = i + 1;
+        const state = idx < current ? 'done' : idx === current ? 'active' : 'inactive';
+        return (
+          <React.Fragment key={i}>
+            <div className="step">
+              <div className={`step-num ${state}`}>
+                {state === 'done' ? '✓' : idx}
+              </div>
+              <span className={`step-label ${state === 'inactive' ? 'inactive' : 'active'}`}>{s}</span>
+            </div>
+            {i < steps.length - 1 && <div className={`step-line ${state === 'done' ? 'done' : ''}`} />}
+          </React.Fragment>
+        );
+      })}
+    </div>
+  );
+}
+
+// ─── Pages ────────────────────────────────────────────────────
+
+function Home({ navigate }) {
+  return (
+    <div className="hero">
+      <div className="hero-grid" />
+      <div className="hero-glow" />
+      <div className="hero-content">
+        <div className="hero-badge">
+          <span className="hero-badge-dot" />
+          AI-Powered Medical Report Analysis
+        </div>
+        <h1 className="hero-title">Dr.<span>MeD</span></h1>
+        <p className="hero-sub">
+          Connecting patients and doctors through intelligent diagnostics,<br/>
+          real-time analysis, and verified medical expertise.
+        </p>
+        <div className="hero-actions">
+          <button className="hero-btn-primary" onClick={() => navigate('/login')}>Sign In</button>
+          <button className="hero-btn-outline" onClick={() => navigate('/register')}>Sign Up</button>
+        </div>
+        <div className="hero-stats">
+          {[['50K+','Patients Served'],['8K+','Verified Doctors'],['99.2%','Accuracy Rate']].map(([n,l]) => (
+            <div className="hero-stat" key={l}>
+              <div className="hero-stat-num">{n}</div>
+              <div className="hero-stat-label">{l}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Auth({ navigate, mode = 'login' }) {
+  const { setUser } = useAuth();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const handleLogin = async () => {
+    if (username === 'admin' && password === 'admin1234') {
+      setUser({ name: 'Administrator', role: 'admin', specialization: 'System Admin' });
+      navigate('/doctor-dashboard');
+      return;
+    }
+
+    try {
+      // Login with Firebase
+      await auth.signInWithEmailAndPassword(username, password);
+      // AuthProvider will handle the state update via onAuthStateChanged
+      
+      // We can manually check role here to redirect immediately if needed, 
+      // but let's wait for the effect to settle or just redirect based on assumption
+      // For better UX, we can fetch profile here too to redirect correctly
+      const res = await fetch('/api/auth/profile', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: username })
+      });
+      const data = await res.json();
+      
+      if (data.success) {
+        // Verify role and redirect accordingly
+        if (data.user.role === 'doctor' || data.user.role === 'admin') {
+          navigate('/doctor-dashboard');
+        } else {
+          window.location.href = '/medical-ai.html';
+        }
+      }
+    } catch (e) {
+      console.error("Login Error:", e);
+      if (e.message === 'Failed to fetch') {
+        setError('Cannot connect to server. Please ensure backend is running.');
+      } else {
+        setError(e.message || 'Login failed');
+      }
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    try {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      const result = await auth.signInWithPopup(provider);
+      const fbUser = result.user;
+      
+      const res = await fetch('/api/auth/profile', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: fbUser.email })
+      });
+      const data = await res.json();
+      
+      if (data.success) {
+        if (data.user.role === 'doctor') navigate('/doctor-dashboard');
+        else window.location.href = '/medical-ai.html';
+      } else {
+        setError('Account not found. Please register first.');
+      }
+    } catch (e) {
+      console.error("Google Login Error:", e);
+      if (e.message === 'Failed to fetch') {
+        setError('Cannot connect to server. Please ensure backend is running.');
+      } else {
+        setError(e.message);
+      }
+    }
+  };
+
+  return (
+    <div className="auth-page">
+      <div className="hero-grid" />
+      <div style={{position:'relative',width:'100%',maxWidth:700}}>
+        <div style={{textAlign:'center',marginBottom:40}}>
+          <h2 style={{color:'var(--primary)',fontFamily:'Outfit',fontWeight:700,fontSize:'2rem',marginBottom:8}}>
+            {mode === 'login' ? 'Welcome Back' : 'Join Dr.MeD'}
+          </h2>
+          <p style={{color:'var(--text-secondary)'}}>
+            {mode === 'login' ? 'Sign in to your account' : 'Choose your role to get started'}
+          </p>
+        </div>
+        
+        {mode === 'login' ? (
+          <div className="register-card" style={{maxWidth:400,margin:'0 auto'}}>
+            {error && <div className="alert alert-error" style={{marginBottom:16}}>{error}</div>}
+            <div className="form-group">
+              <label className="form-label">Username / Email</label>
+              <input className="form-input" value={username} onChange={e => setUsername(e.target.value)} placeholder="Enter username" />
+            </div>
+            <div className="form-group">
+              <label className="form-label">Password</label>
+              <input className="form-input" type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Enter password" />
+            </div>
+            <button className="btn btn-primary btn-full" onClick={handleLogin}>Sign In</button>
+            <button className="btn btn-outline btn-full" style={{marginTop:12}} onClick={handleGoogleLogin}>
+              <span style={{marginRight:8}}>G</span> Sign in with Google
+            </button>
+            <div style={{textAlign:'center',marginTop:24}}>
+              <p style={{color:'var(--text-secondary)',fontSize:'0.9rem'}}>
+                Don't have an account? <span style={{color:'var(--primary)',cursor:'pointer',fontWeight:600}} onClick={() => navigate('/register')}>Register</span>
+              </p>
+            </div>
+          </div>
+        ) : (
+          <>
+            <div className="role-grid">
+              <div className="role-card" onClick={() => window.location.href = 'patient-register.html'}>
+                <div className="role-icon role-icon-patient">🧑‍⚕️</div>
+                <h3 style={{fontWeight:700,fontSize:'1.15rem',marginBottom:8}}>Register as Patient</h3>
+              </div>
+              <div className="role-card" onClick={() => window.location.href = 'doctor-register.html'}>
+                <div className="role-icon role-icon-doctor">👨‍⚕️</div>
+                <h3 style={{fontWeight:700,fontSize:'1.15rem',marginBottom:8}}>Register as Doctor</h3>
+              </div>
+            </div>
+            <div style={{textAlign:'center',marginTop:24}}>
+              <p style={{color:'var(--text-secondary)',fontSize:'0.9rem'}}>
+                Already have an account? <span style={{color:'var(--primary)',cursor:'pointer',fontWeight:600}} onClick={() => navigate('/login')}>Sign In</span>
+              </p>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function PatientDashboard({ navigate }) {
+  const { user } = useAuth();
+  const [reports, setReports] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    api.getPatientReports().then(r => { setReports(r); setLoading(false); });
+  }, []);
+
+  const stats = {
+    total: reports.length,
+    verified: reports.filter(r => r.status === 'verified').length,
+    pending: reports.filter(r => r.status === 'pending').length,
+  };
+
+  return (
+    <div className="dashboard">
+      <Navbar navigate={navigate} />
+      <div className="dashboard-header">
+        <div>
+          <p style={{color:'var(--text-secondary)',fontSize:'0.82rem',marginBottom:4}}>Welcome back,</p>
+          <h2 style={{color:'var(--primary)',fontFamily:'Outfit',fontWeight:700,fontSize:'1.4rem'}}>{user?.name || 'Patient'}</h2>
+        </div>
+        <div style={{display:'flex',alignItems:'center',gap:12}}>
+          <div className="avatar" style={{background:'linear-gradient(135deg,#14B8A6,#0891b2)'}}>
+            {(user?.name||'P')[0]}
+          </div>
+          <div>
+            <p style={{color:'white',fontWeight:600,fontSize:'0.9rem'}}>{user?.name}</p>
+            <p style={{color:'var(--primary-light)',fontSize:'0.78rem'}}>Patient Account</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="dashboard-main">
+        <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:16,marginBottom:28}}>
+          {[
+            {label:'Total Reports',num:stats.total,icon:'📋',bg:'rgba(20,184,166,0.1)'},
+            {label:'Verified',num:stats.verified,icon:'✅',bg:'rgba(22,163,74,0.1)'},
+            {label:'Pending',num:stats.pending,icon:'⏳',bg:'rgba(250,204,21,0.15)'},
+          ].map(s => (
+            <div className="stat-card" key={s.label}>
+              <div className="stat-icon" style={{background:s.bg}}>{s.icon}</div>
+              <div>
+                <div className="stat-num">{s.num}</div>
+                <div className="stat-label">{s.label}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="dashboard-grid">
+          {/* Profile */}
+          <div>
+            <div className="card">
+              <h3 style={{fontWeight:700,marginBottom:16,fontSize:'1rem'}}>My Profile</h3>
+              <div style={{textAlign:'center',padding:'12px 0'}}>
+                <div className="avatar" style={{width:72,height:72,fontSize:'1.8rem',background:'linear-gradient(135deg,#14B8A6,#0891b2)',margin:'0 auto 12px',borderRadius:20}}>
+                  {(user?.name||'P')[0]}
+                </div>
+                <p style={{fontWeight:700,fontSize:'1.05rem'}}>{user?.name}</p>
+                <p style={{color:'var(--text-muted)',fontSize:'0.82rem'}}>{user?.phone}</p>
+                <span className="badge badge-verified" style={{marginTop:8}}>Verified Patient</span>
+              </div>
+              <div className="divider" />
+              <a href="/medical-ai.html" className="btn btn-primary btn-full" style={{textDecoration: 'none'}}>
+                🔬 Analyze New Report
+              </a>
+            </div>
+          </div>
+
+          {/* Reports */}
+          <div>
+            <h3 style={{fontWeight:700,marginBottom:16,fontSize:'1rem'}}>My Reports</h3>
+            {loading ? (
+              <div style={{textAlign:'center',padding:40}}><Spinner className="spinner-teal" /></div>
+            ) : (
+              reports.map(r => (
+                <div className="report-card" key={r.id}>
+                  <div style={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+                    <div style={{display:'flex',alignItems:'center',gap:12}}>
+                      <div style={{fontSize:'1.4rem'}}>{r.type === 'Laboratory' ? '🧪' : '🩻'}</div>
+                      <div>
+                        <p style={{fontWeight:600,fontSize:'0.92rem'}}>{r.name}</p>
+                        <p style={{color:'var(--text-muted)',fontSize:'0.8rem'}}>{r.date} · {r.type}</p>
+                      </div>
+                    </div>
+                    <StatusBadge status={r.status} />
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SpecializationModal({ isOpen, onSave }) {
+  const [selected, setSelected] = useState("");
+  const [custom, setCustom] = useState("");
+  const [isCustom, setIsCustom] = useState(false);
+  const specs = ["Cardiology", "Endocrinology", "General Medicine", "Hematology", "Neurology", "Pediatrics", "Dermatology", "Orthopedics"];
+
+  if (!isOpen) return null;
+
+  const handleSave = () => {
+    const final = isCustom ? custom : selected;
+    if (final) onSave(final);
+  };
+
+  return (
+    <div className="verify-overlay">
+      <div className="verify-modal fade-up">
+        <div style={{textAlign:'center',marginBottom:24}}>
+          <div style={{fontSize:'2.5rem',marginBottom:12}}>👨‍⚕️</div>
+          <h3 style={{fontSize:'1.4rem',fontWeight:700,marginBottom:8}}>Select Specialization</h3>
+          <p style={{color:'var(--text-secondary)',fontSize:'0.9rem'}}>To provide relevant reports, please confirm your field.</p>
+        </div>
+        <div className="spec-grid">
+          {specs.map(s => (
+            <div key={s} className={`spec-btn ${selected === s && !isCustom ? 'selected' : ''}`} onClick={() => { setSelected(s); setIsCustom(false); }}>
+              {s}
+            </div>
+          ))}
+          <div className={`spec-btn ${isCustom ? 'selected' : ''}`} onClick={() => setIsCustom(true)}>Other</div>
+        </div>
+        {isCustom && (
+          <div style={{marginTop:16}}>
+            <input className="form-input" placeholder="Enter specialization" value={custom} onChange={e => setCustom(e.target.value)} autoFocus />
+          </div>
+        )}
+        <button className="btn btn-primary btn-full" style={{marginTop:24}} onClick={handleSave} disabled={!selected && !custom}>
+          Confirm & Continue
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function ReportDetailModal({ report, onClose, onApprove, onReject, onEdit }) {
+  const [isEditing, setIsEditing] = useState(false);
+  const [summary, setSummary] = useState(report.summary);
+  const [loading, setLoading] = useState(false);
+
+  const handleSave = async () => {
+    setLoading(true);
+    await onEdit(report.report_id, summary);
+    setLoading(false);
+    setIsEditing(false);
+  };
+
+  const handleAction = async (fn) => {
+    setLoading(true);
+    await fn(report.report_id);
+    setLoading(false);
+    onClose();
+  };
+
+  return (
+    <div className="verify-overlay" onClick={onClose}>
+      <div className="verify-modal fade-up" style={{maxWidth:700,maxHeight:'90vh',overflowY:'auto'}} onClick={e => e.stopPropagation()}>
+        <div style={{display:'flex',justifyContent:'space-between',alignItems:'start',marginBottom:20}}>
+          <div>
+            <h3 style={{fontWeight:700,fontSize:'1.4rem',marginBottom:4}}>{report.patient_name}</h3>
+            <p style={{color:'var(--text-muted)',fontSize:'0.85rem'}}>ID: {report.report_id} · {report.age} yrs · {report.medical_condition}</p>
+          </div>
+          <button style={{background:'none',border:'none',fontSize:'1.5rem',cursor:'pointer',color:'var(--text-muted)'}} onClick={onClose}>×</button>
+        </div>
+
+        <div style={{background:'var(--bg-light)',borderRadius:16,padding:20,marginBottom:24,border:'1px solid var(--border)'}}>
+          <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:12}}>
+            <h4 style={{fontWeight:700,fontSize:'0.95rem',display:'flex',alignItems:'center',gap:8}}>🤖 AI Extracted Summary</h4>
+            {!isEditing && report.status !== 'Verified' && (
+              <button style={{background:'none',border:'none',color:'var(--primary-light)',fontWeight:600,fontSize:'0.85rem',cursor:'pointer'}} onClick={() => setIsEditing(true)}>Edit</button>
+            )}
+          </div>
+          {isEditing ? (
+            <div>
+              <textarea className="form-input" style={{minHeight:120,marginBottom:12}} value={summary} onChange={e => setSummary(e.target.value)} />
+              <div style={{display:'flex',gap:8,justifyContent:'flex-end'}}>
+                <button className="btn btn-outline btn-sm" onClick={() => setIsEditing(false)}>Cancel</button>
+                <button className="btn btn-primary btn-sm" onClick={handleSave} disabled={loading}>{loading ? 'Saving...' : 'Save'}</button>
+              </div>
+            </div>
+          ) : (
+            <p style={{lineHeight:1.6,fontSize:'0.95rem',color:'var(--text-primary)'}}>{report.summary}</p>
+          )}
+        </div>
+
+        <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:24,marginBottom:24}}>
+          <div>
+            <h5 style={{fontSize:'0.8rem',fontWeight:700,color:'var(--text-muted)',textTransform:'uppercase',marginBottom:12}}>Clinical Findings</h5>
+            <div className="detail-row"><span className="detail-label">Abnormal Values</span><div style={{textAlign:'right'}}>{report.abnormal_values.map(v => <div key={v} style={{color:'var(--error)',fontWeight:500,fontSize:'0.85rem'}}>{v}</div>)}</div></div>
+            <div className="detail-row"><span className="detail-label">Symptoms</span><div style={{textAlign:'right',fontSize:'0.9rem'}}>{report.symptoms.join(', ')}</div></div>
+          </div>
+          <div>
+            <h5 style={{fontSize:'0.8rem',fontWeight:700,color:'var(--text-muted)',textTransform:'uppercase',marginBottom:12}}>Medical Context</h5>
+            <div className="detail-row"><span className="detail-label">Treatment</span><span className="detail-value" style={{color:'var(--success)'}}>{report.suggested_treatment}</span></div>
+            <div className="detail-row"><span className="detail-label">Allergies</span><span className="detail-value" style={{color:'var(--error)'}}>{report.allergies}</span></div>
+          </div>
+        </div>
+
+        {report.status === 'Pending' ? (
+          <div style={{display:'flex',gap:12,borderTop:'1px solid var(--border)',paddingTop:20}}>
+            <button className="btn btn-danger btn-full" onClick={() => handleAction(onReject)} disabled={loading}>{loading ? 'Processing...' : 'Reject Report'}</button>
+            <button className="btn btn-success btn-full" onClick={() => handleAction(onApprove)} disabled={loading}>{loading ? 'Processing...' : 'Approve Report'}</button>
+          </div>
+        ) : (
+          <div style={{textAlign:'center',paddingTop:16,borderTop:'1px solid var(--border)'}}>
+            <span style={{color:'var(--text-muted)',fontSize:'0.9rem'}}>Report status: </span>
+            <StatusBadge status={report.status} />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function DoctorDashboard({ navigate }) {
+  const { user, setUser } = useAuth();
+  const [reports, setReports] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [selected, setSelected] = useState(null);
+  const [showSpecModal, setShowSpecModal] = useState(false);
+  const [filterSeverity, setFilterSeverity] = useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    if (!user.specialization) {
+      setShowSpecModal(true);
+    } else {
+      fetchReports(user.specialization);
+    }
+  }, [user.specialization]);
+
+  const fetchReports = async (spec) => {
+    setLoading(true);
+    const data = await api.getDoctorReports(spec);
+    setReports(data);
+    setLoading(false);
+  };
+
+  const handleSpecSave = (spec) => {
+    const updatedUser = { ...user, specialization: spec };
+    setUser(updatedUser);
+    setShowSpecModal(false);
+    fetchReports(spec);
+  };
+
+  const handleApprove = async (id) => {
+    const res = await api.approveReport(id);
+    setReports(prev => prev.map(r => r.report_id === id ? { ...r, status: res.status } : r));
+    if (selected?.report_id === id) setSelected(prev => ({ ...prev, status: res.status }));
+  };
+
+  const handleReject = async (id) => {
+    const res = await api.rejectReport(id);
+    setReports(prev => prev.map(r => r.report_id === id ? { ...r, status: res.status } : r));
+    if (selected?.report_id === id) setSelected(prev => ({ ...prev, status: res.status }));
+  };
+
+  const handleEdit = async (id, summary) => {
+    const res = await api.editReport(id, summary);
+    setReports(prev => prev.map(r => r.report_id === id ? { ...r, status: res.status, summary: res.summary } : r));
+    if (selected?.report_id === id) setSelected(prev => ({ ...prev, status: res.status, summary: res.summary }));
+  };
+
+  const filteredReports = reports.filter(r => {
+    const matchesSev = filterSeverity === "All" || r.severity_level === filterSeverity;
+    const matchesSearch = r.patient_name.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesSev && matchesSearch;
+  });
+
+  const stats = {
+    total: reports.length,
+    pending: reports.filter(r => r.status === 'Pending').length,
+    verified: reports.filter(r => r.status === 'Verified').length,
+  };
+
+  return (
+    <div className="dashboard">
+      <Navbar navigate={navigate} />
+      <div className="dashboard-header">
+        <div style={{display:'flex',alignItems:'center',gap:12}}>
+          <div style={{fontSize:'1.8rem'}}>🏥</div>
+          <div>
+            <p style={{color:'var(--text-secondary)',fontSize:'0.82rem',marginBottom:2}}>Doctor Dashboard</p>
+            <h2 style={{color:'var(--primary)',fontFamily:'Outfit',fontWeight:700,fontSize:'1.4rem'}}>{user?.name || 'Dr. User'}</h2>
+          </div>
+        </div>
+        <div style={{display:'flex',alignItems:'center',gap:10}}>
+          <div className="avatar" style={{background:'linear-gradient(135deg,#1e40af,#0F172A)'}}>
+            {(user?.name||'D')[0]}
+          </div>
+          <div>
+            <p style={{color:'var(--primary)',fontWeight:600,fontSize:'0.9rem'}}>{user?.specialization || user?.hospital || 'Doctor'}</p>
+            <div style={{display:'flex',alignItems:'center',gap:6,marginTop:2}}>
+              <span style={{width:6,height:6,background:'#22c55e',borderRadius:'50%',display:'inline-block'}} />
+              <span style={{color:'#22c55e',fontSize:'0.75rem',fontWeight:500}}>NMC Verified</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="dashboard-main">
+        <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:16,marginBottom:28}}>
+          {[
+            {label:'Total Cases',num:stats.total,icon:'📋',bg:'rgba(20,184,166,0.1)'},
+            {label:'Awaiting Review',num:stats.pending,icon:'⏳',bg:'rgba(250,204,21,0.15)'},
+            {label:'Approved',num:stats.verified,icon:'✅',bg:'rgba(22,163,74,0.1)'},
+          ].map(s => (
+            <div className="stat-card" key={s.label}>
+              <div className="stat-icon" style={{background:s.bg}}>{s.icon}</div>
+              <div>
+                <div className="stat-num">{s.num}</div>
+                <div className="stat-label">{s.label}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:16,flexWrap:'wrap',gap:12}}>
+          <h3 style={{fontWeight:700,fontSize:'1.1rem'}}>Patient Reports Queue</h3>
+          <div style={{display:'flex',gap:10}}>
+            <input className="form-input" style={{padding:'8px 12px',width:200}} placeholder="Search patients..." value={searchQuery} onChange={e => setSearchQuery(e.target.value)} />
+            <select className="form-select" style={{padding:'8px 12px',width:140}} value={filterSeverity} onChange={e => setFilterSeverity(e.target.value)}>
+              <option value="All">All Severity</option>
+              <option value="High">High Risk</option>
+              <option value="Medium">Medium Risk</option>
+              <option value="Low">Low Risk</option>
+            </select>
+          </div>
+        </div>
+
+        {loading ? (
+          <div style={{textAlign:'center',padding:48}}><div className="spinner spinner-teal" style={{width:36,height:36,margin:'0 auto'}} /></div>
+        ) : (
+          filteredReports.map(r => (
+            <div className="report-card" key={r.report_id} onClick={() => setSelected(r)} style={{cursor:'pointer'}}>
+              <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:12}}>
+                <div style={{display:'flex',alignItems:'center',gap:14}}>
+                  <div className="avatar" style={{background:'linear-gradient(135deg,#475569,#334155)',borderRadius:12,flexShrink:0}}>
+                    {r.patient_name[0]}
+                  </div>
+                  <div>
+                    <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:3}}>
+                      <p style={{fontWeight:700,fontSize:'0.95rem'}}>{r.patient_name}</p>
+                      <span style={{fontSize:'0.78rem',color:'var(--text-muted)'}}>Age {r.age}</span>
+                    </div>
+                    <p style={{color:'#334155',fontSize:'0.88rem',marginBottom:3}}>{r.medical_condition}</p>
+                    <div style={{display:'flex',alignItems:'center',gap:8}}>
+                      <span className={`badge badge-severity-${r.severity_level}`} style={{fontSize:'0.75rem',padding:'2px 8px',borderRadius:6}}>
+                        {r.severity_level} Risk
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div style={{display:'flex',alignItems:'center',gap:10,flexWrap:'wrap'}}>
+                  <StatusBadge status={r.status} />
+                  <span style={{fontSize:'1.2rem',color:'var(--text-muted)'}}>→</span>
+                </div>
+              </div>
+            </div>
+          ))
+        )}
+      </div>
+
+      <SpecializationModal isOpen={showSpecModal} onSave={handleSpecSave} />
+
+      {selected && (
+        <ReportDetailModal 
+          report={selected} 
+          onClose={() => setSelected(null)} 
+          onApprove={handleApprove} 
+          onReject={handleReject}
+          onEdit={handleEdit}
+        />
+      )}
+    </div>
+  );
+}
+
+// ─── App ──────────────────────────────────────────────────────
+function AppContent() {
+  const { path, navigate } = useRoute();
+  const { user } = useAuth();
+
+  const renderPage = () => {
+    switch (path) {
+      case '/': return <Home navigate={navigate} />;
+      case '/auth': return <Auth navigate={navigate} mode="login" />;
+      case '/login': return <Auth navigate={navigate} mode="login" />;
+      case '/register': return <Auth navigate={navigate} mode="register" />;
+      case '/patient-dashboard': return user ? <PatientDashboard navigate={navigate} /> : <Home navigate={navigate} />;
+      case '/doctor-dashboard': return user ? <DoctorDashboard navigate={navigate} /> : <Home navigate={navigate} />;
+      default: return <Home navigate={navigate} />;
+    }
+  };
+
+  const showNav = path !== '/' && path !== '/auth';
+
+  return (
+    <div>
+      {showNav && path.includes('dashboard') ? null : (showNav ? <Navbar navigate={navigate} /> : null)}
+      {renderPage()}
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+</script>
+</body>
+</html>

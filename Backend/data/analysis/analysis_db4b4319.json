@@ -1,0 +1,98 @@
+{
+  "analysisId": "analysis_db4b4319",
+  "fileId": "report_cf5c12bd_1771742229",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_db4b4319",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "The patient is a 24-year-old male. The patient's name is partially legible as 'Sj TRA'. The pathological investigation report was generated on August 2, 2024.",
+      "test_report_summary": "The complete blood count shows normal hemoglobin, total WBC, RBC, and platelet counts. However, red blood cell indices indicate slight microcytosis (low MCV) and hypochromia (low MCH), alongside an unusually high MCHC. The differential count reveals elevated eosinophils (08%) and an absence of monocytes (00%). Fasting blood glucose is within the normal range at 90 mg/dl.",
+      "clinical_interpretation": "The patient, a 24-year-old male, presents with several findings that warrant clinical attention. The red blood cell indices show a slightly low Mean Corpuscular Volume (MCV) of 75.0 fL (normal: 76-96 fL) and a slightly low Mean Corpuscular Hemoglobin (MCH) of 27.7 pg (normal: 28-32 pg). These indicate microcytosis and hypochromia, which commonly suggest a tendency towards smaller, paler red blood cells, often associated with early iron deficiency or thalassemia trait, despite the hemoglobin (Hb) being within the normal range. Paradoxically, the Mean Corpuscular Hemoglobin Concentration (MCHC) is elevated at 37.0% (normal: 28-34%). This is an unusual finding in the presence of microcytosis and hypochromia and could be an artifact (e.g., due to sample issues like lipemia or cold agglutinins) or, less commonly, indicate conditions like hereditary spherocytosis. This discrepancy needs clarification.\n\nIn the differential count, eosinophils are elevated at 08% (normal: 01-06%). Eosinophilia is a common response to allergic reactions (e.g., asthma, eczema), parasitic infections, certain skin disorders, or drug reactions. More concerning is the complete absence of monocytes (00%, normal: 02-10%), a condition known as absolute monocytopenia. Monocytes are crucial immune cells, and their absence can be a significant indicator of various underlying issues, including severe infections, bone marrow disorders (e.g., aplastic anemia, hairy cell leukemia), certain autoimmune conditions, or effects of some medications (e.g., corticosteroids). This finding requires prompt and thorough investigation.\n\nThe Fasting Blood Glucose of 90 mg/dl is perfectly within the normal range (70-110 mg/dl), indicating no signs of diabetes or pre-diabetes based on this test. Overall, while some parameters are normal, the combination of microcytic/hypochromic tendency with an MCHC discrepancy, eosinophilia, and especially monocytopenia necessitates immediate medical follow-up for diagnosis and management.",
+      "known_information": [
+        "The patient is a 24-year-old male.",
+        "The report date is August 2, 2024.",
+        "Hemoglobin, total WBC, RBC, and platelet counts are within normal limits.",
+        "Fasting blood glucose is normal (90 mg/dl).",
+        "Eosinophil count is elevated (08%).",
+        "Monocyte count is 00% (absolute monocytopenia).",
+        "MCV and MCH are slightly low, indicating microcytosis and hypochromia.",
+        "MCHC is elevated (37.0%), which is an unusual finding given the MCV/MCH."
+      ],
+      "unclear_information": [
+        "The patient's full name is not clearly legible.",
+        "The specific reason or symptoms that prompted these tests are not provided.",
+        "Details of the patient's medical history, including any known allergies, existing conditions, or medications, are missing.",
+        "The underlying causes for the elevated MCHC, eosinophilia, and monocytopenia are unknown.",
+        "No specific details about the referring physician are available beyond 'Dr.'."
+      ],
+      "suggested_medications": [
+        {
+          "name": "Multivitamin with Iron",
+          "dosage": "As directed by physician, typically once daily",
+          "reason": "To provide general nutritional support and address potential mild iron deficiency suggested by low MCV/MCH, even without overt anemia, under medical guidance."
+        },
+        {
+          "name": "Probiotic Supplement",
+          "dosage": "As directed by physician or per product instructions",
+          "reason": "To support gut health and immune function, which may be beneficial in cases of immune dysregulation (like monocytopenia) and could potentially influence allergic responses (eosinophilia)."
+        }
+      ]
+    },
+    "findings": [],
+    "analysis": "The patient, a 24-year-old male, presents with several findings that warrant clinical attention. The red blood cell indices show a slightly low Mean Corpuscular Volume (MCV) of 75.0 fL (normal: 76-96 fL) and a slightly low Mean Corpuscular Hemoglobin (MCH) of 27.7 pg (normal: 28-32 pg). These indicate microcytosis and hypochromia, which commonly suggest a tendency towards smaller, paler red blood cells, often associated with early iron deficiency or thalassemia trait, despite the hemoglobin (Hb) being within the normal range. Paradoxically, the Mean Corpuscular Hemoglobin Concentration (MCHC) is elevated at 37.0% (normal: 28-34%). This is an unusual finding in the presence of microcytosis and hypochromia and could be an artifact (e.g., due to sample issues like lipemia or cold agglutinins) or, less commonly, indicate conditions like hereditary spherocytosis. This discrepancy needs clarification.\n\nIn the differential count, eosinophils are elevated at 08% (normal: 01-06%). Eosinophilia is a common response to allergic reactions (e.g., asthma, eczema), parasitic infections, certain skin disorders, or drug reactions. More concerning is the complete absence of monocytes (00%, normal: 02-10%), a condition known as absolute monocytopenia. Monocytes are crucial immune cells, and their absence can be a significant indicator of various underlying issues, including severe infections, bone marrow disorders (e.g., aplastic anemia, hairy cell leukemia), certain autoimmune conditions, or effects of some medications (e.g., corticosteroids). This finding requires prompt and thorough investigation.\n\nThe Fasting Blood Glucose of 90 mg/dl is perfectly within the normal range (70-110 mg/dl), indicating no signs of diabetes or pre-diabetes based on this test. Overall, while some parameters are normal, the combination of microcytic/hypochromic tendency with an MCHC discrepancy, eosinophilia, and especially monocytopenia necessitates immediate medical follow-up for diagnosis and management.",
+    "recommendations": [
+      {
+        "title": "Urgent Physician Consultation",
+        "description": "It is highly recommended that the patient consult with their referring physician or a hematologist immediately to discuss the significant findings, particularly the absolute monocytopenia and the elevated MCHC. These require prompt clinical evaluation and further diagnostic workup.",
+        "icon": "\ud83d\udc68\u200d\u2695\ufe0f",
+        "priority": "high"
+      },
+      {
+        "title": "Further Diagnostic Testing",
+        "description": "The physician will likely recommend additional tests. These may include a manual peripheral blood smear review to confirm cell morphology and counts, iron studies (ferritin, serum iron, TIBC) to evaluate iron status, and specialized investigations for monocytopenia such as flow cytometry or bone marrow examination. Allergy testing or stool examination for parasites might also be considered for eosinophilia.",
+        "icon": "\ud83d\udd2c",
+        "priority": "high"
+      },
+      {
+        "title": "Review Medical History and Symptoms",
+        "description": "Prepare to discuss your full medical history, including any recent illnesses, infections, allergic reactions, travel history, new medications, and current symptoms with your doctor to help identify potential causes for the abnormal lab results.",
+        "icon": "\ud83d\udcdd",
+        "priority": "medium"
+      },
+      {
+        "title": "Avoid Self-Medication",
+        "description": "Do not start any new medications or supplements without consulting your doctor. Specific treatments will depend on the definitive diagnosis established after further evaluation.",
+        "icon": "\ud83d\udeab",
+        "priority": "medium"
+      }
+    ],
+    "uncertainties": [
+      "The patient's full name is not clearly legible.",
+      "The specific reason or symptoms that prompted these tests are not provided.",
+      "Details of the patient's medical history, including any known allergies, existing conditions, or medications, are missing.",
+      "The underlying causes for the elevated MCHC, eosinophilia, and monocytopenia are unknown.",
+      "No specific details about the referring physician are available beyond 'Dr.'."
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T12:07:41.012214"
+  },
+  "timestamp": "2026-02-22T12:07:41.012226"
+}

@@ -1,0 +1,68 @@
+{
+  "analysisId": "analysis_eabc98c3",
+  "fileId": "report_eb2b6cc5_1771704944",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_eabc98c3",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "Patient Name: Sj [TRA f. Age: 45. Sex: Male. Referred by: Dr.",
+      "test_report_summary": "The test report includes complete blood count (CBC) and biochemistry results. Key findings include HbA1c of 90 mg/dL (normal range 70-110 mg/dL), indicating elevated blood glucose levels consistent with diabetes. Other CBC parameters are within normal ranges, with a slightly elevated neutrophil count. ",
+      "clinical_interpretation": "The fasting blood glucose level of 90 mg/dL is elevated and suggests that the patient is likely experiencing hyperglycemia, a hallmark of diabetes. While the other CBC values are within normal limits, the elevated glucose warrants further investigation and management of the patient's diabetes. The slightly elevated neutrophil count could be a non-specific finding and doesn't necessarily indicate an acute infection. Given the patient's existing diagnosis of diabetes, this result reinforces the need for ongoing monitoring and potentially adjustments to their treatment plan. Considering the patient's literacy level, clear and simple explanations of the results and management strategies are crucial.",
+      "known_information": [
+        "Diagnosis: Diabetes",
+        "Fasting Blood Glucose: 90 mg/dL"
+      ],
+      "unclear_information": [
+        "Duration of diabetes is not specified.",
+        "Current diabetes management plan (medications, diet, exercise) is unknown."
+      ]
+    },
+    "findings": [],
+    "analysis": "The fasting blood glucose level of 90 mg/dL is elevated and suggests that the patient is likely experiencing hyperglycemia, a hallmark of diabetes. While the other CBC values are within normal limits, the elevated glucose warrants further investigation and management of the patient's diabetes. The slightly elevated neutrophil count could be a non-specific finding and doesn't necessarily indicate an acute infection. Given the patient's existing diagnosis of diabetes, this result reinforces the need for ongoing monitoring and potentially adjustments to their treatment plan. Considering the patient's literacy level, clear and simple explanations of the results and management strategies are crucial.",
+    "recommendations": [
+      {
+        "title": "Glucose Monitoring",
+        "description": "Regularly monitor blood glucose levels as advised by the physician to assess the effectiveness of current treatment and identify any trends.",
+        "icon": "\ud83d\udc8a",
+        "priority": "high"
+      },
+      {
+        "title": "Dietary Consultation",
+        "description": "Consult a registered dietitian to develop a personalized meal plan that helps manage blood glucose levels.",
+        "icon": "\ud83e\udd57",
+        "priority": "high"
+      },
+      {
+        "title": "Exercise Recommendation",
+        "description": "Engage in regular physical activity (at least 30 minutes most days of the week) to improve insulin sensitivity and manage blood glucose.",
+        "icon": "\ud83c\udfc3",
+        "priority": "medium"
+      }
+    ],
+    "uncertainties": [
+      "Duration of diabetes is not specified.",
+      "Current diabetes management plan (medications, diet, exercise) is unknown."
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T01:46:28.989270"
+  },
+  "timestamp": "2026-02-22T01:46:28.989294"
+}

@@ -1,0 +1,66 @@
+{
+  "analysisId": "analysis_ffe054b7",
+  "fileId": "report_41021c81_1771702248",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_ffe054b7",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "The document refers to a patient named Mr. (name not fully provided) who is 29 years old and male. The referral doctor is not specified.",
+      "test_report_summary": "The urine routine and microscopic examination revealed the following: Urine is pale yellow, about 10 ml in volume, and slightly acidic. Microscopic examination showed few epithelial cells (2-3/HPF), adequate bacteria flora, and the presence of food particles. No red blood cells, white blood cells, casts, crystals, or parasites were detected. Stool examination showed brownish consistency, semi-solid appearance, and acidic reaction. Mucus and blood were absent.",
+      "clinical_interpretation": "The urine analysis indicates a generally normal urine appearance and microscopic findings, with a few epithelial cells, suggesting a minor inflammatory response or cellular shedding. The presence of food particles is expected. The slightly acidic urine could be due to various factors, including diet or transient changes in urine pH. Given the patient's age and existing diabetes, monitoring urine for signs of infection or significant abnormalities is important. Further investigation may be warranted if there are any changes in the urine appearance or microscopic findings.",
+      "known_information": [
+        "Patient Age: 29 years",
+        "Patient Sex: Male",
+        "Diabetes Condition",
+        "Urine is slightly acidic"
+      ],
+      "unclear_information": [
+        "Patient's full name is not provided.",
+        "Referral doctor's name is not provided.",
+        "Specific details about the patient's diabetes management are not included."
+      ]
+    },
+    "findings": [],
+    "analysis": "The urine analysis indicates a generally normal urine appearance and microscopic findings, with a few epithelial cells, suggesting a minor inflammatory response or cellular shedding. The presence of food particles is expected. The slightly acidic urine could be due to various factors, including diet or transient changes in urine pH. Given the patient's age and existing diabetes, monitoring urine for signs of infection or significant abnormalities is important. Further investigation may be warranted if there are any changes in the urine appearance or microscopic findings.",
+    "recommendations": [
+      {
+        "title": "Monitor Urine for Changes",
+        "description": "Regularly monitor urine appearance and microscopic findings for any changes, such as increased white blood cells, red blood cells, or abnormal crystals.  Discuss any concerns with the referring physician.",
+        "icon": "\ud83d\udc8a",
+        "priority": "medium"
+      },
+      {
+        "title": "Diabetes Management Review",
+        "description": "Review the patient's current diabetes management plan with the referring physician, including medication, diet, and exercise.",
+        "icon": "\ud83c\udfc3",
+        "priority": "high"
+      }
+    ],
+    "uncertainties": [
+      "Patient's full name is not provided.",
+      "Referral doctor's name is not provided.",
+      "Specific details about the patient's diabetes management are not included."
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T01:01:20.401784"
+  },
+  "timestamp": "2026-02-22T01:01:20.401833"
+}

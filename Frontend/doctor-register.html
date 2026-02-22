@@ -1,0 +1,310 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Doctor Registration - Dr.MeD</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #1E3A8A;
+    --primary-light: #3B82F6;
+    --primary-dark: #1e40af;
+    --secondary: #60A5FA;
+    --accent: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --bg-light: #F8FAFC;
+    --bg-white: #FFFFFF;
+    --text-primary: #1E293B;
+    --text-secondary: #64748B;
+    --text-muted: #94A3B8;
+    --border: #E2E8F0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg-light);
+    color: var(--text-primary);
+    min-height: 100vh;
+  }
+  
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes scaleIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+  .fade-up { animation: fadeUp 0.5s ease forwards; }
+
+  .register-page { min-height: 100vh; display: flex; align-items: flex-start; justify-content: center; padding: 40px 24px; }
+  .register-wrap { width: 100%; max-width: 520px; }
+  .register-card { background: var(--bg-white); border-radius: 24px; padding: 40px; box-shadow: 0 10px 40px rgba(30, 58, 138, 0.1); border: 1px solid var(--border); }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 12px 28px; border-radius: 12px; font-weight: 600; font-size: 0.95rem;
+    cursor: pointer; transition: all 0.2s; border: none; outline: none;
+    font-family: 'Outfit', sans-serif;
+  }
+  .btn:disabled { opacity: 0.55; cursor: not-allowed; }
+  .btn-primary { background: var(--primary); color: white; }
+  .btn-primary:hover:not(:disabled) { background: var(--primary-dark); box-shadow: 0 4px 16px rgba(30, 58, 138, 0.2); transform: translateY(-1px); }
+  .btn-outline { background: transparent; color: var(--primary); border: 2px solid var(--border); }
+  .btn-outline:hover:not(:disabled) { border-color: var(--primary); color: var(--primary); }
+  .btn-full { width: 100%; }
+  .btn-sm { padding: 8px 16px; font-size: 0.85rem; border-radius: 8px; }
+
+  .form-group { margin-bottom: 20px; }
+  .form-label { display: block; font-weight: 500; margin-bottom: 6px; font-size: 0.9rem; color: var(--text-primary); }
+  .form-input, .form-select {
+    width: 100%; padding: 12px 16px; border: 2px solid var(--border);
+    border-radius: 12px; font-size: 0.95rem; font-family: 'Outfit', sans-serif;
+    transition: border-color 0.2s, box-shadow 0.2s; outline: none; color: var(--text-primary);
+    background: white;
+  }
+  .form-input:focus, .form-select:focus { border-color: var(--primary-light); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); }
+  .input-group { display: flex; gap: 10px; }
+  .input-group .form-input { flex: 1; }
+
+  .alert { padding: 14px 18px; border-radius: 12px; font-size: 0.9rem; display: flex; align-items: flex-start; gap: 10px; }
+  .alert-success { background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.25); color: #065f46; }
+  .alert-error { background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); color: #991b1b; }
+
+  .spinner { width: 20px; height: 20px; border: 2.5px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 0.7s linear infinite; }
+  .spinner-teal { border-color: rgba(59, 130, 246, 0.2); border-top-color: var(--primary); }
+
+  .verify-overlay {
+    position: fixed; inset: 0; background: rgba(30, 58, 138, 0.4); z-index: 200;
+    display: flex; align-items: center; justify-content: center; padding: 24px;
+    backdrop-filter: blur(4px);
+  }
+  .verify-modal { background: white; border-radius: 24px; padding: 40px; max-width: 440px; width: 100%; animation: scaleIn 0.3s ease; box-shadow: 0 20px 60px rgba(30, 58, 138, 0.15); }
+  .otp-group { display: flex; gap: 10px; justify-content: center; margin: 20px 0; }
+  .otp-input {
+    width: 48px; height: 52px; text-align: center; font-size: 1.3rem; font-weight: 700;
+    border: 2px solid var(--border); border-radius: 10px; outline: none;
+    transition: border-color 0.2s; font-family: 'JetBrains Mono', monospace; color: var(--text-primary);
+  }
+  .otp-input:focus { border-color: var(--primary-light); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); }
+
+  .steps { display: flex; align-items: center; margin-bottom: 32px; }
+  .step { display: flex; align-items: center; gap: 10px; }
+  .step-num {
+    width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.85rem; transition: all 0.3s;
+  }
+  .step-num.active { background: var(--primary); color: white; }
+  .step-num.done { background: var(--accent); color: white; }
+  .step-num.inactive { background: var(--border); color: var(--text-muted); }
+  .step-label { font-size: 0.85rem; font-weight: 500; }
+  .step-label.active { color: var(--primary); }
+  .step-label.inactive { color: var(--text-muted); }
+  .step-line { flex: 1; height: 2px; background: var(--border); margin: 0 12px; }
+  .step-line.done { background: var(--accent); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+
+<!-- Centralized Firebase Configuration -->
+<script src="firebase-config.js"></script>
+
+<script type="text/babel">
+const { useState, useEffect, useRef, createContext, useContext } = React;
+
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+
+const AuthContext = createContext(null);
+function AuthProvider({ children }) {
+  const [user, setUser] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('drmed_user')); } catch { return null; }
+  });
+  const setUserAndStore = (u) => {
+    setUser(u);
+    if (u) localStorage.setItem('drmed_user', JSON.stringify(u));
+    else localStorage.removeItem('drmed_user');
+  };
+  return <AuthContext.Provider value={{ user, setUser: setUserAndStore }}>{children}</AuthContext.Provider>;
+}
+const useAuth = () => useContext(AuthContext);
+
+const STATES = ['Andhra Pradesh','Delhi','Gujarat','Karnataka','Kerala','Madhya Pradesh','Maharashtra','Punjab','Rajasthan','Tamil Nadu','Telangana','Uttar Pradesh','West Bengal'];
+const CITIES = {
+  'Maharashtra': ['Mumbai','Pune','Nagpur','Nashik'],
+  'Karnataka': ['Bengaluru','Mysuru','Hubli','Mangaluru'],
+  'Tamil Nadu': ['Chennai','Coimbatore','Madurai','Salem'],
+  'Delhi': ['New Delhi','Dwarka','Rohini','Saket'],
+  'Gujarat': ['Ahmedabad','Surat','Vadodara','Rajkot'],
+  'Rajasthan': ['Jaipur','Jodhpur','Udaipur','Ajmer'],
+  'Uttar Pradesh': ['Lucknow','Kanpur','Agra','Varanasi'],
+  'West Bengal': ['Kolkata','Howrah','Asansol','Siliguri'],
+  'Kerala': ['Kochi','Thiruvananthapuram','Kozhikode','Thrissur'],
+  'Andhra Pradesh': ['Visakhapatnam','Vijayawada','Guntur','Tirupati'],
+  'Telangana': ['Hyderabad','Warangal','Nizamabad','Karimnagar'],
+  'Punjab': ['Chandigarh','Amritsar','Ludhiana','Jalandhar'],
+  'Madhya Pradesh': ['Bhopal','Indore','Jabalpur','Gwalior'],
+};
+
+function StepIndicator({ current }) {
+  const steps = ['Basic Info', 'Identity Verification'];
+  return (
+    <div className="steps">
+      {steps.map((s, i) => {
+        const idx = i + 1;
+        const state = idx < current ? 'done' : idx === current ? 'active' : 'inactive';
+        return (
+          <React.Fragment key={i}>
+            <div className="step">
+              <div className={`step-num ${state}`}>{state === 'done' ? '✓' : idx}</div>
+              <span className={`step-label ${state === 'inactive' ? 'inactive' : 'active'}`}>{s}</span>
+            </div>
+            {i < steps.length - 1 && <div className={`step-line ${state === 'done' ? 'done' : ''}`} />}
+          </React.Fragment>
+        );
+      })}
+    </div>
+  );
+}
+
+function DoctorRegister() {
+  const { setUser } = useAuth();
+  const [step, setStep] = useState(1);
+  const [form1, setForm1] = useState({ name: '', hospital: '', email: '', password: '', state: '', city: '' });
+  const [form2, setForm2] = useState({ name: '', reg_type: 'NMC', reg_number: '', year: '', council: '' });
+  const [verifying, setVerifying] = useState(false);
+  const [verifyStatus, setVerifyStatus] = useState(null);
+  const [verifyMsg, setVerifyMsg] = useState('');
+
+  const cities = CITIES[form1.state] || [];
+  const step1Valid = form1.name && form1.hospital && form1.email && form1.password && form1.state && form1.city;
+
+  const handleStep1 = () => { if (step1Valid) { setForm2({...form2, name: form1.name}); setStep(2); } };
+
+  const handleGoogleRegister = async () => {
+    try {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      const result = await auth.signInWithPopup(provider);
+      const user = result.user;
+      setForm1({ ...form1, name: user.displayName, email: user.email });
+    } catch (e) {
+      alert(e.message);
+    }
+  };
+
+  const handleVerify = async () => {
+    if (!form2.name || !form2.reg_number || !form2.year || !form2.council) return;
+    setVerifying(true); setVerifyStatus(null); setVerifyMsg('');
+    try {
+      await new Promise(r => setTimeout(r, 2000)); // Mock API call
+      if (form2.reg_number?.startsWith('X')) throw new Error("Registration not found in NMC Registry.");
+      setVerifyStatus('success');
+      setVerifyMsg('Identity verified with National Medical Commission Registry.');
+      setTimeout(() => {
+        // 1. Create user in Firebase
+        auth.createUserWithEmailAndPassword(form1.email, form1.password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            return user.updateProfile({ displayName: form1.name }).then(() => user);
+          })
+          .then((user) => {
+            // 2. Register user via backend
+            return fetch('/api/auth/register', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                name: form1.name,
+                email: form1.email,
+                role: 'doctor',
+                hospitalName: form1.hospital,
+                nmcId: form2.reg_number,
+                uid: user.uid
+              })
+            });
+          })
+          .then(res => res.json())
+          .then(data => {
+            if (data.success) {
+              window.location.href = '/doctor-interface.html';
+            } else {
+              alert(data.error || 'Registration failed');
+            }
+          })
+          .catch(err => {
+            console.error("Registration Error:", err);
+            if (err.message === 'Failed to fetch') {
+              alert('Error: Could not connect to the backend server. Please ensure the server is running and you are accessing the site via http://localhost:5001.');
+            } else {
+              alert(err.message || 'Registration failed');
+            }
+          });
+      }, 2000);
+    } catch (e) {
+      setVerifyStatus('error');
+      setVerifyMsg(e.message || 'Verification failed. Please check your details.');
+    }
+    setVerifying(false);
+  };
+
+  return (
+    <div className="register-page">
+      <div className="register-wrap fade-up">
+        <div style={{marginBottom:24}}>
+          <button className="btn btn-outline btn-sm" onClick={() => step === 1 ? window.location.href = '/#register' : setStep(1)}>← {step === 1 ? 'Back' : 'Previous Step'}</button>
+        </div>
+        <div className="register-card">
+          <div style={{marginBottom:28}}>
+            <div style={{display:'flex',alignItems:'center',gap:12,marginBottom:8}}>
+              <div style={{fontSize:'1.8rem'}}>👨‍⚕️</div>
+              <h2 style={{fontSize:'1.4rem',fontWeight:700}}>Doctor Registration</h2>
+            </div>
+          </div>
+          <StepIndicator current={step} />
+          {step === 1 && (
+            <div className="fade-up">
+              <button className="btn btn-outline btn-full" style={{marginBottom:20}} onClick={handleGoogleRegister}>
+                <span style={{marginRight:8}}>G</span> Use Google Account
+              </button>
+              <div className="form-group"><label className="form-label">Full Name</label><input className="form-input" placeholder="Dr. Rajesh Kumar" value={form1.name} onChange={e => setForm1({...form1, name: e.target.value})} /></div>
+              <div className="form-group"><label className="form-label">Hospital / Clinic Name</label><input className="form-input" placeholder="e.g. Apollo Hospital" value={form1.hospital} onChange={e => setForm1({...form1, hospital: e.target.value})} /></div>
+              <div className="form-group"><label className="form-label">Email Address</label><input className="form-input" placeholder="doctor@hospital.com" type="email" value={form1.email} onChange={e => setForm1({...form1, email: e.target.value})} /></div>
+              <div className="form-group"><label className="form-label">Create Password</label><input className="form-input" placeholder="••••••••" type="password" value={form1.password} onChange={e => setForm1({...form1, password: e.target.value})} /></div>
+              <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:12,marginBottom:20}}>
+                <div><label className="form-label">State</label><select className="form-select" value={form1.state} onChange={e => setForm1({...form1, state: e.target.value, city:''})}><option value="">Select State</option>{STATES.map(s => <option key={s}>{s}</option>)}</select></div>
+                <div><label className="form-label">City</label><select className="form-select" value={form1.city} onChange={e => setForm1({...form1, city: e.target.value})} disabled={!cities.length}><option value="">Select City</option>{cities.map(c => <option key={c}>{c}</option>)}</select></div>
+              </div>
+              <button className="btn btn-primary btn-full" onClick={handleStep1} disabled={!step1Valid}>Continue to Identity Verification →</button>
+            </div>
+          )}
+          {step === 2 && (
+            <div className="fade-up">
+              {verifyStatus === 'success' ? (
+                <div style={{textAlign:'center',padding:'24px 0'}}><div style={{fontSize:'3rem',marginBottom:12}}>✅</div><h3 style={{color:'var(--accent)',fontWeight:700,marginBottom:8}}>Identity Verified!</h3><p style={{color:'var(--text-secondary)',fontSize:'0.9rem'}}>{verifyMsg}</p></div>
+              ) : (
+                <>
+                  <div className="form-group"><label className="form-label">Doctor Full Name</label><input className="form-input" value={form2.name} onChange={e => setForm2({...form2, name: e.target.value})} /></div>
+                  <div className="form-group"><label className="form-label">Registration Type</label><select className="form-select" value={form2.reg_type} onChange={e => setForm2({...form2, reg_type: e.target.value})}><option value="NMC">NMC (National Medical Commission)</option><option value="SMC">State Medical Council</option></select></div>
+                  <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:12}}><div className="form-group"><label className="form-label">Registration Number</label><input className="form-input" placeholder="e.g. MH12345" value={form2.reg_number} onChange={e => setForm2({...form2, reg_number: e.target.value})} /></div><div className="form-group"><label className="form-label">Year of Registration</label><input className="form-input" placeholder="e.g. 2015" type="number" value={form2.year} onChange={e => setForm2({...form2, year: e.target.value})} /></div></div>
+                  <div className="form-group"><label className="form-label">State Medical Council</label><select className="form-select" value={form2.council} onChange={e => setForm2({...form2, council: e.target.value})}><option value="">Select Council</option>{STATES.map(s => <option key={s}>{s} Medical Council</option>)}</select></div>
+                  {verifyStatus === 'error' && <div className="alert alert-error" style={{marginBottom:16}}><span>❌</span>{verifyMsg}</div>}
+                  {verifying ? <div style={{textAlign:'center',padding:'20px'}}><div className="spinner spinner-teal" style={{width:36,height:36,borderWidth:3,margin:'0 auto 12px'}} />Verifying...</div> : <button className="btn btn-primary btn-full" onClick={handleVerify} disabled={!form2.name || !form2.reg_number || !form2.year || !form2.council}>🔒 Verify Identity with NMC</button>}
+                </>
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<AuthProvider><DoctorRegister /></AuthProvider>);
+</script>
+</body>
+</html>

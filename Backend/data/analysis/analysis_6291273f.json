@@ -1,0 +1,86 @@
+{
+  "analysisId": "analysis_6291273f",
+  "fileId": "report_ca0e53b5_1771755467",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_6291273f",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "The patient is a 29-year-old male, referred by an unnamed doctor, with a test report dated August 2, 2024. His full name is not visible in the document.",
+      "test_report_summary": "The urine routine and microscopic examination results are largely normal, showing pale yellow color, acidic reaction, and no presence of turbidity, sugar, albumin, or phosphate. Microscopically, 0-2 pus cells/HPF and 2-3 epithelial cells/HPF were noted, with no RBCs. The stool routine and microscopic examination indicate a brownish, semi-solid consistency with an acidic reaction. Mucus is present (+), but no blood, helminths (ova/larva), protozoa (cysts), pus cells, or RBCs were detected. Adequate bacteria flora, present vegetable cells, nil fat globules, and present food particles were also observed.",
+      "clinical_interpretation": "The urine analysis results are within normal physiological ranges, indicating no immediate concerns such as urinary tract infection, glycosuria (sugar in urine), or proteinuria (protein in urine). This aligns with a healthy kidney function in the context of this specific sample. However, the stool analysis presents some findings that warrant attention: the presence of mucus and an acidic reaction. Mucus in stool suggests irritation or inflammation of the intestinal lining, which could stem from various causes including dietary factors, mild infections, dysbiosis (imbalance of gut bacteria), or functional gastrointestinal disorders like Irritable Bowel Syndrome (IBS). An acidic stool pH can be associated with carbohydrate malabsorption, certain types of bacterial overgrowth, or specific dietary patterns. While the absence of blood, parasites, and excessive inflammatory cells (pus cells) in the stool is reassuring, the combined presence of mucus and an acidic reaction points towards a need for further clinical correlation and potentially deeper investigation into gut health. Although the patient's context mentions diabetes, this specific report does not provide any indicators of diabetes (e.g., urine sugar is nil), and thus the interpretation is focused solely on the provided urine and stool findings.",
+      "known_information": [
+        "The patient is a 29-year-old male.",
+        "The report was issued on August 2, 2024.",
+        "Urine routine and microscopic findings are generally normal, with no sugar, albumin, or blood detected.",
+        "Stool analysis indicates the presence of mucus and an acidic reaction.",
+        "No parasites (helminths or protozoa) or blood were detected in the stool.",
+        "Stool showed adequate bacteria flora, no fat globules, and presence of vegetable cells and food particles."
+      ],
+      "unclear_information": [
+        "The patient's full name and the referring doctor's name are redacted.",
+        "The specific clinical symptoms (e.g., abdominal pain, diarrhea, constipation) experienced by the patient are not provided, which are essential for a comprehensive interpretation of the stool findings.",
+        "Information regarding the patient's dietary habits, recent travel, or history of gastrointestinal issues is not available."
+      ],
+      "suggested_medications": [
+        {
+          "name": "Probiotic Supplement",
+          "dosage": "As per product instructions, typically once daily",
+          "reason": "To help restore and maintain a healthy balance of gut microbiota, which can aid in reducing gastrointestinal inflammation and improving digestive function indicated by mucus and acidic stool."
+        },
+        {
+          "name": "Psyllium Husk (Fiber Supplement)",
+          "dosage": "5-10 grams mixed with plenty of water, once or twice daily",
+          "reason": "To promote regular bowel movements, improve stool consistency, and provide bulk, which can help soothe an irritated bowel and normalize gut environment. Should be introduced gradually with adequate fluid intake."
+        }
+      ]
+    },
+    "findings": [],
+    "analysis": "The urine analysis results are within normal physiological ranges, indicating no immediate concerns such as urinary tract infection, glycosuria (sugar in urine), or proteinuria (protein in urine). This aligns with a healthy kidney function in the context of this specific sample. However, the stool analysis presents some findings that warrant attention: the presence of mucus and an acidic reaction. Mucus in stool suggests irritation or inflammation of the intestinal lining, which could stem from various causes including dietary factors, mild infections, dysbiosis (imbalance of gut bacteria), or functional gastrointestinal disorders like Irritable Bowel Syndrome (IBS). An acidic stool pH can be associated with carbohydrate malabsorption, certain types of bacterial overgrowth, or specific dietary patterns. While the absence of blood, parasites, and excessive inflammatory cells (pus cells) in the stool is reassuring, the combined presence of mucus and an acidic reaction points towards a need for further clinical correlation and potentially deeper investigation into gut health. Although the patient's context mentions diabetes, this specific report does not provide any indicators of diabetes (e.g., urine sugar is nil), and thus the interpretation is focused solely on the provided urine and stool findings.",
+    "recommendations": [
+      {
+        "title": "Consult with a Gastroenterologist",
+        "description": "It is strongly recommended that the patient discuss these stool findings with their physician, preferably a gastroenterologist. This consultation will allow for correlation with clinical symptoms and history to determine the underlying cause of mucus and acidic stool and plan appropriate management.",
+        "icon": "\ud83d\udc68\u200d\u2695\ufe0f",
+        "priority": "high"
+      },
+      {
+        "title": "Dietary Review and Modification",
+        "description": "Consider reviewing current dietary habits with a focus on potential irritants or intolerances (e.g., dairy, gluten, high FODMAP foods). Keeping a food diary could help identify specific triggers for gastrointestinal symptoms.",
+        "icon": "\ud83c\udf4e",
+        "priority": "medium"
+      },
+      {
+        "title": "Monitor Symptoms",
+        "description": "The patient should meticulously observe and record any ongoing or new gastrointestinal symptoms, such as changes in bowel movements, abdominal discomfort, or persistent mucus, to provide a detailed history during the medical consultation.",
+        "icon": "\ud83d\udcdd",
+        "priority": "medium"
+      }
+    ],
+    "uncertainties": [
+      "The patient's full name and the referring doctor's name are redacted.",
+      "The specific clinical symptoms (e.g., abdominal pain, diarrhea, constipation) experienced by the patient are not provided, which are essential for a comprehensive interpretation of the stool findings.",
+      "Information regarding the patient's dietary habits, recent travel, or history of gastrointestinal issues is not available."
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T15:48:19.503285"
+  },
+  "timestamp": "2026-02-22T15:48:19.503304"
+}
