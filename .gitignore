@@ -25,3 +25,11 @@ __pycache__/
 node_modules/
 .env
 .DS_Store
+# Runtime data
+Backend/data/
+Backend/uploads/
+Backend/_debug_last.json
+
+# Python cache
+__pycache__/
+*.pyc

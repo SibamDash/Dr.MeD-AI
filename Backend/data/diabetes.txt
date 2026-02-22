@@ -1,3 +1,0 @@
-HbA1c reflects average blood glucose over 2-3 months.
-Values above 6.5% may indicate diabetes.
-Higher values suggest poor glycemic control.
