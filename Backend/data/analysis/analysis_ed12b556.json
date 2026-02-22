@@ -1,0 +1,82 @@
+{
+  "analysisId": "analysis_ed12b556",
+  "fileId": "report_7ba57e29_1771699631",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_ed12b556",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "The patient referenced in this report is Mr. (name redacted), a 29-year-old male. The report date is 02-Aug-2024. The referring doctor's name is redacted.",
+      "test_report_summary": "The document is a 'PATHOLOGICAL INVESTIGATION REPORT' from 'SIDDHARTH PATHOLOGY CLINIC', encompassing Urine Routine & Microscopic and Stool Routine & Microscopic analyses.\n\n**Urine Analysis Findings:**\n- Routine: Color Pale Yellow, Volume ~10 ml, Acidic reaction. Nil for Turbidity, Sugar, Albumin, and Phosphate.\n- Microscopic: 0-2 Pus cells/HPF, Nil RBC, 2-3 Epithelial cells/HPF.\n\n**Stool Analysis Findings:**\n- Color Brownish, Consistency Semi Solid, Acidic reaction.\n- Positive findings: Mucus (+), Vegetable Cells (+), Food Particles Present.\n- Negative findings: No Blood, Helminths (Ova/Larva), Protozoa (Cyst), Pus Cells, RBC, or Fat Globules. Adequate Bacteria Flora noted.",
+      "clinical_interpretation": "This report provides insights into both urinary and gastrointestinal health for the individual whose details are on the report (a 29-year-old male).\n\n**Urine Analysis Interpretation:**\nThe urine routine and microscopic examination appears largely within normal limits. The 'Pale Yellow' color and 'Acidic' reaction are common. Importantly, the absence of 'Sugar' and 'Albumin' (protein) in the urine is a positive finding. *Considering the provided patient context (a 45-year-old with diabetes, despite the report indicating a 29-year-old)*, the 'Nil' sugar result in the urine is generally reassuring, suggesting no significant glucose spillage in the urine at the time of sampling. However, a urine sugar test is not definitive for diabetes diagnosis or comprehensive management; blood glucose tests (e.g., fasting glucose, HbA1c) are the primary tools. The presence of '0-2 Pus cells/HPF' and '2-3 Epithelial cells/HPF' is usually considered physiological and not indicative of infection or pathology. The 'About 10 ml' volume is quite low, which might affect the concentration of certain elements or suggest insufficient sample collection.\n\n**Stool Analysis Interpretation:**\nThe stool report shows a 'Brownish' color and 'Semi Solid' consistency, which are generally normal. The 'Acidic' reaction can occur due to various reasons, including diet or fermentation processes. The most notable findings are 'Mucus Present (+)' and 'Food Particles Present'. Mucus in stool can be a normal finding in small amounts but can also indicate irritation or inflammation in the gastrointestinal tract, such as from irritable bowel syndrome (IBS), infection, or dietary sensitivities. The presence of 'Food Particles' suggests incomplete digestion or rapid transit time. Reassuringly, there is no 'Blood', 'Pus Cells', 'RBC', or evidence of 'Helminths' or 'Protozoa', ruling out many common infectious or severe inflammatory conditions. 'Vegetable Cells Present (+)' and 'Adequate Bacteria Flora' are normal findings.",
+      "known_information": [
+        "The report is for a 29-year-old male.",
+        "The report date is 02-Aug-2024.",
+        "Urine analysis is generally normal, with no sugar or albumin detected.",
+        "Stool analysis shows mucus and undigested food particles, but no blood, parasites, or significant inflammatory cells (Pus Cells, RBCs)."
+      ],
+      "unclear_information": [
+        "Patient's full name is redacted.",
+        "Referring doctor's name is redacted.",
+        "There is a significant discrepancy in age: the patient context provided is 45 years old, while the report indicates 29 years old. This needs immediate clarification to ensure the report pertains to the correct individual.",
+        "The specific reason or symptoms that led to these urine and stool tests are not provided in the document.",
+        "Given the patient context of 'Diabetes' (age 45), further diabetes-specific blood tests (e.g., HbA1c, fasting glucose) are not included in this report."
+      ]
+    },
+    "findings": [],
+    "analysis": "This report provides insights into both urinary and gastrointestinal health for the individual whose details are on the report (a 29-year-old male).\n\n**Urine Analysis Interpretation:**\nThe urine routine and microscopic examination appears largely within normal limits. The 'Pale Yellow' color and 'Acidic' reaction are common. Importantly, the absence of 'Sugar' and 'Albumin' (protein) in the urine is a positive finding. *Considering the provided patient context (a 45-year-old with diabetes, despite the report indicating a 29-year-old)*, the 'Nil' sugar result in the urine is generally reassuring, suggesting no significant glucose spillage in the urine at the time of sampling. However, a urine sugar test is not definitive for diabetes diagnosis or comprehensive management; blood glucose tests (e.g., fasting glucose, HbA1c) are the primary tools. The presence of '0-2 Pus cells/HPF' and '2-3 Epithelial cells/HPF' is usually considered physiological and not indicative of infection or pathology. The 'About 10 ml' volume is quite low, which might affect the concentration of certain elements or suggest insufficient sample collection.\n\n**Stool Analysis Interpretation:**\nThe stool report shows a 'Brownish' color and 'Semi Solid' consistency, which are generally normal. The 'Acidic' reaction can occur due to various reasons, including diet or fermentation processes. The most notable findings are 'Mucus Present (+)' and 'Food Particles Present'. Mucus in stool can be a normal finding in small amounts but can also indicate irritation or inflammation in the gastrointestinal tract, such as from irritable bowel syndrome (IBS), infection, or dietary sensitivities. The presence of 'Food Particles' suggests incomplete digestion or rapid transit time. Reassuringly, there is no 'Blood', 'Pus Cells', 'RBC', or evidence of 'Helminths' or 'Protozoa', ruling out many common infectious or severe inflammatory conditions. 'Vegetable Cells Present (+)' and 'Adequate Bacteria Flora' are normal findings.",
+    "recommendations": [
+      {
+        "title": "Clarify Patient Identity and Age",
+        "description": "It is crucial to clarify if this report for a 29-year-old male is indeed for the 45-year-old patient with diabetes mentioned in the context. This discrepancy must be resolved with the pathology clinic or your referring doctor immediately to ensure accurate medical record keeping and treatment.",
+        "icon": "\u2753",
+        "priority": "high"
+      },
+      {
+        "title": "Consult Referring Doctor",
+        "description": "Discuss these urine and stool test results with your referring doctor in light of your overall health, any existing symptoms, and your diabetes condition (if confirmed as the correct patient).",
+        "icon": "\ud83d\udc68\u200d\u2695\ufe0f",
+        "priority": "high"
+      },
+      {
+        "title": "Address Stool Findings",
+        "description": "If you experience any digestive symptoms (e.g., abdominal pain, bloating, diarrhea, constipation), discuss the 'Mucus Present' and 'Food Particles Present' findings with your doctor. They may recommend dietary modifications, such as increasing fiber, improving hydration, or further investigations to rule out underlying causes.",
+        "icon": "\ud83c\udf4e",
+        "priority": "medium"
+      },
+      {
+        "title": "Review Urine Sample Collection",
+        "description": "The low urine volume (~10 ml) suggests a potentially insufficient sample. For future urine tests, ensure you provide an adequate volume (typically 30-50 ml) following proper clean-catch midstream instructions for a comprehensive and accurate analysis.",
+        "icon": "\ud83d\udca7",
+        "priority": "low"
+      }
+    ],
+    "uncertainties": [
+      "Patient's full name is redacted.",
+      "Referring doctor's name is redacted.",
+      "There is a significant discrepancy in age: the patient context provided is 45 years old, while the report indicates 29 years old. This needs immediate clarification to ensure the report pertains to the correct individual.",
+      "The specific reason or symptoms that led to these urine and stool tests are not provided in the document.",
+      "Given the patient context of 'Diabetes' (age 45), further diabetes-specific blood tests (e.g., HbA1c, fasting glucose) are not included in this report."
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T00:17:36.923145"
+  },
+  "timestamp": "2026-02-22T00:17:36.923173"
+}

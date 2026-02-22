@@ -1,0 +1,93 @@
+{
+  "analysisId": "analysis_cd1657b2",
+  "fileId": "report_572c930e_1771674161",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "21/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_cd1657b2",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "The patient is Mr. SjTRA, a 29-year-old male. The document does not provide a referral doctor's name. The report date is 02-Aug-2024.",
+      "test_report_summary": "This is a pathology test report including Urine Routine & Microscopic, Stool Routine & Microscopic, Complete Blood Cell Count (CBC) with Differential, and a Biochemistry test for Fasting Blood Glucose.\n\n**Urine Routine & Microscopic:** All parameters, including color, volume, reaction, turbidity, sugar, albumin, phosphate, pus cells, RBC, and epithelial cells, are within normal limits.\n\n**Stool Routine & Microscopic:** The presence of mucus is noted, which is an abnormal finding. All other parameters, such as color, consistency, reaction, blood, helminths, protozoa, pus cells, RBC, vegetable cells, bacteria flora, fat globules, and food particles, are within normal limits.\n\n**Complete Blood Cell Count (CBC):**\n*   Hemoglobin (Hb), Total White Blood Cell count (TWBC), Total Red Blood Cell count (TRBC), Total Platelet Count (TPC), and Packed Cell Volume (PCV) are all within their respective normal ranges.\n*   Red Blood Cell indices show abnormalities: Mean Corpuscular Volume (MCV) is low at 75.0 fl (normal: 76-96 fl) and Mean Corpuscular Hemoglobin (MCH) is low at 27.7 pg (normal: 28-32 pg). Mean Corpuscular Hemoglobin Concentration (MCHC) is high at 37.0% (normal: 28-34%).\n\n**Differential Count:**\n*   Neutrophils, Basophils, and Lymphocytes are within normal ranges.\n*   Eosinophils are elevated at 08% (normal: 01-06%).\n*   Monocytes are low at 00% (normal: 02-10%).\n\n**Biochemistry:** Fasting Blood Glucose is normal at 90 mg/dl (normal: 70-110 mg/dl).",
+      "clinical_interpretation": "As Dr.MeD-AI, I've analyzed your lab report for Mr. SjTRA, a 29-year-old male. It's important to discuss these findings with a doctor for a complete picture, as lab results are just one piece of your health puzzle.\n\n1.  **Normal Fasting Blood Glucose:** This is excellent news. Your fasting blood sugar level of 90 mg/dl is perfectly within the normal range. This indicates that, based on this specific test, you do not currently show signs of diabetes or pre-diabetes. While the general AI context mentioned 'Diabetes' for patient analysis, this specific document's patient does not exhibit diabetic blood glucose levels.\n\n2.  **Stool Mucus Present:** The presence of mucus in your stool is an abnormal finding. This can sometimes indicate irritation, inflammation, or infection within the digestive tract. It could be due to various reasons, from mild dietary sensitivities to more significant conditions like irritable bowel syndrome (IBS) or an infection.\n\n3.  **Abnormal Red Blood Cell Indices (MCV, MCH, MCHC):**\n    *   Your MCV and MCH are slightly low, suggesting that your red blood cells are a bit smaller (microcytic) and contain less hemoglobin (hypochromic) than average. These findings often point towards conditions like iron deficiency (even if your overall hemoglobin is normal, as in your case) or a genetic condition called thalassemia trait.\n    *   However, your MCHC is high, which is an unusual finding when MCV and MCH are low. High MCHC (hyperchromic) means your red blood cells are more concentrated. This combination can sometimes indicate a laboratory error, but it could also point to specific red blood cell disorders like hereditary spherocytosis. Since your overall hemoglobin level is normal, you are not anemic at this moment, but these indices suggest an underlying issue with how your red blood cells are formed or structured.\n\n4.  **Elevated Eosinophils (Eosinophilia):** Your eosinophil count is slightly higher than the normal range. Eosinophils are a type of white blood cell that often increase in response to:\n    *   **Allergies:** Such as asthma, eczema, hay fever, or drug allergies.\n    *   **Parasitic infections:** Especially those affecting the gut or other body systems.\n    *   Certain skin conditions or autoimmune diseases.\n\n5.  **Low Monocytes (Monocytopenia):** Your monocyte count is at 00%, which is below the normal range. Monocytes are another type of white blood cell important for fighting infections and removing dead cells. While isolated low monocytes may not always be clinically significant, especially if other white blood cell counts are normal, persistent low levels can sometimes be seen in certain infections, stress, or bone marrow issues.\n\nIn summary, while your diabetes screen (Fasting Blood Glucose) is clear and most routine blood counts are normal, the stool mucus, abnormal red cell indices, high eosinophils, and low monocytes warrant further attention. These findings together suggest a need to investigate potential digestive issues, allergic/parasitic conditions, and red blood cell health.",
+      "known_information": [
+        "Patient is Mr. SjTRA, a 29-year-old male.",
+        "Report date is 02-Aug-2024.",
+        "Fasting Blood Glucose is normal (90 mg/dl).",
+        "Urine routine is entirely normal.",
+        "Stool routine shows presence of mucus.",
+        "Red blood cell indices are abnormal: MCV (75.0 fl) and MCH (27.7 pg) are low, while MCHC (37.0%) is high.",
+        "Eosinophil count is elevated (08%).",
+        "Monocyte count is low (00%).",
+        "Hemoglobin, total WBC, total RBC, platelets, PCV, Neutrophils, Basophils, and Lymphocytes are within normal limits."
+      ],
+      "unclear_information": [
+        "The patient's full name is partially obscured.",
+        "The patient's specific symptoms or reasons for undergoing these tests are not provided.",
+        "Detailed medical history (e.g., allergies, recent travel, family history of blood disorders, gastrointestinal complaints) is unknown.",
+        "The clinical relevance of the high MCHC with low MCV/MCH without a blood smear review or further blood tests is not fully clear from this report alone.",
+        "The discrepancy between the AI's general patient context (Age: 45, Condition: Diabetes) and the document's patient details (Age: 29Yrs, normal glucose) means the AI context does not apply to this specific patient's conditions based on the document."
+      ]
+    },
+    "findings": [],
+    "analysis": "As Dr.MeD-AI, I've analyzed your lab report for Mr. SjTRA, a 29-year-old male. It's important to discuss these findings with a doctor for a complete picture, as lab results are just one piece of your health puzzle.\n\n1.  **Normal Fasting Blood Glucose:** This is excellent news. Your fasting blood sugar level of 90 mg/dl is perfectly within the normal range. This indicates that, based on this specific test, you do not currently show signs of diabetes or pre-diabetes. While the general AI context mentioned 'Diabetes' for patient analysis, this specific document's patient does not exhibit diabetic blood glucose levels.\n\n2.  **Stool Mucus Present:** The presence of mucus in your stool is an abnormal finding. This can sometimes indicate irritation, inflammation, or infection within the digestive tract. It could be due to various reasons, from mild dietary sensitivities to more significant conditions like irritable bowel syndrome (IBS) or an infection.\n\n3.  **Abnormal Red Blood Cell Indices (MCV, MCH, MCHC):**\n    *   Your MCV and MCH are slightly low, suggesting that your red blood cells are a bit smaller (microcytic) and contain less hemoglobin (hypochromic) than average. These findings often point towards conditions like iron deficiency (even if your overall hemoglobin is normal, as in your case) or a genetic condition called thalassemia trait.\n    *   However, your MCHC is high, which is an unusual finding when MCV and MCH are low. High MCHC (hyperchromic) means your red blood cells are more concentrated. This combination can sometimes indicate a laboratory error, but it could also point to specific red blood cell disorders like hereditary spherocytosis. Since your overall hemoglobin level is normal, you are not anemic at this moment, but these indices suggest an underlying issue with how your red blood cells are formed or structured.\n\n4.  **Elevated Eosinophils (Eosinophilia):** Your eosinophil count is slightly higher than the normal range. Eosinophils are a type of white blood cell that often increase in response to:\n    *   **Allergies:** Such as asthma, eczema, hay fever, or drug allergies.\n    *   **Parasitic infections:** Especially those affecting the gut or other body systems.\n    *   Certain skin conditions or autoimmune diseases.\n\n5.  **Low Monocytes (Monocytopenia):** Your monocyte count is at 00%, which is below the normal range. Monocytes are another type of white blood cell important for fighting infections and removing dead cells. While isolated low monocytes may not always be clinically significant, especially if other white blood cell counts are normal, persistent low levels can sometimes be seen in certain infections, stress, or bone marrow issues.\n\nIn summary, while your diabetes screen (Fasting Blood Glucose) is clear and most routine blood counts are normal, the stool mucus, abnormal red cell indices, high eosinophils, and low monocytes warrant further attention. These findings together suggest a need to investigate potential digestive issues, allergic/parasitic conditions, and red blood cell health.",
+    "recommendations": [
+      {
+        "title": "Consult with a Physician",
+        "description": "It is crucial to schedule an appointment with your referring doctor or a general physician to discuss these lab results. Your doctor will correlate these findings with your medical history, symptoms, and conduct any necessary physical examinations for a comprehensive diagnosis and treatment plan.",
+        "icon": "\ud83e\ude7a",
+        "priority": "high"
+      },
+      {
+        "title": "Investigate Stool Mucus",
+        "description": "The presence of mucus in stool needs further investigation. Your doctor may recommend additional tests such as a stool culture, ova and parasite examination (if not already done comprehensively), or potentially a colonoscopy/endoscopy, especially if you have any digestive symptoms like abdominal pain, changes in bowel habits, or unexplained weight loss.",
+        "icon": "\ud83d\udd0e",
+        "priority": "high"
+      },
+      {
+        "title": "Evaluate Red Blood Cell Indices",
+        "description": "The unusual combination of abnormal red blood cell indices (low MCV/MCH with high MCHC) warrants further evaluation. Your doctor might suggest additional blood tests, such as iron studies (ferritin, serum iron, TIBC), hemoglobin electrophoresis (to check for thalassemia traits), or a reticulocyte count, to understand the underlying cause.",
+        "icon": "\ud83e\ude78",
+        "priority": "high"
+      },
+      {
+        "title": "Address Elevated Eosinophils",
+        "description": "Discuss your elevated eosinophil count with your doctor. They may consider evaluating for common causes like allergies (environmental or food), parasitic infections (if you have relevant travel history or symptoms), or certain inflammatory conditions. Skin prick tests or specific IgE blood tests might be considered.",
+        "icon": "\ud83e\udd27",
+        "priority": "medium"
+      },
+      {
+        "title": "Monitor Monocyte Count",
+        "description": "While your low monocyte count might not be concerning in isolation, your doctor may decide to monitor this count in follow-up blood tests, especially if there are other clinical concerns or persistent symptoms.",
+        "icon": "\ud83d\udd2c",
+        "priority": "low"
+      }
+    ],
+    "uncertainties": [
+      "The patient's full name is partially obscured.",
+      "The patient's specific symptoms or reasons for undergoing these tests are not provided.",
+      "Detailed medical history (e.g., allergies, recent travel, family history of blood disorders, gastrointestinal complaints) is unknown.",
+      "The clinical relevance of the high MCHC with low MCV/MCH without a blood smear review or further blood tests is not fully clear from this report alone.",
+      "The discrepancy between the AI's general patient context (Age: 45, Condition: Diabetes) and the document's patient details (Age: 29Yrs, normal glucose) means the AI context does not apply to this specific patient's conditions based on the document."
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-21T17:13:27.589265"
+  },
+  "timestamp": "2026-02-21T17:13:27.589314"
+}

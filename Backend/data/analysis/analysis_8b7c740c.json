@@ -1,0 +1,73 @@
+{
+  "analysisId": "analysis_8b7c740c",
+  "fileId": "report_a1067b86_1771706721",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_8b7c740c",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "The document refers to a patient named Mr. (name not fully provided) who is 29 years old and male. The referral doctor is not specified.",
+      "test_report_summary": "The urine routine and microscopic examination revealed the following: Urine is pale yellow, about 10 ml in volume, and slightly acidic. Microscopic examination showed few red blood cells (0-2/HPF) and epithelial cells (2-3/HPF). Stool examination showed brownish, semi-solid consistency with a slightly acidic reaction, mucus present, and no blood, helminths, or parasites detected. Food particles were present.  The report indicates adequate bacteria flora and fat globules.",
+      "clinical_interpretation": "The urine analysis shows a few red blood cells and epithelial cells, which could indicate minor irritation or inflammation in the urinary tract. The slightly acidic urine is common and not necessarily concerning. The absence of blood, helminths, and parasites is reassuring. The presence of food particles suggests the sample was collected soon after a meal. Given the patient's age (29) and existing diabetes, monitoring for any signs of urinary tract infection or other abnormalities is important. Further investigation may be needed if symptoms such as dysuria, frequency, or urgency develop.",
+      "known_information": [
+        "Patient Age: 29 years",
+        "Patient Sex: Male",
+        "Diabetes Condition",
+        "Urine is slightly acidic",
+        "Few red blood cells and epithelial cells present in urine"
+      ],
+      "unclear_information": [
+        "Patient's full name is not provided",
+        "Referral doctor's name is not provided",
+        "Specific details of the patient's diabetes management are not included"
+      ]
+    },
+    "findings": [],
+    "analysis": "## \ud83e\uddec AI ANALYSIS REPORT SUMMARY\n\n**Patient Summary:** The document refers to a patient named Mr. (name not fully provided) who is 29 years old and male. The referral doctor is not specified.\n\n**Report Summary:** The urine routine and microscopic examination revealed the following: Urine is pale yellow, about 10 ml in volume, and slightly acidic. Microscopic examination showed few red blood cells (0-2/HPF) and epithelial cells (2-3/HPF). Stool examination showed brownish, semi-solid consistency with a slightly acidic reaction, mucus present, and no blood, helminths, or parasites detected. Food particles were present.  The report indicates adequate bacteria flora and fat globules.\n\n**Clinical Interpretation:**\nThe urine analysis shows a few red blood cells and epithelial cells, which could indicate minor irritation or inflammation in the urinary tract. The slightly acidic urine is common and not necessarily concerning. The absence of blood, helminths, and parasites is reassuring. The presence of food particles suggests the sample was collected soon after a meal. Given the patient's age (29) and existing diabetes, monitoring for any signs of urinary tract infection or other abnormalities is important. Further investigation may be needed if symptoms such as dysuria, frequency, or urgency develop.",
+    "recommendations": [
+      {
+        "title": "Monitor for Urinary Symptoms",
+        "description": "Watch for any signs of urinary tract infection (UTI) such as burning during urination, frequent urination, or cloudy urine. Report any such symptoms to your doctor immediately.",
+        "icon": "\ud83d\udc8a",
+        "priority": "high"
+      },
+      {
+        "title": "Diabetes Management Review",
+        "description": "Schedule a follow-up appointment with your primary care physician or endocrinologist to review your diabetes management plan, including medication adherence and blood glucose control.",
+        "icon": "\ud83c\udfc3",
+        "priority": "medium"
+      },
+      {
+        "title": "Hydration",
+        "description": "Ensure adequate hydration by drinking plenty of water throughout the day to help flush out the urinary system.",
+        "icon": "\ud83e\udd57",
+        "priority": "low"
+      }
+    ],
+    "uncertainties": [
+      "Patient's full name is not provided",
+      "Referral doctor's name is not provided",
+      "Specific details of the patient's diabetes management are not included"
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T02:15:39.149744"
+  },
+  "timestamp": "2026-02-22T02:15:39.149774"
+}

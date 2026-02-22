@@ -1,0 +1,86 @@
+{
+  "analysisId": "analysis_4009f3c7",
+  "fileId": "report_f7daf940_1771672802",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "21/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_4009f3c7",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "The patient's name appears illegible in the document (listed as 'Mr.' on one page and 'Sj [TRA f' on another). The document states the patient's age as 29 years, but the provided context specifies the patient's age as 45. Patient gender is not specified in the document.",
+      "test_report_summary": "The lab report, dated August 02, 2024, presents results for a Complete Blood Count (CBC), Differential Count, and Fasting Blood Glucose. The Urine Routine & Microscopic section is unreadable.\n\nKey findings include:\n*   **Fasting Blood Glucose:** 90 mg/dl (Within normal range of 70-110 mg/dl).\n*   **Eosinophils:** Elevated at 08% (Normal range: 01-06%).\n*   **Monocytes:** Low at 00% (Normal range: 02-10%).\n*   **MCHC:** Marginally high at 34.2% (Normal range: 28-34%).\n*   All other hematology parameters (Hb, TWBC, TRBC, TPC, PCV, MCV, MCH, Neutrophils, Basophils, Lymphocytes) are within their respective normal ranges.",
+      "clinical_interpretation": "As Dr.MeD-AI, I am interpreting these results for a 45-year-old patient with diabetes, consistent with the provided patient context. The document's stated age of 29 is noted but the interpretation prioritizes the context of 45.\n\n1.  **Fasting Blood Glucose (90 mg/dl):** This is an excellent result for a patient with diabetes. A fasting blood glucose level within the normal range (70-110 mg/dl) and below the typical target for diabetic patients (<130 mg/dL) indicates very good glycemic control. This suggests that the current diabetes management plan (diet, exercise, medications) is effective.\n2.  **Elevated Eosinophils (08%):** Eosinophils are a type of white blood cell. Elevated levels (eosinophilia) commonly suggest allergic reactions (e.g., asthma, hay fever, eczema), parasitic infections, certain skin conditions, or some autoimmune disorders. This finding warrants further investigation.\n3.  **Low Monocytes (00%):** Monocytes are another type of white blood cell. A very low count (monocytopenia) can sometimes be associated with certain infections, bone marrow disorders, or specific treatments. However, isolated mild monocytopenia might not always be clinically significant, but 0% is notably low and should be reviewed.\n4.  **Marginally High MCHC (34.2%):** Mean Corpuscular Hemoglobin Concentration (MCHC) measures the average concentration of hemoglobin in red blood cells. A marginally high MCHC, especially without changes in other red cell indices, is often not a major concern. However, it can sometimes be seen in conditions like hereditary spherocytosis or severe burns, which are unlikely given the overall normal CBC. It's often considered in context with other blood parameters.\n5.  **Overall CBC:** The majority of the other blood count parameters, including Hemoglobin, Total White Blood Cell count, Red Blood Cell count, Platelet count, MCV, and MCH, are within normal limits, which is generally reassuring regarding the patient's overall blood health.\n6.  **Urine Routine:** The unreadable urine report means no information regarding kidney function or potential urinary issues can be derived from this document.",
+      "known_information": [
+        "Lab report date: August 2, 2024.",
+        "Fasting Blood Glucose is 90 mg/dl, which is within the normal range and excellent for a diabetic patient.",
+        "Eosinophils are elevated at 08% (normal: 01-06%).",
+        "Monocytes are low at 00% (normal: 02-10%).",
+        "MCHC is marginally high at 34.2% (normal: 28-34%).",
+        "All other tested CBC parameters (Hb, TWBC, TRBC, TPC, PCV, MCV, MCH, Neutrophils, Basophils, Lymphocytes) are within normal limits."
+      ],
+      "unclear_information": [
+        "The patient's full name is illegible in the document.",
+        "The patient's gender is not specified in the document.",
+        "There is a discrepancy in the patient's age: the document states 29 years, but the provided patient context specifies 45 years. The clinical interpretation assumes the context age of 45.",
+        "The urine routine and microscopic examination results are unreadable in the provided document.",
+        "The specific reason for ordering these tests is not provided.",
+        "The referring doctor's name is illegible."
+      ]
+    },
+    "findings": [],
+    "analysis": "As Dr.MeD-AI, I am interpreting these results for a 45-year-old patient with diabetes, consistent with the provided patient context. The document's stated age of 29 is noted but the interpretation prioritizes the context of 45.\n\n1.  **Fasting Blood Glucose (90 mg/dl):** This is an excellent result for a patient with diabetes. A fasting blood glucose level within the normal range (70-110 mg/dl) and below the typical target for diabetic patients (<130 mg/dL) indicates very good glycemic control. This suggests that the current diabetes management plan (diet, exercise, medications) is effective.\n2.  **Elevated Eosinophils (08%):** Eosinophils are a type of white blood cell. Elevated levels (eosinophilia) commonly suggest allergic reactions (e.g., asthma, hay fever, eczema), parasitic infections, certain skin conditions, or some autoimmune disorders. This finding warrants further investigation.\n3.  **Low Monocytes (00%):** Monocytes are another type of white blood cell. A very low count (monocytopenia) can sometimes be associated with certain infections, bone marrow disorders, or specific treatments. However, isolated mild monocytopenia might not always be clinically significant, but 0% is notably low and should be reviewed.\n4.  **Marginally High MCHC (34.2%):** Mean Corpuscular Hemoglobin Concentration (MCHC) measures the average concentration of hemoglobin in red blood cells. A marginally high MCHC, especially without changes in other red cell indices, is often not a major concern. However, it can sometimes be seen in conditions like hereditary spherocytosis or severe burns, which are unlikely given the overall normal CBC. It's often considered in context with other blood parameters.\n5.  **Overall CBC:** The majority of the other blood count parameters, including Hemoglobin, Total White Blood Cell count, Red Blood Cell count, Platelet count, MCV, and MCH, are within normal limits, which is generally reassuring regarding the patient's overall blood health.\n6.  **Urine Routine:** The unreadable urine report means no information regarding kidney function or potential urinary issues can be derived from this document.",
+    "recommendations": [
+      {
+        "title": "Discuss Abnormal Blood Counts with Doctor",
+        "description": "Schedule an appointment with your healthcare provider to discuss the elevated Eosinophils, low Monocytes, and marginally high MCHC. These findings, while sometimes minor, warrant a professional review to understand their potential causes (like allergies, infections, or other conditions) and if any further investigation or action is needed.",
+        "icon": "\ud83e\uddd1\u200d\u2695\ufe0f",
+        "priority": "high"
+      },
+      {
+        "title": "Continue Excellent Blood Sugar Management",
+        "description": "Your Fasting Blood Glucose of 90 mg/dl is excellent and indicates very good control of your diabetes. Continue with your current diet, exercise, and medication regimen as advised by your doctor to maintain this positive trend.",
+        "icon": "\ud83e\ude78",
+        "priority": "high"
+      },
+      {
+        "title": "Clarify Urine Report Details",
+        "description": "The details of the urine routine report are unreadable in this document. Please confirm with your clinic or doctor if those results are available and clear for review, especially if a urine test was specifically requested.",
+        "icon": "\ud83e\uddea",
+        "priority": "medium"
+      },
+      {
+        "title": "Ensure Accurate Patient Records",
+        "description": "To avoid future discrepancies, please ensure your doctor's office has your correct and complete details, including your full name, your confirmed age (45 years as per your context), and gender, for all medical records.",
+        "icon": "\ud83d\udcdd",
+        "priority": "low"
+      }
+    ],
+    "uncertainties": [
+      "The patient's full name is illegible in the document.",
+      "The patient's gender is not specified in the document.",
+      "There is a discrepancy in the patient's age: the document states 29 years, but the provided patient context specifies 45 years. The clinical interpretation assumes the context age of 45.",
+      "The urine routine and microscopic examination results are unreadable in the provided document.",
+      "The specific reason for ordering these tests is not provided.",
+      "The referring doctor's name is illegible."
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-21T16:50:30.969184"
+  },
+  "timestamp": "2026-02-21T16:50:30.969268"
+}

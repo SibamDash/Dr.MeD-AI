@@ -3,36 +3,8 @@ import pdfplumber
 from structured_extraction import extract_lab_values
 from explanation_engine import generate_explanation
 from rag import load_documents, create_vector_store, retrieve
-from llm_generator import generate_llm_explanation
+from llm_generator import analyze_with_llm
 
-if structured_data:
-    query_text = " ".join([item["test"] for item in structured_data if item["status"] != "Normal"])
-    
-    retrieved_chunks = retrieve(query_text, index, docs)
-    
-    combined_context = " ".join(retrieved_chunks)
-    
-    explanation = generate_llm_explanation(
-        combined_context,
-        structured_data,
-        age,
-        condition,
-        mode
-    )
-    
-    st.subheader("AI Generated Explanation (RAG + LLM)")
-    st.write(explanation)
-documents = load_documents("data/guidelines")
-index, docs = create_vector_store(documents)
-
-if structured_data:
-    query_text = " ".join([item["test"] for item in structured_data if item["status"] != "Normal"])
-    
-    retrieved_chunks = retrieve(query_text, index, docs)
-    
-    st.subheader("Retrieved Medical Context")
-    for chunk in retrieved_chunks:
-        st.write(chunk)
 def extract_text_from_pdf(file):
     with pdfplumber.open(file) as pdf:
         text = ""
@@ -67,6 +39,43 @@ if uploaded_file:
 
     st.subheader("Structured Findings")
     st.json(structured_data)
+
+    # =========================================================
+    # AI ANALYSIS INTEGRATION (Terminal + UI)
+    # =========================================================
+    patient_context = {
+        "age": age,
+        "condition": condition,
+        "literacyLevel": mode
+    }
+
+    with st.spinner("🤖 Dr.MeD-AI is analyzing the report..."):
+        ai_response = analyze_with_llm(report_text, patient_context, structured_data)
+
+    if ai_response:
+        # 1. PRINT TO TERMINAL
+        print("\n" + "="*60)
+        print("🧬 AI ANALYSIS REPORT SUMMARY")
+        print("="*60)
+        print(f"\n👤 PATIENT SUMMARY:\n{ai_response.get('patient_summary', 'N/A')}")
+        print(f"\n📄 REPORT SUMMARY:\n{ai_response.get('test_report_summary', 'N/A')}")
+        print(f"\n🏥 CLINICAL INTERPRETATION:\n{ai_response.get('clinical_interpretation', 'N/A')}")
+        print("="*60 + "\n")
+
+        # 2. DISPLAY IN HTML PAGE (Streamlit)
+        st.markdown("---")
+        st.header("🧬 AI Analysis Report")
+        
+        st.info(f"**Patient Summary:** {ai_response.get('patient_summary')}")
+        st.success(f"**Report Summary:** {ai_response.get('test_report_summary')}")
+        
+        st.subheader("🏥 Clinical Interpretation")
+        st.write(ai_response.get('clinical_interpretation'))
+        
+        if ai_response.get('recommendations'):
+            st.subheader("💡 Recommendations")
+            for rec in ai_response['recommendations']:
+                st.warning(f"**{rec.get('title')}**: {rec.get('description')}")
     
     explanation = generate_explanation(structured_data, age, condition, mode)
 

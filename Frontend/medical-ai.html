@@ -537,6 +537,12 @@
         .status-critical {
             color: var(--danger);
         }
+        .status-low {
+            color: var(--warning);
+        }
+        .status-high {
+            color: var(--danger);
+        }
 
         /* Medical Insights */
         .insights-grid {
@@ -852,6 +858,268 @@
         ::-webkit-scrollbar-thumb:hover {
             background: var(--primary-dark);
         }
+
+        /* File List Styles */
+        .file-list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-light);
+            padding: 0.75rem;
+            border-radius: 8px;
+            margin-top: 0.5rem;
+            border: 1px solid var(--border);
+        }
+        .file-list-item .file-name {
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            word-break: break-all;
+            margin-right: 1rem;
+        }
+        .file-list-item .remove-file {
+            color: var(--danger);
+            cursor: pointer;
+            font-size: 1.2rem;
+            line-height: 1;
+            padding: 0 0.5rem;
+        }
+
+        .analysis-section {
+            margin-bottom: 1.5rem;
+        }
+
+        /* ===== GEMINI SUMMARY STYLES ===== */
+        .summary-section {
+            margin-bottom: 1.75rem;
+        }
+        .summary-section-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+        .patient-card {
+            background: linear-gradient(135deg, rgba(30,58,138,0.07), rgba(59,130,246,0.07));
+            border-radius: 14px;
+            padding: 1.25rem 1.5rem;
+            border: 1px solid rgba(30,58,138,0.15);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+        }
+        .patient-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+        .patient-field-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .patient-field-value {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .test-results-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 0.5rem;
+        }
+        .test-results-table thead th {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0 1rem 0.25rem;
+            text-align: left;
+        }
+        .test-row {
+            background: var(--bg-light);
+            border-radius: 10px;
+            transition: all 0.2s;
+        }
+        .test-row:hover {
+            background: var(--bg-card-hover);
+            transform: translateX(4px);
+        }
+        .test-row td {
+            padding: 0.85rem 1rem;
+            font-size: 0.9rem;
+        }
+        .test-row td:first-child { border-radius: 10px 0 0 10px; }
+        .test-row td:last-child { border-radius: 0 10px 10px 0; }
+        .test-name { font-weight: 600; color: var(--text-primary); }
+        .test-value { font-family: 'JetBrains Mono', monospace; font-weight: 700; }
+        .test-value.val-normal { color: var(--accent); }
+        .test-value.val-high { color: var(--danger); }
+        .test-value.val-low { color: var(--warning); }
+        .test-value.val-warning { color: var(--warning); }
+        .test-range { color: var(--text-muted); font-size: 0.82rem; font-family: 'JetBrains Mono', monospace; }
+        .test-status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.25rem 0.65rem;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+        .badge-normal { background: rgba(16,185,129,0.15); color: var(--accent); }
+        .badge-high { background: rgba(239,68,68,0.12); color: var(--danger); }
+        .badge-low { background: rgba(245,158,11,0.15); color: var(--warning); }
+        .badge-warning { background: rgba(245,158,11,0.15); color: var(--warning); }
+        .test-description {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.2rem;
+            line-height: 1.5;
+        }
+        .known-unclear-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .known-box, .unclear-box {
+            border-radius: 12px;
+            padding: 1.1rem 1.25rem;
+        }
+        .known-box {
+            background: rgba(16,185,129,0.08);
+            border: 1px solid rgba(16,185,129,0.2);
+        }
+        .unclear-box {
+            background: rgba(245,158,11,0.08);
+            border: 1px solid rgba(245,158,11,0.2);
+        }
+        .known-unclear-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .known-unclear-title.known { color: var(--accent); }
+        .known-unclear-title.unclear { color: var(--warning); }
+        .ku-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .ku-list li {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            padding: 0.3rem 0;
+            display: flex;
+            gap: 0.5rem;
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+            line-height: 1.4;
+        }
+        .ku-list li:last-child { border-bottom: none; }
+        .medicine-card {
+            background: linear-gradient(135deg, rgba(59,130,246,0.07), rgba(30,58,138,0.05));
+            border: 1px solid rgba(59,130,246,0.18);
+            border-radius: 12px;
+            padding: 1.1rem 1.25rem;
+            margin-bottom: 0.6rem;
+            display: flex;
+            gap: 0.9rem;
+            align-items: flex-start;
+        }
+        .medicine-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+        .medicine-name {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+        .medicine-insight {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.2rem;
+            line-height: 1.5;
+        }
+        .confidence-meter {
+            margin-top: 0.5rem;
+        }
+        .confidence-bar-wrap {
+            background: var(--bg-light);
+            border-radius: 20px;
+            height: 10px;
+            margin-top: 0.4rem;
+            overflow: hidden;
+        }
+        .confidence-bar-fill {
+            height: 100%;
+            border-radius: 20px;
+            background: linear-gradient(90deg, var(--primary-light), var(--accent));
+            transition: width 1s ease;
+        }
+        .confidence-label-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.3rem;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+        .disclaimer-box {
+            background: rgba(245,158,11,0.07);
+            border: 1px solid rgba(245,158,11,0.2);
+            border-radius: 10px;
+            padding: 0.85rem 1rem;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            display: flex;
+            gap: 0.5rem;
+            align-items: flex-start;
+            line-height: 1.5;
+        }
+        @media (max-width: 640px) {
+            .known-unclear-grid { grid-template-columns: 1fr; }
+            .patient-card { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* ===== DEBUG / RAW JSON PANEL ===== */
+        #debugPanel {
+            display: none;
+            margin-top: 1rem;
+            background: #0f172a;
+            border-radius: 12px;
+            padding: 1.25rem;
+            border: 1px solid #1e293b;
+        }
+        #debugPanel h4 {
+            color: #7dd3fc;
+            font-size: 0.82rem;
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        #debugJson {
+            color: #86efac;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-break: break-all;
+            max-height: 400px;
+            overflow-y: auto;
+        }
     </style>
 </head>
 <body>
@@ -898,16 +1166,29 @@
         <div class="main-content">
             <!-- Upload Section -->
             <aside class="upload-section">
-                <h2 class="section-title">
-                    <span class="title-icon">📄</span>
-                    Upload Report
-                </h2>
-                <div class="upload-area" onclick="document.getElementById('fileInput').click()">
-                    <div class="upload-icon">☁️</div>
-                    <h3>Drop your medical report here</h3>
-                    <p style="color: var(--text-muted); margin-top: 0.5rem;">or click to browse</p>
-                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 1rem;">Supports PDF, JPG, PNG up to 10MB</p>
-                    <input type="file" id="fileInput" style="display: none;" accept=".pdf,.jpg,.jpeg,.png">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <h2 class="section-title" style="margin-bottom: 0;">
+                        <span class="title-icon">📄</span>
+                        Upload Documents
+                    </h2>
+                    <div id="serverStatus" style="font-size: 0.75rem; padding: 0.35rem 0.8rem; border-radius: 20px; background: #f1f5f9; color: #64748b; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; border: 1px solid #e2e8f0; transition: all 0.3s ease;">
+                        <span style="width: 8px; height: 8px; background: #94a3b8; border-radius: 50%;"></span>
+                        Checking...
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Lab Test Report</label>
+                    <div class="upload-area" id="reportUploadArea" onclick="document.getElementById('reportInput').click()" style="padding: 1.5rem; min-height: auto;">
+                        <div class="upload-content">
+                            <div class="upload-icon" style="font-size: 2rem; margin-bottom: 0.5rem;">🧪</div>
+                            <h3>Upload Report</h3>
+                            <p style="color: var(--text-muted); font-size: 0.8rem;">Click to add pages</p>
+                        </div>
+                        <input type="file" id="reportInput" multiple style="display: none;" accept=".pdf,.jpg,.jpeg,.png">
+                    </div>
+                    <div id="reportFileList"></div>
+                    <button class="analyze-btn" style="margin-top: 0.5rem; padding: 0.5rem; font-size: 0.9rem; background: transparent; border: 1px dashed var(--primary); color: var(--primary); box-shadow: none;" onclick="document.getElementById('reportInput').click()">+ Add Another Page</button>
                 </div>
 
                 <div class="patient-info">
@@ -959,49 +1240,29 @@
                             <span class="title-icon">🤖</span>
                             AI-Powered Analysis
                         </h2>
-                        <div class="confidence-badge">
+                        <div class="confidence-badge" id="confidenceBadge" style="display:none;">
                             <span>✓</span>
-                            <span>96% Confidence</span>
+                            <span id="confidenceText">-- Confidence</span>
                         </div>
                     </div>
-                    <div class="analysis-content">
-                        <p class="analysis-text">
-                            Based on your comprehensive blood work analysis, your overall health indicators show positive trends. Your glucose levels have improved significantly since the last test, indicating good diabetes management through medication and lifestyle changes. However, we've noticed a slight elevation in cholesterol levels that requires monitoring.
-                        </p>
-
-                        <div class="key-findings">
-                            <div class="finding-item">
-                                <span class="finding-label">Blood Glucose (Fasting)</span>
-                                <span class="finding-value status-normal">105 mg/dL ✓</span>
-                            </div>
-                            <div class="finding-item">
-                                <span class="finding-label">HbA1c</span>
-                                <span class="finding-value status-normal">6.2% ✓</span>
-                            </div>
-                            <div class="finding-item">
-                                <span class="finding-label">Total Cholesterol</span>
-                                <span class="finding-value status-warning">215 mg/dL ⚠</span>
-                            </div>
-                            <div class="finding-item">
-                                <span class="finding-label">Blood Pressure</span>
-                                <span class="finding-value status-normal">120/80 mmHg ✓</span>
-                            </div>
-                            <div class="finding-item">
-                                <span class="finding-label">Kidney Function (eGFR)</span>
-                                <span class="finding-value status-normal">95 mL/min ✓</span>
-                            </div>
+                    <div class="analysis-content" id="analysisContent">
+                        <!-- Default placeholder state -->
+                        <div id="summaryPlaceholder" style="text-align:center; padding: 3rem 1rem; color: var(--text-muted);">
+                            <div style="font-size: 3.5rem; margin-bottom: 1rem;">🔬</div>
+                            <h3 style="color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 0.5rem;">No Report Analyzed Yet</h3>
+                            <p style="font-size: 0.95rem;">Upload your medical report and fill in patient details, then click <strong style="color:var(--primary);">Analyze Report</strong> to see a full AI-powered summary here.</p>
                         </div>
-
-                        <div class="uncertainty-section">
-                            <div class="uncertainty-title">
-                                <span>⚠️</span>
-                                <span>Areas Requiring Further Investigation</span>
-                            </div>
-                            <ul class="uncertainty-list">
-                                <li>Slight elevation in LDL cholesterol - recommend lipid panel retest in 3 months</li>
-                                <li>Vitamin D levels not included in current report - may need separate test</li>
-                                <li>Liver enzyme values borderline - follow-up recommended</li>
-                            </ul>
+                        <!-- Dynamic summary will be injected here -->
+                        <div id="geminiSummary" style="display:none;"></div>
+                        <!-- Raw JSON Debug Panel -->
+                        <div style="margin-top:0.75rem;text-align:right;">
+                            <button onclick="toggleDebug()" id="debugToggleBtn" style="display:none;background:transparent;border:1px solid #334155;border-radius:6px;padding:0.3rem 0.75rem;font-size:0.75rem;color:#64748b;cursor:pointer;">
+                                🛠 Show Raw JSON
+                            </button>
+                        </div>
+                        <div id="debugPanel">
+                            <h4>🛠 Raw JSON Response from Backend</h4>
+                            <pre id="debugJson"></pre>
                         </div>
                     </div>
                 </div>
@@ -1147,9 +1408,17 @@
 
     <script>
         // ==================== API CONFIGURATION ====================
-        // Configure your backend API endpoints here
+        // BASE_URL uses a RELATIVE path ('/api') so it works automatically
+        // no matter what backend language, port, or server you use.
+        //
+        // This works because Flask now SERVES this HTML file directly at
+        // http://localhost:5001 — so the page and the API share the same
+        // origin. No CORS headers are ever needed.
+        //
+        // Rule: always open the app via  http://localhost:5001
+        //       NOT by double-clicking the file (file:// breaks fetch).
         const API_CONFIG = {
-            BASE_URL: 'http://localhost:5000/api',  // Change to your backend URL
+            BASE_URL: '/api',           // ← relative: works on any host/port
             ENDPOINTS: {
                 UPLOAD_REPORT: '/upload-report',
                 ANALYZE_REPORT: '/analyze',
@@ -1159,9 +1428,7 @@
                 SAVE_ANALYSIS: '/analysis/save'
             },
             HEADERS: {
-                'Content-Type': 'application/json',
-                // Add authentication headers here if needed
-                // 'Authorization': 'Bearer YOUR_TOKEN'
+                'Content-Type': 'application/json'
             }
         };
 
@@ -1222,13 +1489,13 @@
 
         /**
          * Upload medical report file to backend
-         * @param {File} file - The medical report file
+         * @param {Array} reportFiles - Array of medical report files
          * @param {object} patientData - Patient information
          * @returns {Promise} Upload response with file ID
          */
-        async function uploadMedicalReport(file, patientData) {
+        async function uploadMedicalReport(reportFiles, patientData) {
             const formData = new FormData();
-            formData.append('report', file);
+            reportFiles.forEach(file => formData.append('report', file));
             formData.append('patientData', JSON.stringify(patientData));
 
             try {
@@ -1344,162 +1611,412 @@
         }
 
         // ==================== EVENT HANDLERS ====================
-        // File upload handler
-        document.getElementById('fileInput').addEventListener('change', function(e) {
-            const fileName = e.target.files[0]?.name;
-            if (fileName) {
-                const uploadArea = document.querySelector('.upload-area');
-                uploadArea.innerHTML = `
-                    <div style="color: var(--accent); font-size: 3rem; margin-bottom: 1rem;">✓</div>
-                    <h3 style="color: var(--accent);">File uploaded successfully!</h3>
-                    <p style="color: var(--text-muted); margin-top: 0.5rem;">${fileName}</p>
-                    <button style="margin-top: 1rem; padding: 0.5rem 1rem; background: transparent; border: 1px solid var(--primary); color: var(--primary); border-radius: 8px; cursor: pointer;" onclick="location.reload()">
-                        Change File
-                    </button>
-                `;
-            }
-        });
+        
+        // Global state for files
+        let reportFiles = [];
 
-        // Analyze report with loading animation and API integration
+        // File upload handler helper
+        function setupFileUpload(inputId, listId, fileArray, type) {
+            const input = document.getElementById(inputId);
+            const list = document.getElementById(listId);
+            
+            input.addEventListener('change', function(e) {
+                if (e.target.files.length > 0) {
+                    // Add new files to array
+                    Array.from(e.target.files).forEach(file => {
+                        fileArray.push(file);
+                    });
+                    renderFileList(list, fileArray, type);
+                    // Reset input
+                    input.value = '';
+                }
+            });
+        }
+
+        function renderFileList(container, fileArray, type) {
+            container.innerHTML = fileArray.map((file, index) => `
+                <div class="file-list-item">
+                    <span class="file-name">📄 ${file.name}</span>
+                    <span class="remove-file" onclick="removeFile('${type}', ${index})">×</span>
+                </div>
+            `).join('');
+        }
+
+        function removeFile(type, index) {
+            if (type === 'report') {
+                reportFiles.splice(index, 1);
+                renderFileList(document.getElementById('reportFileList'), reportFiles, 'report');
+            }
+        }
+
+        setupFileUpload('reportInput', 'reportFileList', reportFiles, 'report');
+
+        // ==================== HELPERS ====================
+        function escH(str) {
+            return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+        }
+
+        function getStatusIcon(status) {
+            return { 'normal':'✓', 'warning':'⚠', 'critical':'⚠', 'excellent':'✓', 'low':'↓', 'high':'↑' }[status] || '';
+        }
+
+        // ==================== BUILD SUMMARY HTML ====================
+        // Maps the backend /api/analyze response shape to the summary card.
+        // Backend returns:
+        //   { success, analysisId, confidence (int 0-100), aiResponse, findings[], recommendations[], uncertainties[] }
+        // aiResponse: { patient_summary, test_report_summary, clinical_interpretation, known_information[], unclear_information[] }
+        // findings[]:  { label, value, status (lowercase), normalRange }
+        // recommendations[]: { title, description, icon }
+
+        function buildSummaryHTML(results, patientData) {
+            console.log("🔍 buildSummaryHTML raw input:", JSON.stringify(results, null, 2));
+
+            // ── Normalize: handle nested result object ──────────────────────
+            const data = results.result || results;
+
+            // ── Normalize aiResponse — handle string, object, or missing ───
+            let ai = data.aiResponse || data.ai_response || data.llm_result || {};
+
+            if (typeof ai === 'string') {
+                try {
+                    const clean = ai.replace(/```json\n?|```/g, '').trim();
+                    ai = clean.startsWith('{') ? JSON.parse(clean) : { test_report_summary: ai };
+                } catch(e) {
+                    ai = { test_report_summary: ai };
+                }
+            }
+
+            // ── Also check if LLM fields were returned at the TOP LEVEL ────
+            // (some backends flatten the response)
+            if (!ai.patient_summary && data.patient_summary) ai.patient_summary = data.patient_summary;
+            if (!ai.test_report_summary && data.test_report_summary) ai.test_report_summary = data.test_report_summary;
+            if (!ai.clinical_interpretation && data.clinical_interpretation) ai.clinical_interpretation = data.clinical_interpretation;
+            if (!ai.known_information && data.known_information) ai.known_information = data.known_information;
+            if (!ai.unclear_information && data.unclear_information) ai.unclear_information = data.unclear_information;
+
+            console.log("🔍 Normalized ai object:", ai);
+
+            const findings  = Array.isArray(data.findings) ? data.findings : [];
+            const recs      = Array.isArray(data.recommendations) ? data.recommendations : [];
+            const known     = Array.isArray(ai.known_information) ? ai.known_information : [];
+            const unclear   = Array.isArray(ai.unclear_information) ? ai.unclear_information : (Array.isArray(data.uncertainties) ? data.uncertainties : []);
+            const conf      = parseInt(data.confidence) || 80;
+            const confColor = conf >= 85 ? 'var(--accent)' : conf >= 65 ? 'var(--warning)' : 'var(--danger)';
+
+            const reportSummaryText = ai.test_report_summary || ai.report_summary || data.analysis || '';
+            const hasContent = !!(ai.patient_summary || reportSummaryText || ai.clinical_interpretation);
+
+            // 1 — Patient info block
+            const patientHTML = `
+            <div class="summary-section">
+                <div class="summary-section-title">👤 Patient Information</div>
+                <div class="patient-card">
+                    <div class="patient-field"><span class="patient-field-label">Name</span><span class="patient-field-value">${escH(patientData.name)}</span></div>
+                    <div class="patient-field"><span class="patient-field-label">Age</span><span class="patient-field-value">${escH(patientData.age)} yrs</span></div>
+                    <div class="patient-field"><span class="patient-field-label">Condition</span><span class="patient-field-value">${escH(patientData.condition)}</span></div>
+                    <div class="patient-field"><span class="patient-field-label">Date</span><span class="patient-field-value">${escH(patientData.date)}</span></div>
+                    ${data.analysisId ? `<div class="patient-field"><span class="patient-field-label">Analysis ID</span><span class="patient-field-value" style="font-size:0.8rem;">${escH(data.analysisId)}</span></div>` : ''}
+                </div>
+            </div>`;
+
+            // 2 — Clinical summary (from LLM)
+            const summaryHTML = hasContent ? `
+            <div class="summary-section">
+                <div class="summary-section-title">🏥 Clinical Summary</div>
+                ${ai.patient_summary ? `<p style="font-size:0.92rem;color:var(--text-secondary);margin-bottom:0.75rem;line-height:1.7;"><strong>Patient Summary:</strong> ${escH(ai.patient_summary)}</p>` : ''}
+                ${reportSummaryText ? `<p style="font-size:0.92rem;color:var(--text-secondary);margin-bottom:0.75rem;line-height:1.7;"><strong>Report Summary:</strong> ${escH(reportSummaryText)}</p>` : ''}
+                ${ai.clinical_interpretation ? `
+                <div style="background:rgba(59,130,246,0.06);border-left:4px solid var(--primary);padding:1rem 1.25rem;border-radius:0 12px 12px 0;margin-top:0.25rem;">
+                    <p style="font-size:0.93rem;color:var(--text-secondary);line-height:1.75;"><strong>Clinical Interpretation:</strong> ${escH(ai.clinical_interpretation)}</p>
+                    <div style="font-size:0.73rem;color:var(--text-muted);margin-top:0.5rem;">🛡️ Generated using verified medical guideline retrieval (RAG)</div>
+                </div>` : ''}
+            </div>` : `
+            <div class="summary-section">
+                <div class="summary-section-title">🏥 Report Analysis</div>
+                <p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.7;">
+                    ${escH(data.analysis || 'Analysis completed. No summary text was returned — please check the raw JSON panel below for the full backend response.')}
+                </p>
+            </div>`;
+
+            // 3 — Test results table
+            const testsHTML = findings.length > 0 ? `
+            <div class="summary-section">
+                <div class="summary-section-title">📊 Test Results</div>
+                <table class="test-results-table">
+                    <thead><tr><th>Test</th><th>Value</th><th>Normal Range</th><th>Status</th></tr></thead>
+                    <tbody>
+                        ${findings.map(f => {
+                            const st = (f.status || 'normal').toLowerCase();
+                            const valClass = st === 'normal' ? 'val-normal' : st === 'high' ? 'val-high' : st === 'low' ? 'val-low' : 'val-warning';
+                            const badgeClass = st === 'normal' ? 'badge-normal' : st === 'high' ? 'badge-high' : st === 'low' ? 'badge-low' : 'badge-warning';
+                            const icon = st === 'normal' ? '✓' : st === 'high' ? '↑' : st === 'low' ? '↓' : '⚠';
+                            return `<tr class="test-row">
+                                <td><div class="test-name">${escH(f.label || f.test || '')}</div></td>
+                                <td><span class="test-value ${valClass}">${escH(String(f.value || ''))} ${icon}</span></td>
+                                <td><span class="test-range">${escH(f.normalRange || f.range || '—')}</span></td>
+                                <td><span class="test-status-badge ${badgeClass}">${icon} ${escH(st.charAt(0).toUpperCase() + st.slice(1))}</span></td>
+                            </tr>`;
+                        }).join('')}
+                    </tbody>
+                </table>
+            </div>` : '';
+
+            // 4 — AI recommendations / medicines
+            const medsHTML = recs.length > 0 ? `
+            <div class="summary-section">
+                <div class="summary-section-title">💊 AI Recommendations</div>
+                ${recs.map(r => `
+                <div class="medicine-card">
+                    <div class="medicine-icon">${escH(r.icon || '💊')}</div>
+                    <div>
+                        <div class="medicine-name">${escH(r.title || '')}</div>
+                        <div class="medicine-insight">${escH(r.description || '')}</div>
+                    </div>
+                </div>`).join('')}
+                <div class="disclaimer-box"><span>⚠️</span><span>AI-generated suggestions only. Always consult a licensed physician before making any changes to your treatment plan.</span></div>
+            </div>` : '';
+
+            // 5 — Known vs Unclear
+            const kuHTML = `
+            <div class="summary-section">
+                <div class="summary-section-title">🔍 Known vs Unclear</div>
+                <div class="known-unclear-grid">
+                    <div class="known-box">
+                        <div class="known-unclear-title known">✅ Known Information</div>
+                        <ul class="ku-list">${known.length > 0 ? known.map(k=>`<li><span>•</span>${escH(k)}</li>`).join('') : '<li><span>•</span>No specific items extracted.</li>'}</ul>
+                    </div>
+                    <div class="unclear-box">
+                        <div class="known-unclear-title unclear">❓ Unclear / Missing</div>
+                        <ul class="ku-list">${unclear.length > 0 ? unclear.map(u=>`<li><span>•</span>${escH(u)}</li>`).join('') : '<li><span>•</span>No gaps identified.</li>'}</ul>
+                    </div>
+                </div>
+            </div>`;
+
+            // 6 — Confidence meter
+            const confHTML = `
+            <div class="summary-section">
+                <div class="summary-section-title">📈 Analysis Confidence</div>
+                <div class="confidence-meter">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
+                        <span style="font-size:0.9rem;color:var(--text-secondary);">Report analysis confidence score</span>
+                        <span style="font-size:1.4rem;font-weight:800;color:${confColor};font-family:'JetBrains Mono',monospace;">${conf}%</span>
+                    </div>
+                    <div class="confidence-bar-wrap"><div class="confidence-bar-fill" id="confBarFill" style="width:0%;"></div></div>
+                    <div class="confidence-label-row"><span>Low</span><span>High</span></div>
+                    <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.4rem;">
+                        ${conf >= 85 ? '✅ High confidence — LLM analysis succeeded with strong data extraction.' : conf >= 65 ? '⚠️ Moderate confidence — some data may be incomplete.' : '⚠️ Low confidence — fallback mode or limited data.'}
+                    </p>
+                </div>
+            </div>`;
+
+            setTimeout(() => {
+                const bar = document.getElementById('confBarFill');
+                if (bar) bar.style.cssText = `width:${conf}%;background:linear-gradient(90deg,${confColor},${confColor}88);transition:width 1s ease;`;
+            }, 150);
+
+            return patientHTML + summaryHTML + testsHTML + medsHTML + kuHTML + confHTML;
+        }
+
+        function showRawJSON(data) {
+            const panel = document.getElementById('debugPanel');
+            const pre   = document.getElementById('debugJson');
+            const btn   = document.getElementById('debugToggleBtn');
+            pre.textContent = JSON.stringify(data, null, 2);
+            // Keep panel hidden by default but show the toggle button
+            panel.style.display = 'none';
+            if (btn) btn.style.display = 'inline-block';
+        }
+
+        function toggleDebug() {
+            const panel = document.getElementById('debugPanel');
+            const btn   = document.getElementById('debugToggleBtn');
+            const visible = panel.style.display !== 'none';
+            panel.style.display = visible ? 'none' : 'block';
+            if (btn) btn.textContent = visible ? '🛠 Show Raw JSON' : '🛠 Hide Raw JSON';
+        }
+
+        // ==================== ANALYZE REPORT (BACKEND-DRIVEN) ====================
+        // Calls Flask backend: POST /api/upload-report → POST /api/analyze
+        // Matches exactly the endpoints and response shape in backend_server.py
+
         async function analyzeReport() {
             const loadingState = document.getElementById('loadingState');
             const resultsSection = document.querySelector('.results-section');
-            
-            // Get patient data from form
+            const summaryPlaceholder = document.getElementById('summaryPlaceholder');
+            const geminiSummary = document.getElementById('geminiSummary');
+            const confidenceBadge = document.getElementById('confidenceBadge');
+            const confidenceText = document.getElementById('confidenceText');
+
             const patientData = {
-                name: document.querySelector('input[type="text"]').value,
-                age: document.querySelector('input[type="number"]').value,
+                name: document.querySelector('input[type="text"]').value || 'Unknown',
+                age: document.querySelector('input[type="number"]').value || 'N/A',
                 condition: document.querySelector('select').value,
-                literacyLevel: document.querySelectorAll('select')[1].value
+                literacyLevel: document.querySelectorAll('select')[1].value,
+                date: new Date().toLocaleDateString()
             };
 
-            // Get uploaded file
-            const fileInput = document.getElementById('fileInput');
-            const file = fileInput.files[0];
+            if (reportFiles.length === 0) {
+                alert('Please upload at least one medical report (PDF, JPG, or PNG) before analyzing.');
+                return;
+            }
 
-            if (!file) {
-                if (!confirm("No file selected. Run in DEMO MODE with sample data?")) {
-                    return;
+            // ── Helper: fetch with timeout ──────────────────────────────────
+            async function fetchWithTimeout(url, options = {}, timeoutMs = 60000) {
+                const controller = new AbortController();
+                const id = setTimeout(() => controller.abort(), timeoutMs);
+                try {
+                    const res = await fetch(url, { ...options, signal: controller.signal });
+                    clearTimeout(id);
+                    return res;
+                } catch (e) {
+                    clearTimeout(id);
+                    if (e.name === 'AbortError') throw new Error('Request timed out after ' + timeoutMs/1000 + 's');
+                    // Provide a clearer CORS/network error message
+                    if (e.message === 'Failed to fetch' || e.message.includes('NetworkError') || e.message.includes('CORS')) {
+                        throw new Error(
+                            'Cannot connect to backend. ' +
+                            'SOLUTION: Run the backend → python backend_server.py ' +
+                            'then open http://localhost:5001 in your browser. ' +
+                            'Do NOT open medical-ai.html by double-clicking it.'
+                        );
+                    }
+                    throw e;
                 }
             }
 
-            // Show loading
+            // Show loading, dim other cards
             loadingState.classList.add('active');
-            
-            // Hide results temporarily
-            const cards = resultsSection.querySelectorAll('.card, .verification-panel');
-            cards.forEach(card => card.style.display = 'none');
+            summaryPlaceholder.style.display = 'none';
+            geminiSummary.style.display = 'none';
+            confidenceBadge.style.display = 'none';
+            const otherCards = resultsSection.querySelectorAll('.card:not(.ai-analysis), .verification-panel');
+            otherCards.forEach(c => { c.style.opacity = '0.4'; c.style.pointerEvents = 'none'; });
+
+            const showError = (msg) => {
+                loadingState.classList.remove('active');
+                otherCards.forEach(c => { c.style.opacity = '1'; c.style.pointerEvents = 'auto'; });
+                summaryPlaceholder.style.display = 'none';
+                geminiSummary.innerHTML = `
+                    <div style="padding:2rem 1.5rem;">
+                        <div style="font-size:2.5rem;margin-bottom:1rem;text-align:center;">⚠️</div>
+                        <h3 style="color:var(--danger);margin-bottom:0.75rem;text-align:center;">Analysis Failed</h3>
+                        <p style="color:var(--text-secondary);font-size:0.92rem;line-height:1.7;margin-bottom:1rem;">${escH(msg)}</p>
+                        <div style="padding:1rem;background:var(--bg-light);border-radius:10px;border:1px solid var(--border);font-size:0.82rem;color:var(--text-muted);line-height:1.8;">
+                            <strong>✅ Quick Fix Checklist:</strong><br>
+                            1. Start the backend: <code style="background:#e2e8f0;padding:0.1rem 0.4rem;border-radius:4px;">python backend_server.py</code><br>
+                            2. Open the app at: <code style="background:#e2e8f0;padding:0.1rem 0.4rem;border-radius:4px;">http://localhost:5001</code><br>
+                            &nbsp;&nbsp;&nbsp;⚠️ Do NOT open medical-ai.html by double-clicking — always use the URL above<br>
+                            3. Allowed file types: PDF, PNG, JPG, JPEG (max 10MB)
+                        </div>
+                    </div>`;
+                geminiSummary.style.display = 'block';
+            };
 
             try {
-                let analysisResponse;
-
-                if (file) {
-                    // Step 1: Upload the file
-                    console.log('Uploading file to backend...');
-                    const uploadResponse = await uploadMedicalReport(file, patientData);
-                    console.log('Upload Response:', uploadResponse);
-
-                    // Step 2: Analyze the report using AI models
-                    console.log('Analyzing report with AI models...');
-                    analysisResponse = await analyzeMedicalReport(
-                        uploadResponse.fileId,
-                        patientData
-                    );
-                } else {
-                    // Demo Mode: Simulate delay and get mock data
-                    console.log('Running in Demo Mode...');
-                    await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate processing time
-                    analysisResponse = getMockAnalysisData();
+                // ── Step 1: Check backend health ──────────────────────────────
+                let backendOK = false;
+                try {
+                    const healthRes = await fetchWithTimeout(API_CONFIG.BASE_URL + '/health', { method: 'GET' }, 10000);
+                    backendOK = healthRes.ok;
+                } catch(e) {
+                    throw new Error(e.message || ('Cannot reach backend at ' + API_CONFIG.BASE_URL + '. Make sure Flask server is running on port 5001.'));
                 }
 
-                // Step 3: Update UI with results
-                if (analysisResponse.success) {
-                    updateUIWithResults(analysisResponse);
-                    
-                    // Show results with animation
-                    loadingState.classList.remove('active');
-                    cards.forEach((card, index) => {
-                        card.style.display = 'block';
-                        card.style.opacity = '0';
-                        setTimeout(() => {
-                            card.style.animation = 'fadeIn 0.6s ease-out forwards';
-                        }, index * 150);
-                    });
+                if (!backendOK) {
+                    throw new Error('Backend health check failed at ' + API_CONFIG.BASE_URL + '/health. Make sure Flask server is running.');
                 }
+
+                // ── Step 2: Upload files → POST /api/upload-report ──────────
+                const formData = new FormData();
+                reportFiles.forEach(file => formData.append('report', file));
+                formData.append('patientData', JSON.stringify(patientData));
+
+                const uploadRes = await fetchWithTimeout(
+                    API_CONFIG.BASE_URL + API_CONFIG.ENDPOINTS.UPLOAD_REPORT,
+                    { method: 'POST', body: formData },
+                    30000
+                );
+
+                if (!uploadRes.ok) {
+                    const err = await uploadRes.json().catch(() => ({}));
+                    throw new Error('Upload failed (' + uploadRes.status + '): ' + (err.error || uploadRes.statusText));
+                }
+
+                const uploadData = await uploadRes.json();
+                if (!uploadData.success || !uploadData.fileId) {
+                    throw new Error('Upload response invalid: ' + JSON.stringify(uploadData));
+                }
+                const fileId = uploadData.fileId;
+                console.log('✅ Upload success. File ID:', fileId);
+
+                // ── Step 3: Analyze → POST /api/analyze ─────────────────────
+                const analyzePayload = {
+                    fileId: fileId,
+                    patientContext: patientData,
+                    models: { nlp: true, classifier: true, risk: true, rag: true, personalization: true, confidence: true }
+                };
+
+                const analyzeRes = await fetchWithTimeout(
+                    API_CONFIG.BASE_URL + API_CONFIG.ENDPOINTS.ANALYZE_REPORT,
+                    {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(analyzePayload)
+                    },
+                    120000  // 2 min timeout — LLM can be slow
+                );
+
+                if (!analyzeRes.ok) {
+                    const err = await analyzeRes.json().catch(() => ({}));
+                    throw new Error('Analysis failed (' + analyzeRes.status + '): ' + (err.error || analyzeRes.statusText));
+                }
+
+                const analysisData = await analyzeRes.json();
+                if (!analysisData.success) {
+                    throw new Error('Analysis error: ' + (analysisData.error || 'Unknown error from server'));
+                }
+                console.log('✅ Analysis complete:', analysisData);
+
+                // ── Show raw JSON for debugging ──────────────────────────────
+                showRawJSON(analysisData);
+
+                // ── Step 4: Render summary ───────────────────────────────────
+                const resultData = analysisData.result || analysisData;
+                const conf = parseInt(resultData.confidence) || 80;
+                confidenceText.textContent = conf + '% Confidence';
+                confidenceBadge.style.display = 'flex';
+
+                // Inject the full summary HTML into the page
+                geminiSummary.innerHTML = buildSummaryHTML(analysisData, patientData);
+                geminiSummary.style.display = 'block';
+
+                // ── Step 5: Update Recommendations card ─────────────────────
+                if (resultData.recommendations && resultData.recommendations.length > 0) {
+                    const recContainer = document.querySelector('.recommendations');
+                    if (recContainer) {
+                        recContainer.innerHTML = resultData.recommendations.map(rec => `
+                            <div class="recommendation-item">
+                                <div class="recommendation-icon">${escH(rec.icon || '💡')}</div>
+                                <div class="recommendation-content">
+                                    <h4>${escH(rec.title || '')}</h4>
+                                    <p>${escH(rec.description || '')}</p>
+                                </div>
+                            </div>`).join('');
+                    }
+                }
+
+                loadingState.classList.remove('active');
+                otherCards.forEach(c => { c.style.opacity = '1'; c.style.pointerEvents = 'auto'; });
+
+                // Scroll to the AI analysis card smoothly
+                setTimeout(() => {
+                    document.querySelector('.ai-analysis').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
 
             } catch (error) {
-                console.error('Analysis failed:', error);
-                loadingState.classList.remove('active');
-                alert('Analysis failed. Please try again or check your backend connection.');
+                console.error('❌ Analysis error:', error);
+                showError(error.message);
             }
-        }
-
-        /**
-         * Update UI with analysis results from backend
-         * @param {object} results - Analysis results from API
-         */
-        function updateUIWithResults(results) {
-            // Update confidence badge
-            const confidenceBadge = document.querySelector('.confidence-badge span:last-child');
-            if (confidenceBadge && results.confidence) {
-                confidenceBadge.textContent = `${results.confidence}% Confidence`;
-            }
-
-            // Update findings if available
-            if (results.findings && results.findings.length > 0) {
-                const findingsContainer = document.querySelector('.key-findings');
-                findingsContainer.innerHTML = results.findings.map(finding => `
-                    <div class="finding-item">
-                        <span class="finding-label">${finding.label}</span>
-                        <span class="finding-value status-${finding.status}">${finding.value} ${getStatusIcon(finding.status)}</span>
-                    </div>
-                `).join('');
-            }
-
-            // Update analysis text if available
-            if (results.analysis) {
-                const analysisText = document.querySelector('.analysis-text');
-                if (analysisText) {
-                    analysisText.textContent = results.analysis;
-                }
-            }
-
-            // Update recommendations if available
-            if (results.recommendations && results.recommendations.length > 0) {
-                const recommendationsContainer = document.querySelector('.recommendations');
-                recommendationsContainer.innerHTML = results.recommendations.map(rec => `
-                    <div class="recommendation-item">
-                        <div class="recommendation-icon">${rec.icon || '💡'}</div>
-                        <div class="recommendation-content">
-                            <h4>${rec.title}</h4>
-                            <p>${rec.description}</p>
-                        </div>
-                    </div>
-                `).join('');
-            }
-
-            // Update uncertainties if available
-            if (results.uncertainties && results.uncertainties.length > 0) {
-                const uncertaintyList = document.querySelector('.uncertainty-list');
-                uncertaintyList.innerHTML = results.uncertainties.map(item => `
-                    <li>${item}</li>
-                `).join('');
-            }
-
-            console.log('UI updated with analysis results');
-        }
-
-        /**
-         * Get status icon based on health metric status
-         */
-        function getStatusIcon(status) {
-            const icons = {
-                'normal': '✓',
-                'warning': '⚠',
-                'critical': '⚠',
-                'excellent': '✓'
-            };
-            return icons[status] || '';
         }
 
         // Smooth scroll for navigation
@@ -1562,6 +2079,54 @@
                 element.textContent = displayValue;
             }, 30);
         }
+
+        // ==================== SERVER STATUS INDICATOR ====================
+        function updateServerStatus(isOnline) {
+            const statusEl = document.getElementById('serverStatus');
+            if (!statusEl) return;
+            
+            if (isOnline) {
+                statusEl.style.background = 'rgba(16, 185, 129, 0.1)';
+                statusEl.style.color = 'var(--accent)';
+                statusEl.style.borderColor = 'rgba(16, 185, 129, 0.2)';
+                statusEl.innerHTML = '<span style="width: 8px; height: 8px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);"></span> Online';
+            } else {
+                statusEl.style.background = 'rgba(239, 68, 68, 0.1)';
+                statusEl.style.color = 'var(--danger)';
+                statusEl.style.borderColor = 'rgba(239, 68, 68, 0.2)';
+                statusEl.innerHTML = '<span style="width: 8px; height: 8px; background: var(--danger); border-radius: 50%; box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);"></span> Offline';
+            }
+        }
+
+        async function checkServerHealth() {
+            try {
+                // Check if running on VS Code Live Server (55xx) or 5000 - Auto Redirect to 5001
+                const port = window.location.port;
+                if (port === '5000' || (port && port.startsWith('55'))) {
+                    window.location.href = 'http://localhost:5001';
+                    return;
+                }
+
+                // Check if running on file://
+                if (window.location.protocol === 'file:') {
+                    const msg = "⚠️ WRONG PROTOCOL: You are opening the file directly. Please run 'python backend_server.py' and open http://localhost:5001";
+                    console.error(msg);
+                    document.getElementById('serverStatus').innerHTML = '<span style="color:var(--danger)">❌ Open via http://localhost:5001</span>';
+                }
+
+                const controller = new AbortController();
+                const id = setTimeout(() => controller.abort(), 2000);
+                const res = await fetch(API_CONFIG.BASE_URL + '/health', { signal: controller.signal });
+                clearTimeout(id);
+                updateServerStatus(res.ok);
+            } catch (e) {
+                updateServerStatus(false);
+            }
+        }
+
+        // Check on load and every 5 seconds
+        checkServerHealth();
+        setInterval(checkServerHealth, 5000);
     </script>
 </body>
 </html>

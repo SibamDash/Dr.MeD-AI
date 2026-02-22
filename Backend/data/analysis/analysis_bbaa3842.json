@@ -1,0 +1,72 @@
+{
+  "analysisId": "analysis_bbaa3842",
+  "fileId": "report_c62abb96_1771702771",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_bbaa3842",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "The document refers to a patient named Mr. (name not fully provided) who is 29 years old and male. The referral doctor is not specified.",
+      "test_report_summary": "The urine routine and microscopic examination revealed the following: Urine is pale yellow, about 10 ml in volume, and slightly acidic. Microscopic examination showed few epithelial cells (2-3/HPF), adequate bacteria flora, and the presence of food particles. No red blood cells, white blood cells, casts, crystals, or parasites were detected. Albumin, sugar, and phosphate levels were normal.",
+      "clinical_interpretation": "The urine analysis shows a generally unremarkable picture. The presence of food particles is common and usually not clinically significant. The few epithelial cells are within the normal range. The slightly acidic urine could be due to various factors, including diet or hydration levels. Given the patient's age and existing diabetes, monitoring urine for ketones and glucose regularly is important to assess glycemic control. Further investigation into the cause of the slightly acidic urine may be warranted if there are other concerning symptoms.",
+      "known_information": [
+        "Patient Age: 29 years",
+        "Patient Sex: Male",
+        "Urine is slightly acidic",
+        "Few epithelial cells present in urine"
+      ],
+      "unclear_information": [
+        "Patient's full name is not provided",
+        "Referral doctor's name is not provided",
+        "Specific details about the patient's diabetes management are not included"
+      ]
+    },
+    "findings": [],
+    "analysis": "The urine analysis shows a generally unremarkable picture. The presence of food particles is common and usually not clinically significant. The few epithelial cells are within the normal range. The slightly acidic urine could be due to various factors, including diet or hydration levels. Given the patient's age and existing diabetes, monitoring urine for ketones and glucose regularly is important to assess glycemic control. Further investigation into the cause of the slightly acidic urine may be warranted if there are other concerning symptoms.",
+    "recommendations": [
+      {
+        "title": "Monitor Glycemic Control",
+        "description": "Regularly monitor blood glucose levels and urine for ketones, especially if experiencing symptoms of hyperglycemia or hypoglycemia.",
+        "icon": "\ud83d\udc8a",
+        "priority": "high"
+      },
+      {
+        "title": "Hydration and Diet Review",
+        "description": "Discuss hydration and dietary habits with a healthcare provider to identify potential causes of the slightly acidic urine.",
+        "icon": "\ud83e\udd57",
+        "priority": "medium"
+      },
+      {
+        "title": "Follow-up Urine Analysis",
+        "description": "Consider repeating the urine analysis in a few weeks to ensure consistency of results.",
+        "icon": "\ud83d\udd2c",
+        "priority": "low"
+      }
+    ],
+    "uncertainties": [
+      "Patient's full name is not provided",
+      "Referral doctor's name is not provided",
+      "Specific details about the patient's diabetes management are not included"
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T01:10:07.968282"
+  },
+  "timestamp": "2026-02-22T01:10:07.968306"
+}

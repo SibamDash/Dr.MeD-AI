@@ -1,0 +1,94 @@
+{
+  "analysisId": "analysis_391bf3f6",
+  "fileId": "report_33efed45_1771694096",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "21/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_391bf3f6",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "The patient is Mr. S, a 24-year-old male. The report was issued on August 2, 2024, and was referred by Dr. [name not fully visible].",
+      "test_report_summary": "This laboratory report includes results for Urine Routine & Microscopic, Stool Routine & Microscopic, Complete Blood Cell Count (CBC), and Fasting Blood Glucose.\n\nKey findings include:\n*   **Urine Routine**: Generally normal, with no sugar or albumin detected.\n*   **Stool Routine**: Shows semi-solid consistency, presence of mucus (+), vegetable cells (+), and food particles. No blood, helminths, protozoa, pus cells, RBCs, or fat globules detected.\n*   **Complete Blood Cell Count (CBC)**: Hemoglobin (Hb), Total WBC (TWBC), Total RBC (TRBC), Total Platelet Count (TPC), Packed Cell Volume (PCV), Neutrophils, Basophils, and Lymphocytes are within normal limits. However, Mean Corpuscular Volume (MCV) is slightly low (75.0 fl), Mean Corpuscular Hemoglobin Concentration (MCHC) is elevated (37.0 %), Eosinophils are elevated (08 %), and Monocytes are low (00 %). Mean Corpuscular Hemoglobin (MCH) is borderline low (27.7 pg).\n*   **Biochemistry**: Fasting Blood Glucose is normal (90 mg/dl).",
+      "clinical_interpretation": "As Dr.MeD-AI, I will interpret these results for an educated patient. It's important to discuss these findings with your referring doctor for a comprehensive medical opinion.\n\n*   **Urine Analysis**: The urine results are generally reassuring, indicating no signs of infection (nil pus cells, nil RBCs) or issues with kidney function related to protein or sugar leakage.\n\n*   **Stool Analysis**: The presence of mucus, vegetable cells, and food particles, along with semi-solid consistency, suggests potential irritation or mild inflammation in the digestive tract, and possibly some degree of maldigestion or rapid transit. It's important to correlate this with any symptoms like abdominal discomfort, changes in bowel habits, or indigestion.\n\n*   **Complete Blood Count (CBC) Abnormalities**:\n    *   **Low MCV (Microcytosis)** and **Borderline Low MCH**: This indicates that your red blood cells are slightly smaller than average. The most common cause of microcytosis is iron deficiency, even if your hemoglobin (Hb) is currently within the normal range. Other causes can include thalassemia trait or anemia of chronic disease. Further investigation with iron studies (like serum iron, ferritin, and TIBC) may be warranted.\n    *   **High MCHC (Hyperchromia)**: An elevated MCHC indicates that your red blood cells have a higher concentration of hemoglobin. While it can sometimes be a technical error, when combined with microcytosis, it's less typical for iron deficiency and might warrant re-evaluation. It can be seen in conditions like hereditary spherocytosis, although usually with normal or high MCV, or severe dehydration. Your doctor might want to recheck this.\n    *   **Elevated Eosinophils (Eosinophilia)**: Eosinophils are a type of white blood cell that often increase in response to allergic reactions (e.g., asthma, eczema, hay fever), parasitic infections, certain drug reactions, or occasionally some autoimmune conditions. Given the stool findings (mucus, food particles), a parasitic infection or a food-related allergy affecting the gut could be a consideration.\n    *   **Low Monocytes (Monocytopenia)**: Monocytes are another type of white blood cell involved in immune defense. A count of 00% is very low. While often not clinically significant if other white blood cell counts are normal, it can sometimes be seen in conditions affecting bone marrow, certain infections, or after steroid use. Your doctor will assess this in the context of your overall health.\n\n*   **Fasting Blood Glucose**: Your fasting blood glucose level of 90 mg/dl is within the normal range (70-110 mg/dl). This is a good result and does not indicate diabetes at this time. The patient condition 'Diabetes' mentioned in your initial context is not supported by this specific test result for this patient.",
+      "known_information": [
+        "Patient name: Mr. S (partially redacted)",
+        "Patient age: 24 years (as per document)",
+        "Patient gender: Male",
+        "Date of report: August 2, 2024",
+        "Urine analysis is largely normal, negative for sugar and albumin.",
+        "Fasting Blood Glucose is normal (90 mg/dl), not indicating diabetes.",
+        "Stool analysis shows semi-solid consistency, and the presence of mucus, vegetable cells, and food particles.",
+        "Hemoglobin (Hb), Total WBC (TWBC), Total RBC (TRBC), Total Platelet Count (TPC), Packed Cell Volume (PCV), Neutrophils, Basophils, and Lymphocytes are within normal ranges.",
+        "MCV (Mean Corpuscular Volume) is slightly low (75.0 fl).",
+        "MCH (Mean Corpuscular Hemoglobin) is borderline low (27.7 pg).",
+        "MCHC (Mean Corpuscular Hemoglobin Concentration) is elevated (37.0 %).",
+        "Eosinophils are elevated (08 %).",
+        "Monocytes are low (00 %).",
+        "This report is for pathological investigation."
+      ],
+      "unclear_information": [
+        "The patient's full name is partially redacted.",
+        "The referring doctor's name is not fully visible.",
+        "The specific clinical context or symptoms leading to these tests are not provided in the document.",
+        "The patient's age mentioned in the provided context (45) contradicts the age on the document (24). The document's age (24) is used for analysis.",
+        "The patient's condition of 'Diabetes' mentioned in the provided context is not supported by the normal fasting blood glucose in this report for this specific patient. The report does not indicate the presence of diabetes.",
+        "Further history regarding allergies, recent travel, dietary habits, or other medical conditions that could explain the eosinophilia and stool findings is unknown."
+      ]
+    },
+    "findings": [],
+    "analysis": "As Dr.MeD-AI, I will interpret these results for an educated patient. It's important to discuss these findings with your referring doctor for a comprehensive medical opinion.\n\n*   **Urine Analysis**: The urine results are generally reassuring, indicating no signs of infection (nil pus cells, nil RBCs) or issues with kidney function related to protein or sugar leakage.\n\n*   **Stool Analysis**: The presence of mucus, vegetable cells, and food particles, along with semi-solid consistency, suggests potential irritation or mild inflammation in the digestive tract, and possibly some degree of maldigestion or rapid transit. It's important to correlate this with any symptoms like abdominal discomfort, changes in bowel habits, or indigestion.\n\n*   **Complete Blood Count (CBC) Abnormalities**:\n    *   **Low MCV (Microcytosis)** and **Borderline Low MCH**: This indicates that your red blood cells are slightly smaller than average. The most common cause of microcytosis is iron deficiency, even if your hemoglobin (Hb) is currently within the normal range. Other causes can include thalassemia trait or anemia of chronic disease. Further investigation with iron studies (like serum iron, ferritin, and TIBC) may be warranted.\n    *   **High MCHC (Hyperchromia)**: An elevated MCHC indicates that your red blood cells have a higher concentration of hemoglobin. While it can sometimes be a technical error, when combined with microcytosis, it's less typical for iron deficiency and might warrant re-evaluation. It can be seen in conditions like hereditary spherocytosis, although usually with normal or high MCV, or severe dehydration. Your doctor might want to recheck this.\n    *   **Elevated Eosinophils (Eosinophilia)**: Eosinophils are a type of white blood cell that often increase in response to allergic reactions (e.g., asthma, eczema, hay fever), parasitic infections, certain drug reactions, or occasionally some autoimmune conditions. Given the stool findings (mucus, food particles), a parasitic infection or a food-related allergy affecting the gut could be a consideration.\n    *   **Low Monocytes (Monocytopenia)**: Monocytes are another type of white blood cell involved in immune defense. A count of 00% is very low. While often not clinically significant if other white blood cell counts are normal, it can sometimes be seen in conditions affecting bone marrow, certain infections, or after steroid use. Your doctor will assess this in the context of your overall health.\n\n*   **Fasting Blood Glucose**: Your fasting blood glucose level of 90 mg/dl is within the normal range (70-110 mg/dl). This is a good result and does not indicate diabetes at this time. The patient condition 'Diabetes' mentioned in your initial context is not supported by this specific test result for this patient.",
+    "recommendations": [
+      {
+        "title": "Consult Your Doctor",
+        "description": "Discuss all these lab results with your referring physician. They will integrate these findings with your medical history and current symptoms to provide a complete diagnosis and treatment plan.",
+        "icon": "\ud83d\udc68\u200d\u2695\ufe0f",
+        "priority": "high"
+      },
+      {
+        "title": "Investigate Eosinophilia & Stool Findings",
+        "description": "Your doctor may recommend further evaluation for the elevated eosinophils and stool findings. This could include investigations for allergies (e.g., specific IgE tests), parasitic infections (e.g., repeat stool ova and parasite exam, or serology if indicated), or inflammatory bowel conditions. Dietary assessment might also be beneficial.",
+        "icon": "\ud83d\udd2c",
+        "priority": "high"
+      },
+      {
+        "title": "Further Anemia Workup",
+        "description": "Given the low MCV and borderline low MCH, even with normal Hb, your doctor might suggest further tests like serum iron, ferritin, and Total Iron Binding Capacity (TIBC) to assess for iron deficiency, or genetic testing for thalassemia traits if clinically indicated.",
+        "icon": "\ud83e\ude78",
+        "priority": "medium"
+      },
+      {
+        "title": "Monitor CBC Parameters",
+        "description": "Regular monitoring of your complete blood count, especially MCV, MCHC, Eosinophils, and Monocytes, may be advised to track trends and assess response to any interventions.",
+        "icon": "\ud83d\uddd3\ufe0f",
+        "priority": "low"
+      }
+    ],
+    "uncertainties": [
+      "The patient's full name is partially redacted.",
+      "The referring doctor's name is not fully visible.",
+      "The specific clinical context or symptoms leading to these tests are not provided in the document.",
+      "The patient's age mentioned in the provided context (45) contradicts the age on the document (24). The document's age (24) is used for analysis.",
+      "The patient's condition of 'Diabetes' mentioned in the provided context is not supported by the normal fasting blood glucose in this report for this specific patient. The report does not indicate the presence of diabetes.",
+      "Further history regarding allergies, recent travel, dietary habits, or other medical conditions that could explain the eosinophilia and stool findings is unknown."
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-21T22:45:25.993064"
+  },
+  "timestamp": "2026-02-21T22:45:25.993092"
+}

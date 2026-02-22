@@ -85,3 +85,11 @@ python-dateutil==2.8.2
 # black==23.12.0                  # Code formatting
 # flake8==6.1.0                   # Linting
 # mypy==1.7.1                     # Type checking
+streamlit
+pdfplumber
+flask
+flask-cors
+werkzeug
+numpy
+google-generativeai
+python-dotenv

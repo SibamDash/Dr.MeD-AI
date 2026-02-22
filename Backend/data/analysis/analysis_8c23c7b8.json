@@ -1,0 +1,72 @@
+{
+  "analysisId": "analysis_8c23c7b8",
+  "fileId": "report_ca9bdbce_1771706418",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_8c23c7b8",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "The document refers to a patient named Mr. (name not fully provided) who is 29 years old and male. The referral doctor is not specified.",
+      "test_report_summary": "The urine routine and microscopic examination revealed the following: Urine is pale yellow, about 10 ml in volume, and slightly acidic. Microscopic examination showed few epithelial cells (2-3/HPF), adequate bacteria flora, and the presence of food particles. No red blood cells, white blood cells, casts, crystals, or parasites were detected. Stool examination showed brownish consistency, semi-solid appearance, and is also slightly acidic. Mucus is present, and no blood, helminths, protozoa, or vegetable cells were detected.",
+      "clinical_interpretation": "The urine analysis shows a generally unremarkable picture, with a few epithelial cells and the presence of food particles. The slightly acidic urine could be due to various factors, including diet or underlying conditions. Given the patient's age and existing diabetes, monitoring urine for ketones and glucose is important. The presence of food particles suggests the patient may not be following dietary recommendations for managing their diabetes. Further investigation into the cause of the slightly acidic urine may be warranted.",
+      "known_information": [
+        "Patient Age: 29 years",
+        "Patient Sex: Male",
+        "Diabetes Condition",
+        "Urine is slightly acidic"
+      ],
+      "unclear_information": [
+        "Patient's full name is not provided.",
+        "Referral doctor's name is not provided.",
+        "Specific dietary habits are not mentioned."
+      ]
+    },
+    "findings": [],
+    "analysis": "**Patient Summary:** The document refers to a patient named Mr. (name not fully provided) who is 29 years old and male. The referral doctor is not specified.\n\n**Report Summary:** The urine routine and microscopic examination revealed the following: Urine is pale yellow, about 10 ml in volume, and slightly acidic. Microscopic examination showed few epithelial cells (2-3/HPF), adequate bacteria flora, and the presence of food particles. No red blood cells, white blood cells, casts, crystals, or parasites were detected. Stool examination showed brownish consistency, semi-solid appearance, and is also slightly acidic. Mucus is present, and no blood, helminths, protozoa, or vegetable cells were detected.\n\n**Clinical Interpretation:**\nThe urine analysis shows a generally unremarkable picture, with a few epithelial cells and the presence of food particles. The slightly acidic urine could be due to various factors, including diet or underlying conditions. Given the patient's age and existing diabetes, monitoring urine for ketones and glucose is important. The presence of food particles suggests the patient may not be following dietary recommendations for managing their diabetes. Further investigation into the cause of the slightly acidic urine may be warranted.",
+    "recommendations": [
+      {
+        "title": "Dietary Review",
+        "description": "Review the patient's diet with a registered dietitian to ensure it aligns with their diabetes management plan and addresses the slightly acidic urine.",
+        "icon": "\ud83e\udd57",
+        "priority": "high"
+      },
+      {
+        "title": "Glucose and Ketone Monitoring",
+        "description": "Regularly monitor blood glucose levels and urine for ketones to assess diabetes control.",
+        "icon": "\ud83d\udc8a",
+        "priority": "high"
+      },
+      {
+        "title": "Follow-up Urine Analysis",
+        "description": "Consider repeating the urine analysis in a few weeks to monitor for any changes.",
+        "icon": "\ud83d\udd2c",
+        "priority": "medium"
+      }
+    ],
+    "uncertainties": [
+      "Patient's full name is not provided.",
+      "Referral doctor's name is not provided.",
+      "Specific dietary habits are not mentioned."
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T02:10:34.240758"
+  },
+  "timestamp": "2026-02-22T02:10:34.240785"
+}

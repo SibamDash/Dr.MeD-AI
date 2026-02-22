@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Report Summary - Dr.MeD</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1E3A8A;
+            --text-primary: #1E293B;
+            --text-secondary: #64748B;
+            --border: #E2E8F0;
+        }
+        body {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-primary);
+            background: #f8fafc;
+            margin: 0;
+            padding: 2rem;
+        }
+        .report-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .report-meta {
+            text-align: right;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .section {
+            margin-bottom: 2rem;
+        }
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+        .patient-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            background: #f1f5f9;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        .info-item label {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+        }
+        .info-item span {
+            font-weight: 600;
+        }
+        .findings-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        .findings-table th, .findings-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .findings-table th {
+            background: #f8fafc;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+        .status-badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .status-normal { background: #dcfce7; color: #166534; }
+        .status-warning { background: #fef3c7; color: #92400e; }
+        .status-critical, .status-high { background: #fee2e2; color: #991b1b; }
+        .status-low { background: #fef3c7; color: #92400e; }
+        .analysis-text { line-height: 1.6; text-align: justify; }
+        .recommendations-list li { margin-bottom: 0.75rem; }
+        .footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); text-align: center; font-size: 0.8rem; color: var(--text-secondary); }
+        .print-btn { position: fixed; bottom: 2rem; right: 2rem; background: var(--primary); color: white; border: none; padding: 1rem 2rem; border-radius: 50px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3); }
+        
+        /* New styles for AI Analysis */
+        .analysis-block { margin-bottom: 1.5rem; }
+        .analysis-block h4 { color: var(--primary); margin-bottom: 0.5rem; font-size: 1rem; }
+        .analysis-block p { margin: 0; }
+        @media print { body { background: white; padding: 0; } .report-container { box-shadow: none; padding: 0; max-width: 100%; } .print-btn { display: none; } }
+    </style>
+</head>
+<body>
+    <div class="report-container">
+        <header class="header">
+            <div class="logo"><span>+</span> Dr.MeD AI Report</div>
+            <div class="report-meta"><div id="reportDate">Date: -</div><div>ID: <span id="reportId">-</span></div></div>
+        </header>
+        <section class="section">
+            <h3 class="section-title">Patient Information</h3>
+            <div class="patient-grid">
+                <div class="info-item"><label>Name</label><span id="pName">-</span></div>
+                <div class="info-item"><label>Age</label><span id="pAge">-</span></div>
+                <div class="info-item"><label>Condition</label><span id="pCondition">-</span></div>
+            </div>
+        </section>
+        
+        <section class="section" id="aiAnalysisSection">
+             <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+                <h3 class="section-title" style="border-bottom: none; margin-bottom: 0;">AI Analysis</h3>
+                <div class="confidence-badge" id="confidenceBadge" style="display: none; background: #10b981; color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">
+                    <span>✓</span> <span id="confidenceValue"></span>
+                </div>
+            </div>
+            <div id="analysisContent"></div>
+        </section>
+        <section class="section" id="recommendationsSection">
+            <h3 class="section-title">Recommendations</h3>
+            <ul class="recommendations-list" id="recommendationsList"></ul>
+        </section>
+        <footer class="footer"><p>Generated by Dr.MeD AI • Verified by Medical Guidelines • Not a substitute for professional medical advice</p></footer>
+    </div>
+    <button class="print-btn" onclick="window.print()">🖨️ Print Report</button>
+    <script>
+        // Listen for updates from the main page
+        window.addEventListener('storage', (event) => {
+            if (event.key === 'medicalReportData') {
+                location.reload();
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const data = JSON.parse(localStorage.getItem('medicalReportData'));
+            if (!data) { document.body.innerHTML = '<div style="text-align:center; padding: 2rem;">No report data found.</div>'; return; }
+            document.getElementById('pName').textContent = data.patient.name;
+            document.getElementById('pAge').textContent = data.patient.age;
+            document.getElementById('pCondition').textContent = data.patient.condition;
+            document.getElementById('reportDate').textContent = `Date: ${data.patient.date}`;
+            document.getElementById('reportId').textContent = Math.random().toString(36).substr(2, 9).toUpperCase();
+            const analysis = data.analysis;
+            const ai = analysis.aiResponse || {};
+            
+            // Confidence
+            if (analysis.confidence) {
+                const badge = document.getElementById('confidenceBadge');
+                const value = document.getElementById('confidenceValue');
+                if (badge && value) {
+                    badge.style.display = 'inline-flex';
+                    value.textContent = `${analysis.confidence}% Confidence`;
+                }
+            }
+
+            // AI Analysis Content Construction
+            const contentDiv = document.getElementById('analysisContent');
+            let html = '';
+
+            // 1. Patient Summary from AI
+            if (ai.patient_summary) {
+                html += `<div class="analysis-block"><h4>👤 Patient Summary</h4><p>${ai.patient_summary}</p></div>`;
+            }
+
+            // 2. Report Summary
+            if (ai.test_report_summary) {
+                html += `<div class="analysis-block"><h4>📄 Report Summary</h4><p>${ai.test_report_summary}</p></div>`;
+            } else if (analysis.analysis) {
+                 html += `<div class="analysis-block"><h4>📄 Report Summary</h4><p>${analysis.analysis}</p></div>`;
+            }
+
+            // 3. Clinical Interpretation
+            if (ai.clinical_interpretation) {
+                html += `<div class="analysis-block" style="background: #f0f9ff; padding: 1rem; border-radius: 8px; border-left: 4px solid #1E3A8A;"><h4 style="color: #1E3A8A; margin-top: 0;">🏥 Clinical Interpretation</h4><p>${ai.clinical_interpretation}</p></div>`;
+            }
+
+            // 4. Key Findings (Table)
+            if (analysis.findings && analysis.findings.length > 0) {
+                html += `<h4>📊 Key Findings</h4>`;
+                html += `<table class="findings-table"><thead><tr><th>Test / Parameter</th><th>Value</th><th>Status</th></tr></thead><tbody>`;
+                analysis.findings.forEach(f => {
+                    html += `<tr><td>${f.label}</td><td style="font-family: monospace;">${f.value}</td><td><span class="status-badge status-${f.status}">${f.status.toUpperCase()}</span></td></tr>`;
+                });
+                html += `</tbody></table>`;
+            }
+
+            // 5. Known vs Unclear
+            if ((ai.known_information && ai.known_information.length > 0) || (ai.unclear_information && ai.unclear_information.length > 0)) {
+                html += `<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">`;
+                if (ai.known_information && ai.known_information.length > 0) {
+                    html += `<div><h4 style="color: #10b981;">✅ Known Information</h4><ul>` + ai.known_information.map(item => `<li>${item}</li>`).join('') + `</ul></div>`;
+                }
+                if (ai.unclear_information && ai.unclear_information.length > 0) {
+                    html += `<div><h4 style="color: #f59e0b;">❓ Unclear / Missing</h4><ul>` + ai.unclear_information.map(item => `<li>${item}</li>`).join('') + `</ul></div>`;
+                }
+                html += `</div>`;
+            }
+            contentDiv.innerHTML = html;
+
+            const recList = document.getElementById('recommendationsList');
+            if (analysis.recommendations && analysis.recommendations.length > 0) {
+                analysis.recommendations.forEach(r => { recList.innerHTML += `<li><strong>${r.title}:</strong> ${r.description}</li>`; });
+            } else {
+                document.getElementById('recommendationsSection').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

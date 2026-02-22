@@ -1,0 +1,71 @@
+{
+  "analysisId": "analysis_9d6da676",
+  "fileId": "report_7d7a101e_1771704698",
+  "patientContext": {
+    "name": "John Doe",
+    "age": "45",
+    "condition": "Diabetes",
+    "literacyLevel": "Medium (Educated Patient)",
+    "date": "22/02/2026"
+  },
+  "result": {
+    "success": true,
+    "analysisId": "analysis_9d6da676",
+    "confidence": 98,
+    "aiResponse": {
+      "patient_summary": "The document refers to a patient named Mr. (name not fully provided) who is 29 years old and male. The referral doctor is not specified.",
+      "test_report_summary": "The urine routine and microscopic examination revealed the following: Urine is pale yellow, about 10 ml in volume, and slightly acidic. Microscopic examination showed few epithelial cells (2-3/HPF), adequate bacteria flora, and the presence of food particles. No red blood cells, white blood cells, casts, crystals, or parasites were detected. Stool examination showed brownish consistency, semi-solid appearance, and acidic reaction. Mucus and blood were absent.",
+      "clinical_interpretation": "The urine analysis indicates a generally normal state, with a few epithelial cells present, which is not uncommon. The slightly acidic urine could be due to various factors, including diet or hydration levels. The presence of food particles suggests the sample was not collected immediately after collection, which can affect the results. Given the patient's existing condition of Diabetes, monitoring urine for ketones and glucose is important to assess metabolic control. Further investigation into the cause of the slightly acidic urine may be warranted if persistent.",
+      "known_information": [
+        "Patient Age: 29 years",
+        "Patient Sex: Male",
+        "Diabetes (implied from referral)"
+      ],
+      "unclear_information": [
+        "Patient's full name is not provided.",
+        "Referral doctor's name is not provided.",
+        "Specific details about the patient's diabetes management are not included."
+      ]
+    },
+    "findings": [],
+    "analysis": "The urine analysis indicates a generally normal state, with a few epithelial cells present, which is not uncommon. The slightly acidic urine could be due to various factors, including diet or hydration levels. The presence of food particles suggests the sample was not collected immediately after collection, which can affect the results. Given the patient's existing condition of Diabetes, monitoring urine for ketones and glucose is important to assess metabolic control. Further investigation into the cause of the slightly acidic urine may be warranted if persistent.",
+    "recommendations": [
+      {
+        "title": "Monitor Hydration and Diet",
+        "description": "Ensure adequate fluid intake and a balanced diet to maintain urine pH and glucose levels. Discuss dietary adjustments with a registered dietitian or healthcare provider.",
+        "icon": "\ud83e\udd57",
+        "priority": "medium"
+      },
+      {
+        "title": "Regular Blood Glucose Monitoring",
+        "description": "Continue regular monitoring of blood glucose levels as per the patient's diabetes management plan.",
+        "icon": "\ud83d\udc8a",
+        "priority": "high"
+      },
+      {
+        "title": "Follow-up with Physician",
+        "description": "Schedule a follow-up appointment with the referring physician to discuss the urine analysis results and adjust treatment as needed.",
+        "icon": "\ud83c\udfc3",
+        "priority": "medium"
+      }
+    ],
+    "uncertainties": [
+      "Patient's full name is not provided.",
+      "Referral doctor's name is not provided.",
+      "Specific details about the patient's diabetes management are not included."
+    ],
+    "riskScore": {
+      "cardiovascular": 0.15,
+      "diabetes": 0.32,
+      "kidney": 0.08,
+      "overall": 0.25
+    },
+    "classification": {
+      "condition": "Type 2 Diabetes",
+      "confidence": 0.92,
+      "severity": "mild"
+    },
+    "processedAt": "2026-02-22T01:41:55.909750"
+  },
+  "timestamp": "2026-02-22T01:41:55.909774"
+}

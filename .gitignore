@@ -1,0 +1,27 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# Env
+.env
+
+# Models
+*.pt
+*.pkl
+*.h5
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+.venv/
+__pycache__/
+*.pyc
+node_modules/
+.env
+.DS_Store
