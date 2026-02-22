@@ -1,3 +1,4 @@
+from chatbot import ask_chatbot
 from flask import Flask, request, jsonify, send_from_directory
 from werkzeug.utils import secure_filename
 import os
@@ -29,7 +30,7 @@ from threading import Timer
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 FRONTEND_DIR = os.path.join(os.path.dirname(BASE_DIR), 'Frontend')
-app = Flask(__name__, static_folder=BASE_DIR, static_url_path='/static')
+app = Flask(__name__)
 
 # ── Serve medical-ai.html at the root URL ───────────────────────────────────
 @app.route('/')
@@ -46,31 +47,6 @@ def serve_medical_ai():
 def serve_report_summary():
     return send_from_directory(FRONTEND_DIR, 'report-summary.html')
 
-@app.route('/patient-register.html')
-def serve_patient_register():
-    return send_from_directory(FRONTEND_DIR, 'patient-register.html')
-
-@app.route('/doctor-register.html')
-def serve_doctor_register():
-    return send_from_directory(FRONTEND_DIR, 'doctor-register.html')
-
-@app.route('/doctor-interface.html')
-def serve_doctor_interface_html():
-    return send_from_directory(FRONTEND_DIR, 'doctor-interface.html')
-
-@app.route('/doctorinterface.jsx')
-def serve_doctor_interface_jsx():
-    return send_from_directory(FRONTEND_DIR, 'doctorinterface.jsx')
-
-@app.route('/firebase-config.js')
-def serve_firebase_config():
-    return send_from_directory(FRONTEND_DIR, 'firebase-config.js')
-
-@app.route('/favicon.ico')
-def favicon():
-    """Handle browser requests for favicon.ico to prevent 404 errors."""
-    # Return a 204 No Content response to tell the browser there's no icon.
-    return '', 204
 
 # Configuration
 app.config['UPLOAD_FOLDER'] = 'uploads/'
@@ -803,6 +779,28 @@ def confidence_score():
         
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+# ==================== CHATBOT ENDPOINT ====================
+
+@app.route('/api/chatbot', methods=['POST'])
+def chatbot():
+    try:
+        data = request.json
+        message = data.get("message", "")
+        context = data.get("context", "")
+
+        if not message:
+            return jsonify({"success": False, "error": "Message is required"}), 400
+
+        reply = ask_chatbot(message, context)
+
+        return jsonify({
+            "success": True,
+            "reply": reply
+        }), 200
+
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
 
 # ==================== HEALTH CHECK ====================
 

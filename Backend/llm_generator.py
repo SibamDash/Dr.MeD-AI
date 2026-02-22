@@ -1,4 +1,4 @@
-import os
+'''import os
 import re
 import json
 import google.generativeai as genai
@@ -181,11 +181,8 @@ Return ONLY this JSON (all fields required, no fields skipped):
             models_to_try += [m for m in available_models if m not in models_to_try]
         if not models_to_try:
             models_to_try = [
-                "models/gemini-1.5-flash",
-                "models/gemini-2.0-flash",
-                "models/gemini-1.5-pro",
-                "models/gemini-pro",
-            ]
+    "models/gemini-pro",
+]
 
         # ── Call Gemini ────────────────────────────────────────────────────────
         raw_text = None
@@ -237,3 +234,7 @@ Return ONLY this JSON (all fields required, no fields skipped):
         import traceback
         traceback.print_exc()
         return None
+        '''
+
+def analyze_with_llm(*args, **kwargs):
+    return None
